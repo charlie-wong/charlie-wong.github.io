@@ -41,14 +41,14 @@ __黑体__<br>
 3. item 3<br>
    * item 3-1<br>
      * item 3-1-1<br>
-+++
-#       图片和链接
++++<br>
+#       图片和链接<br>
 [Baidu](www.baidu.com)<br>
 自动显示URL链接：https://www.baidu.com，www.baidu.com<br>
 [Link](github.com)<br>
 ![picture die show this](http://7xp01z.com1.z0.glb.clouddn.com/books.png "mouse on shou this")<br>
----
-#       引用文字
+---<br>
+#       引用文字<br>
 The below is an example of block quotes.<br>
 >       quoted num 1.<br>
 >>      quoted num 2.<br>
@@ -60,7 +60,7 @@ The below is an example of block quotes.<br>
 
 This is an example of `inline` code. put code in a pair of `` (the key of `~`)<br>
 
-代码块：成对的三个 ```符号构成代码块
+代码块：成对的三个 ```符号构成代码块<br>
 ```
 void fun(int x)
 {
@@ -68,7 +68,7 @@ void fun(int x)
 }
 ```
 
-语法高亮：在开始的三个```符号后加入语言名，如：c/C, c++/C++, bash/Bash, makefile/Makefile
+语法高亮：在开始的三个```符号后加入语言名，如：c/C, c++/C++, bash/Bash, makefile/Makefile<br>
 ```C
 void fun(int x)
 {
@@ -107,7 +107,7 @@ project(NAME)
 set(MACRO_VAR 1)
 add_executable(NAME src.cpp)
 ```
----
+---<br>
 #       表格<br>
 ### work good, look good, src good
 first header | second header | third header
