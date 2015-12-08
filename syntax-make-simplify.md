@@ -5,6 +5,19 @@
 3. 连续两个空格会变成一个\<br>，\<br>的意思在 HTML中表示换行<br>
 4. \反斜线可用来转义<br>
 5. 连续三个减号，会显示分割线<br>
+6. Markdown的转义字符`\`用于以下在Markdown中有特殊含义的字符<br>
+   \[\\]  ----  backslash<br>
+   \[`]   ----  backtick<br>
+   \[*]   ----  asterisk<br>
+   \[_]   ---- underscore<br>
+   \[{} ] ----  curly braces<br>
+   \[[]]  ----  square brackets<br>
+   \[()]  ----  parentheses<br>
+   \[#]   ----  hash mark<br>
+   \[+]   ----  plus sign<br>
+   \[-]   ----   minus sign (hyphen)<br>
+   \[.]   ----   dot<br>
+   \[!]   ----  exclamation mark<br>
 
 ---
 #       标题
@@ -70,8 +83,11 @@ The below is an example of block quotes.<br>
 >>>>>>  quoted num 6.<br>
 >>>>>>> quoted num 7.<br>
 
->   - quoted num 8.<br>
->  - quoted num 9.<br>
+> * quoted num 8.<br>
+>>- quoted num 9.<br>
+>>>* quote num 10.<br>
+>>>>- quote num 11.<br>
+
 
 This is an example of `inline` code. put code in a pair of \` (the key of `~`)<br>
 
@@ -152,10 +168,22 @@ cll | conent cell  | contefaj
 | cell | cell  | cell | cell|
 
 #       任务列表<br>
-- [x] taget list, num 1, @charlie<br>
+- [x] taget list, num 1, complete task, @charlie<br>
+  - [x] taget list, num 1-1, complete sub task
+  - [ ] taget list, num 1-2, incomplete sub task
+    - [x] taget list, num 1-2-1, complete sub task
+    - [ ] taget list...
+      - [x] task list ...
+      - [ ] task list ...
+        - [x] task list
 - [x] taget list, num 2, @username<br>
 - [ ] taget list, num 3<br>
+- [ ] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
 
 #       表情列表<br>
 :smile:         :smirk:
 :laughing:      :satisfied:
+
+#       Github
+1. 评论时输入 `#` 显示任务号列表
+2. 评论时输入 `@` 显示要`at`的人的名字
