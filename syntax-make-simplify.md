@@ -139,7 +139,7 @@ cll | conent cell  | contefaj
 #       任务列表<br>
 - [x] taget list, num 1, @charlie<br>
 - [x] taget list, num 2, @username<br>
-- [-] taget list, num 3<br>
+- [ ] taget list, num 3<br>
 
 #       表情列表<br>
 :smile:         :smirk:
