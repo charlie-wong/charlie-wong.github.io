@@ -35,6 +35,18 @@ __黑体__<br>
   * item num 2-2-3<br>
 * item num 3<br>
 
+- item num 1<br>
+- item num 2<br>
+  - item num 2-1<br>
+  - item num 2-2<br>
+    - item num 2-2-1<br>
+     item num 2-2-2<br>
+      - item num 2-2-1<br>
+      - item num 2-2-2<br>
+    - item num 2-2-3<br>
+  - item num 2-2-3<br>
+- item num 3<br>
+
 1. item 1<br>
 2. item 2<br>
    * item 2-1<br>
