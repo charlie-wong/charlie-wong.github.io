@@ -58,7 +58,7 @@ The below is an example of block quotes.<br>
 >>>>>>  quoted num 6.<br>
 >>>>>>> quoted num 7.<br>
 
-This is an example of `inline` code. put code in a pair of `` (the key of `~`)<br>
+This is an example of `inline` code. put code in a pair of \` (the key of `~`)<br>
 
 代码块：成对的三个 ```符号构成代码块<br>
 ```
