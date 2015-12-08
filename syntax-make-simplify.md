@@ -42,13 +42,12 @@ __黑体__<br>
    * item 3-1<br>
      * item 3-1-1<br>
 
-+++<br>
 #       图片和链接<br>
 [Baidu](www.baidu.com)<br>
 自动显示URL链接：https://www.baidu.com，www.baidu.com<br>
 [Link](github.com)<br>
 ![picture die show this](http://7xp01z.com1.z0.glb.clouddn.com/books.png "mouse on shou this")<br>
----<br>
+
 #       引用文字<br>
 The below is an example of block quotes.<br>
 >       quoted num 1.<br>
@@ -108,7 +107,7 @@ project(NAME)
 set(MACRO_VAR 1)
 add_executable(NAME src.cpp)
 ```
----<br>
+
 #       表格<br>
 ### work good, look good, src good
 first header | second header | third header
