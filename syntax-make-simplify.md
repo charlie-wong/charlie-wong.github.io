@@ -155,6 +155,7 @@ cll | conent cell  | contefaj
 - [x] taget list, num 1, @charlie-wong<br>
 - [x] taget list, num 2, @kneath, => at some person<br>
 - [ ] taget list, num 3<br>
+- [ ] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
 
 #       表情列表<br>
 :smile:         :smirk:
