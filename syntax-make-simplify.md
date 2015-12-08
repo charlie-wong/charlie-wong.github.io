@@ -152,7 +152,7 @@ cll | conent cell  | contefaj
 | cell | cell  | cell | cell|
 
 #       任务列表<br>
-- [x] taget list, num 1, @charlie<br>
+- [x] taget list, num 1, @charlie-wong<br>
 - [x] taget list, num 2, @username<br>
 - [ ] taget list, num 3<br>
 
