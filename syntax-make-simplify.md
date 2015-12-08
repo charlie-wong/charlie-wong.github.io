@@ -161,8 +161,8 @@ cll | conent cell  | contefaj
 :smile:         :smirk:
 :laughing:      :satisfied:
 
-* SHA: a5c3785ed8d6a35868bc169f07e40e889087fd2e
-* User@SHA: jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e
+* SHA: 3cadfd86a1e0a8ce574551a7d242f8a8b0fe870f
+* User@SHA: charlie-wong@3cadfd86a1e0a8ce574551a7d242f8a8b0fe870f
 * User/Repository@SHA: jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e
 * #Num: #26
 * GH-Num: GH-26
