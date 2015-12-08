@@ -153,7 +153,7 @@ cll | conent cell  | contefaj
 
 #       任务列表<br>
 - [x] taget list, num 1, @charlie-wong<br>
-- [x] taget list, num 2, @kneath<br>
+- [x] taget list, num 2, @kneath => at some person<br>
 - [ ] taget list, num 3<br>
 
 #       表情列表<br>
