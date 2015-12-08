@@ -177,6 +177,8 @@ cll | conent cell  | contefaj
       - [ ] task list ...
         - [x] task list
 - [x] taget list, num 2, @username<br>
+- [x] taget list, num 1, @charlie-wong<br>
+- [x] taget list, num 2, @kneath, => at some person<br>
 - [ ] taget list, num 3<br>
 - [ ] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
 
