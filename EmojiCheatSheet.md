@@ -1,7 +1,5 @@
 # People
-:bowtie:  `:bowtie:`<br><br>
-:smile:  `:smile:`<br><br>
-:laughing:  `:laughing:`<br>
+:bowtie:  `:bowtie:`          :smile:  `:smile:`          :laughing:  `:laughing:`<br>
 :blush:  `:blush:`<br>
 :smiley:  `:smiley:`<br>
 :relaxed:  `:relaxed:`<br>
