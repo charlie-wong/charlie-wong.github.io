@@ -1,6 +1,6 @@
 People
 
-    :bowtie:
+    :bowtie:<br>
     :smile:
     :laughing:
     :blush:
