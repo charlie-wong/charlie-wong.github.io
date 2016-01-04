@@ -1,1 +1,1 @@
-:bowtie:
+:bowtie: `:bowtie:`
