@@ -19,6 +19,19 @@
    \[.]   ----   dot<br>
    \[!]   ----  exclamation mark<br>
 
+
+# Markdown 中使用 html 标记表示空格
+beg [<html>&ensp;&ensp;&ensp;&ensp;&ensp;]</html>  end<br>
+beg [&emsp;&emsp;&emsp;&emsp;&emsp;]               end<br>
+1. 每个实体代表 1 个空格<br>
+1. en是字体排印学的计量单位, 为em宽度的一半<br>
+2. `&nbsp;`&nbsp;&nbsp;No-Break Space&nbsp;&nbsp;按下space键产生的空格, 空格占据宽度受字体影响强烈<br>
+3. `&ensp;`&nbsp;&nbsp;En Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;空格占据宽度基本上不受字体影响, 名义上是小写字母 n 的宽度<br>
+4. `&emsp;`&nbsp;&nbsp;Em Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;空格占据宽度基本上不受字体影响, 名义上是一个中文字符的宽度<br>
+5. `&thinsp;`&nbsp;&nbsp;Thin Space<br>
+6. `&zwnj;`&nbsp;&nbsp;Zero Width Non Joiner<br>
+7. `&zwj;`&nbsp;&nbsp;Zero Width Joiner<br>
+
 ---
 #       标题
 #       this is an header leval 1 tag<br>
