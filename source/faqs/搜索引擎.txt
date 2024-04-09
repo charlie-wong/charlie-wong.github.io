@@ -1,0 +1,23 @@
+'k1 k1' 或 "k3 k4"            引号包裹作为整体关键字
+X OR Y 或 X | Y               搜索和 X 或 Y 相关的内容
+X AND Y                       搜索同时和 X 和 Y 相关的内容
+
+define:Word                   查询单词定义
+filetype:pdf                  搜索指定类型的文件
+
+intitle:kernel                搜索标题包含指定关键字的结果
+allintitle:key1 key2          搜索标题同时包含多个关键字的结果
+inurl:charlie                 搜索 URL 包含指定关键字的结果
+allinurl:key1 key2            搜索 URL 同时包含多个关键字的结果
+intext:key                    搜索网页内容包含指定关键字的结果
+allintext:key1 key2           搜索网页内容同时包含多个关键字的结果
+
+cache:www.kernel.org          查询指定网页缓存
+related:github.com git        列出和指定站点相关的结果
+site:www.kernel.org git       列出匹配指定网址的搜索结果
+https://ahrefs.com/blog/google-advanced-search-operators
+
+Edge 浏览器地址栏搜索引擎设置(设置界面搜索 Manage search engines)
+%s 表示地址栏输入内容 https://cn.bing.com/search?q=%s&setmkt=en-WW
+setmkt=  en-US 美国  en-GB 英国  ko-KR 朝鲜 en-CA 加拿大  en-AU 澳大利亚
+setmkt=  zh-CN 中国  fr-FR 法国  ja-JP 日本 en-NZ 新西兰  en-WW 全球英文

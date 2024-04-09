@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+"RealTimeIsUniversal"=dword:00000001
+
+; https://wiki.archlinux.org/title/System_time
+; https://www.cnblogs.com/zzr-stdio/p/13180450.html
