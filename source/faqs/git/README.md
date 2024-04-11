@@ -1,11 +1,5 @@
 # Git
 
--  **origin**, **mirror** 等都是广泛使用的**<远程名>**
-- `.git/refs/remotes/远程名/HEAD` 表示远程仓库的**<默认分支>**
-- `.git/HEAD` 保存当前分支名或当前 commit 的 SHA-1 哈希值
--  执行 `git fetch/pull` 命令产生 `.git/FETCH_HEAD` 同步远程更新记录
-- `.git/ORIG_HEAD` 保存执行 `git reset ...` 命令前的 `.git/HEAD` 的值
-
 - 重命名远程 master 分支后本地同步
 
   ```bash
@@ -50,4 +44,23 @@
   git config fetch.pruneTags           true
   git config remote.远程名.prune       true
   git config remote.远程名.pruneTags   true
+  ```
+
+- 压缩/打包/清理 `.git` 目录 unreachable 元对象
+
+  ```bash
+  # .git/objects/pack/pack-哈希值.{rev,idx,pack,mtimes}  不可达对象 Unreachable Objects
+  # .git/objects/pack/pack-哈希值.{rev,idx,pack}         可到达对象 Reachable   Objects
+
+  # 压缩(可到达对象), 删除所有(不可达对象)
+  git gc --prune=now --cruft # 命令二选一即可
+  git repack -d --cruft --cruft-expiration=now
+
+  # 压缩(可到达对象), 保留所有(不可达对象)
+  git gc --prune=never --cruft # 命令二选一即可
+  git repack -d --cruft --cruft-expiration=never
+
+  # 压缩打包(不可达对象)和(可到达对象), 删除超过 1 天的(不可达对象)
+  git gc --prune=1.day.ago --cruft # 命令二选一即可
+  git repack -d --cruft --cruft-expiration=1.day.ago
   ```
