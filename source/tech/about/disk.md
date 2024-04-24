@@ -69,25 +69,28 @@ sudo nano /etc/sysctl.conf
 
 ## 磁盘布局: UEFI + 双硬盘 + 16GiB RAM + Arch & Ubuntu & Windows 11
 
+- https://www.rodsbooks.com/gdisk/advice.html
 - https://uapi-group.org/specifications/specs/boot_loader_specification
+- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/dd744301(v=ws.10)
 
-- 0 号硬盘 => Windows 11
-  * 512 MiB   的 ESP   分区
-  *  32 MiB   的 MSR   分区
-  * 128 GiB   的 OS    分区, Windows 11 系统占用约 25%, 即 32 GiB
-  * 128 GiB   的 APP   分区
+- 512B/sector, 2048-sector(1MiB) 对齐, 即分区 LBA 对齐最小单位
+- 固态低级格式化调整 NS(命名空间), 末尾保留三级(用户级) OP 空间
+
+- 0 号固态硬盘 => Win11
+  * 768 MiB 的 ESP 分区
+  * 255 MiB 的 未分配空间(后续LBA对齐GiB), MSR 分区
+  - 150 GiB 的 OS  分区, Win11 约占用 25% (38GiB)
+  * 128 GiB 的 APP 分区
   * ...
-  *  10 GiB   的 swap  分区, Arch/Ubuntu 共享
-  * SSD 磁盘的三级(用户级) OP 空间, 缩小可用 LBA 空间(新磁盘低级格式化 NS 调整)
+  * 8 GiB 的 SWAP, 交换分区和根分区不在同一个磁盘(当用到交换分区时减少 IO 竞争)
 
-- 1 号硬盘 => Arch & Ubuntu
-  * 512 MiB   的 ESP    分区, 挂载点 `/efi`
-  * 64 GiB    的 Arch   分区, 挂载点 `/`, KDE 桌面 Arch    占用约 25%, 即 16 GiB
-  * 64 GiB    的 Ubuntu 分区, 挂载点 `/`, KDE 桌面 UbuntuK 占用约 25%, 即 16 GiB
-  * 64 GiB    的 Home   分区, 挂载点 `/home`, 共享 `home/charlie` & `home/charles`
-  * .. GiB    的 Wong   分区, 挂载点 `/me`, Ubuntu & Arch 共享热数据/代码工作空间
-  * .. GiB    的 NTFS 格式的共享冷数据分区
-  * SSD 磁盘的三级(用户级) OP 空间, 缩小可用 LBA 空间(新磁盘低级格式化 NS 调整)
+- 1 号固态硬盘 => Arch & Ubuntu
+  * 768 MiB 的 ESP    分区, 挂载点 `/boot/efi`
+  * 255 MiB 的 未分配空间(后续LBA对齐GiB)
+  -  64 GiB 的 Arch   分区, 挂载点 `/`, KDE 桌面 Arch    约占用 25%, 即 16 GiB
+  -  64 GiB 的 Ubuntu 分区, 挂载点 `/`, KDE 桌面 UbuntuK 约占用 25%, 即 16 GiB
+  * ... GiB 的 Wong   分区, 挂载点 `/me`, Ubuntu & Arch 共享热数据/代码工作空间
+  * ... GiB 的 NTFS 格式的共享冷数据分区
 
 ## NVMe 固态磁盘
 
@@ -104,7 +107,7 @@ sudo nano /etc/sysctl.conf
     # KiB, MiB, GiB, TiB, PiB, EiB    1GB = 10^9 = 1,000,000,000 B
     # Kilo,Mega,Giga,Tera,Peta,Exa    1GiB= 2^30 = 1,073,741,824 B
 
-    # 1 GB 约等于 0.93 GiB    128 GB 约等于 119.2
+    #  1 GB 约等于 0.93 GiB    128 GB 约等于 119.2
     # 16 GB 约等于 14.9 GiB    256 GB 约等于 238.4
     # 32 GB 约等于 29.8 GiB    512 GB 约等于 476.8
     # 64 GB 约等于 59.6 GiB   1024 GB 约等于 953.6
