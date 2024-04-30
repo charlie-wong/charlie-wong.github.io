@@ -22,13 +22,15 @@ xrandr | grep '*'
 xdpyinfo | grep 'dimensions:'
 
 # 查看显卡硬件信息
-lspci -nn | grep -A 3 -i VGA
-lspci -k  | grep -A 3 -i VGA
+lspci -nn | grep VGA # 显示系统所有显卡的简要信息
+lspci -k  | grep VGA -A3 # 显示系统所有显卡的简要信息
+lspci -vv | grep GA106M -A15 # 显示 GA106M 显卡详细信息
+sudo lspci -vv | grep GA106M -A86 # 显示 GA106M 显卡详细信息(Capabilities ...)
 sudo lshw -numeric -C display
 
 cat "/proc/driver/nvidia/gpus/0000:01:00.0/information"
-# IRQ: 189 - kernel-6.5.0
-# IRQ: 191 - kernel-5.15.0
+# kernel-5.15.0 => IRQ: 191, VBIOS: 94.06.34.00.42
+# kernel-6.4.15 => IRQ: 165, VBIOS: 94.06.34.00.2f
 
 cat /var/log/Xorg.0.log | grep "PCI:"
 # PCI:*(1@0:0:0) 10de:2560:17aa:3ae8 rev 161 ...
