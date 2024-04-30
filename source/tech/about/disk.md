@@ -152,3 +152,51 @@ sudo nvme fw-log    /dev/nvme0
 # 显示 NVMe 错误日志
 sudo nvme error-log /dev/nvme0
 ```
+
+## 查看文件系统信息
+
+NTFS/FAT32 格式化时的**分配单元大小**表示 block-size
+
+块(簇)大小是文件保存时实际占用的最小存储单位, 例如若在块(簇)大小为 8KiB 的文件系统中保存实际
+大小为 9KiB 的文件时, 则文件会被分割为两份: 8KiB 和 1KiB, 即此文件保存时占用两个块, 第 2
+个 8KiB 的块实际存储有效数据 1KiB, 浪费 7KiB
+
+- 查看 NTFS 格式磁盘的簇大小
+  1. 以管理员身份打开 PowerShell
+  2. 查看 D 盘命令 `fsutil fsinfo ntfsinfo D:`
+
+- 查看 EXT4 格式磁盘的块大小
+  ```bash
+  stat /
+  stat path/to/test.txt
+  debugfs /dev/sda1
+  sudo dumpe2fs -h /dev/sda1
+  blockdev --getbsz /dev/sda1
+
+  fdisk -l /dev/sda1
+  gdisk -l /dev/sda1
+
+  tune2fs -l /dev/sda1
+  ```
+
+- GPT 磁盘格式分区表的结构
+  * https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout
+  * https://uefi.org/specs/UEFI/2.10/05_GUID_Partition_Table_Format.html
+  * GPT 格式分区表的结构
+    ```bash
+    # LBA0   保护性 MBR
+    # LBA1   主 GPT 头部
+    # LBA2   分区表 1,2,3,4
+    # LBA3   分区表 5,6,7,8
+    # ...
+    # LBA34 分区表 125,126,127,128
+    # LBA35 用户数据分区
+    # ...
+
+    # 查看磁盘的首个扇区(512Byte)数据, 即 MBR 数据
+    dd if=/dev/sda1 bs=512 skip=0 | hexdump -C
+    # 查看 GPT 磁盘的分区表头部(512字节)
+    dd if=/dev/sda1 bs=512 skip=1 | hexdump -C
+    # 查看 GPT 磁盘的前四个分区(512)
+    dd if=/dev/sda1 bs=512 skip=2 | hexdump -C
+    ```
