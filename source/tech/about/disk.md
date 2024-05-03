@@ -1,6 +1,5 @@
 # Disk
 
-- https://wiki.archlinux.org/title/Fstab
 - https://wiki.archlinux.org/title/Parted
 - https://wiki.archlinux.org/title/GPT_fdisk
 - https://www.rodsbooks.com/gdisk/index.html
@@ -21,51 +20,48 @@
   * `[System Settings] -> [Removable Storage] -> [Removable Devices]`
   * `/dev/disk/by-uuid/*` 替换 `/org/freedesktop/UDisks2/block_devices/*`
 
-```shell
+```bash
 # => 内核支持(加载)的文件系统
-modinfo ntfs
-modinfo ntfs3
-modinfo exfat
+modinfo ntfs; modinfo ntfs3; modinfo exfat
 
 # => 查询硬盘信息
-sudo blkid
+sudo blkid; sudo parted --list; cat /proc/partitions
 
-sudo parted --list
-cat /proc/partitions
-sudo fdisk -l /dev/nvme0n1
-sudo gdisk -l /dev/nvme0n1
+sudo fdisk -l /dev/nvme0n1; udisksctl status
+sudo gdisk -l /dev/nvme0n1; udisksctl info -b /dev/nvme0n1p3
 
-lsblk --help
-lsblk -f # lsblk -t
-lsblk -o NAME,FSTYPE,LABEL,FSSIZE,FSUSE%,FSUSED,PARTLABEL,MOUNTPOINT  /dev/nvme0n1
-lsblk -o NAME,FSTYPE,FSSIZE,FSUSE%,LABEL,UUID,PARTLABEL,PARTUUID      /dev/nvme0n1
-
-udisksctl status
-udisksctl info -b /dev/nvme0n1p3
 udevadm info --name=/dev/nvme0n1p3
 journalctl -b | grep "udisks daemon version"
+
+lsblk --help; lsblk -f; lsblk -t; df -h; findmnt;
+lsblk -o NAME,FSTYPE,LABEL,FSSIZE,FSUSE%,FSUSED,PARTLABEL,MOUNTPOINT  /dev/nvme0n1
+lsblk -o NAME,FSTYPE,FSSIZE,FSUSE%,LABEL,UUID,PARTLABEL,PARTUUID      /dev/nvme0n1
 
 # => 磁盘 I/O 监控
 # http://guichaz.free.fr/iotop
 sudo apt install iotop
-
-# 内存及 SWAP 状态
-free
-cat /proc/swaps
-
-# 避免频繁使用 SWAP 空间
-# https://help.ubuntu.com/community/SwapFaq
-# https://github.com/systemd/zram-generator
-
-# swappiness 控制 RAM 数据转移到 SWAP 的倾向性(百分比)
-# 0   -> 尽量避免将 RAM 数据转移到 SWAP 分区/文件
-# 100 -> 尽量    将 RAM 数据转移到 SWAP 分区/文件
-# 减小 swappiness 将提高系统性能(RAM 数据读取更快)
-cat /proc/sys/vm/swappiness   # Ubuntu 默认值 60
-sudo sysctl vm.swappiness=10  # 临时修改, 仅本次有效
-# 永久性修改 => 添加 vm.swappiness=10
-sudo nano /etc/sysctl.conf
 ```
+
+## 关于 Linux 的 SWAP 虚拟内存交换
+
+- https://wiki.archlinux.org/title/Fstab
+- https://help.ubuntu.com/community/SwapFaq
+- https://github.com/systemd/zram-generator
+
+  ```bash
+  # 内存及 SWAP 状态
+  free; cat /proc/swaps
+
+  # swappiness 控制 RAM 转移到 SWAP 的倾向性(百分比)
+  #     0   -> 尽量避免将 RAM 数据转移到 SWAP
+  #     100 -> 尽量    将 RAM 数据转移到 SWAP
+  # 减小 swappiness 将提高系统性能(RAM 数据读取更快)
+  cat /proc/sys/vm/swappiness   # Ubuntu 默认值 60
+  sudo sysctl vm.swappiness=10  # 临时修改, 仅本次有效
+
+  # 永久性修改 => 添加 vm.swappiness=10
+  sudo nano /etc/sysctl.conf
+  ```
 
 ## 磁盘布局: UEFI + 双硬盘 + 16GiB RAM + Arch & Ubuntu & Windows 11
 
@@ -73,24 +69,69 @@ sudo nano /etc/sysctl.conf
 - https://uapi-group.org/specifications/specs/boot_loader_specification
 - https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/dd744301(v=ws.10)
 
+- **Win 11 23H2 22631.2506** 安装好后系统分区占用 `12 GiB`
+- 查询 TPM2.0 安全芯片信息 `Win+R` 运行输入 `tpm.msc` 命令
+
 - 512B/sector, 2048-sector(1MiB) 对齐, 即分区 LBA 对齐最小单位
 - 固态低级格式化调整 NS(命名空间), 末尾保留三级(用户级) OP 空间
 
-- 0 号固态硬盘 => Win11
-  * 768 MiB 的 ESP 分区
-  * 255 MiB 的 未分配空间(后续LBA对齐GiB), MSR 分区
-  - 150 GiB 的 OS  分区, Win11 约占用 25% (38GiB)
-  * 128 GiB 的 APP 分区
-  * ...
-  * 8 GiB 的 SWAP, 交换分区和根分区不在同一个磁盘(当用到交换分区时减少 IO 竞争)
+  ```bash
+# /dev/disk/by-uuid, label, partlabel, partuuid
+# 4KiB =>    8-扇区 =    8 * 512 =    4 * 1024 Byte
+# 1MiB => 2048-扇区 = 2048 * 512 = 1024 * 1024 Byte
 
-- 1 号固态硬盘 => Arch & Ubuntu
-  * 768 MiB 的 ESP    分区, 挂载点 `/boot/efi`
-  * 255 MiB 的 未分配空间(后续LBA对齐GiB)
-  -  64 GiB 的 Arch   分区, 挂载点 `/`, KDE 桌面 Arch    约占用 25%, 即 16 GiB
-  -  64 GiB 的 Ubuntu 分区, 挂载点 `/`, KDE 桌面 UbuntuK 约占用 25%, 即 16 GiB
-  * ... GiB 的 Wong   分区, 挂载点 `/me`, Ubuntu & Arch 共享热数据/代码工作空间
-  * ... GiB 的 NTFS 格式的共享冷数据分区
+cat /proc/swaps; cat /proc/sys/vm/swappiness; sudo sysctl vm.swappiness=10
+
+sudo mkdir /me; sudo chown ${USER}:${USER} /me; chmod 0766 /me
+sudo mkdir /me; sudo chown ${USER} /me; sudo chgrp ${USER} /me; chmod 0766 /me
+
+# 名词解释
+#   MBR => Master Boot Record     MSR   => Microsoft Reserved Partition
+#   GPT => GUID Partition Table   WinRE => Windows Recovery Environment
+#   ESP => EFI System Partition   UEFI  => Unified Extensible Firmware Interface
+# GPT 磁盘分区已注册 GUID 的含义
+#   MSR 类型分区 GUID => E3C9E316-0B5C-4DB8-817D-F92DF00215AE
+#   微软动态磁盘 GUID => 5808C8AA-7E8F-42E0-85D2-E1E90434CFB3
+
+# => 0 号固态硬盘 Arch & Ubuntu
+#                   大小      分区名(Label)   PartLabel    挂载点
+# nvme0n1p1/vfat   768 MiB    LESP            IsESP        /boot/efi
+#                  255 MiB    未分配保留空间
+# nvme0n1p2/ext4    64 GiB    Arch            IsArch       /        Arch + KDE 初始约 20GiB
+#                    8 GiB    未分配保留空间
+# nvme0n1p3/ext4    64 GiB    Ubuntu          IsUbuntu     /        KUbuntu 初始系统约 20GiB
+#                    8 GiB    未分配保留空间
+# nvme0n1p4/ext4   256 GiB    Wong            xWong        /me      热数据/工作空间
+#                   32 GiB    未分配保留空间
+# nvme0n1p5/NTFS   420 GiB    Charles         xCharles     用户冷数据存储中心
+#                   78 GiB    用户级 OP 空间               需固态磁盘驱动的支持
+# => 1 号固态硬盘 Windows 11
+#                    大小     分区名(Label)   PartLabel    备注
+# nvme1n1p1/vfat  768 MiB     WESP            WinESP
+# nvme1n1p2/MSR   255 MiB                     WinMSR       微软保留空间
+# nvme1n1p3/NTFS  128 GiB     OS              WinOS        Win 11 约占 25% (38GiB)
+#                  16 GiB     未分配保留空间
+# nvme1n1p4/NTFS  128 GiB     APP             WinApp       应用安装
+#                  32 GiB     未分配保留空间
+# nvme1n1p5/NTFS  ... GiB     Work            xWork        热数据/工作空间
+# nvme1n1p6/swap   16 GiB     Swap            IsSwap       非同磁盘减少 IO 竞争
+#                 ... GiB     用户级 OP 空间               需固态磁盘驱动的支持
+
+cat /proc/mounts;        cat /etc/mtab
+sudo blkid;              sudo gdisk -l /dev/nvme0n1
+sudo parted --list;      sudo parted   /dev/nvme0n1p3 print
+
+# 显示/设置 ext2/ext3/ext4 文件系统分区的 Label
+sudo e2label /dev/nvme0n1p3           # 显示 Label
+sudo e2label /dev/nvme0n1p3 Ubuntu    # 设置 Label
+sudo tune2fs –L Ubuntu /dev/nvme0n1p3 # 设置 Label
+# 显示/设置 NTFS 文件系统分区的 Label
+sudo ntfslabel /dev/nvme1n1p6         # 显示 Label
+sudo ntfslabel /dev/nvme1n1p6 WINRE   # 设置 Label
+# 显示/设置 swap 文件系统分区的 Label
+sudo swaplabel /dev/nvme0n1p2         # 显示 Label
+sudo swaplabel /dev/nvme0n1p2 -L Swap # 设置 Label
+  ```
 
 ## NVMe 固态磁盘
 
