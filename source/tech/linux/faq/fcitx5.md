@@ -5,6 +5,7 @@ KDE 系统设置界面/设置输入法 => 添加 pinyin 后再次 login 即可�
 
 ```bash
 apt depends fcitx5
+apt list --installed | grep fcitx5
 
 sudo apt install fcitx5 # 输入法核心程序包
 sudo apt install kde-config-fcitx5 # KDE 桌面集成

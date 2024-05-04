@@ -26,6 +26,7 @@
   sudo apt install apt-file
   sudo apt-file update
 
+  sudo apt install 7zip 7zip-rar
   sudo apt install gdisk
   sudo apt install bcompare
   sudo apt install microsoft-edge-stable
