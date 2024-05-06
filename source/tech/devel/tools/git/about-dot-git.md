@@ -4,10 +4,13 @@
 - https://github.blog/2022-08-29-gits-database-internals-i-packed-object-store
 
 - https://git-scm.com/docs/gitignore
+- https://git-scm.com/docs/pack-format
 - https://git-scm.com/docs/repository-version
 - https://git-scm.com/docs/gitrepository-layout
 
-- https://git-scm.com/docs/pack-format
+- https://git-scm.com/docs/bitmap-format
+- https://www.ruanyifeng.com/blog/2015/09/git-bitmap.html
+
 - https://github.blog/2023-06-01-highlights-from-git-2-41
 - https://github.blog/2022-08-30-gits-database-internals-ii-commit-history-queries
 
