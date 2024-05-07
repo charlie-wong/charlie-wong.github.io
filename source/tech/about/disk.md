@@ -113,7 +113,7 @@ sudo mkdir /me; sudo chown ${USER} /me; sudo chgrp ${USER} /me; chmod 0766 /me
 #                  16 GiB     未分配保留空间
 # nvme1n1p4/NTFS  128 GiB     APP             WinApp       应用安装
 #                  32 GiB     未分配保留空间
-# nvme1n1p5/NTFS  ... GiB     Work            xWork        热数据/工作空间
+# nvme1n1p5/NTFS  ... GiB     Techs           xTechs       热数据/工作空间
 # nvme1n1p6/swap   16 GiB     Swap            IsSwap       非同磁盘减少 IO 竞争
 #                 ... GiB     用户级 OP 空间               需固态磁盘驱动的支持
 
