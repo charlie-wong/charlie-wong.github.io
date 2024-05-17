@@ -165,14 +165,35 @@ sudo apt install nvidia-driver-535 nvidia-dkms-535
   echo 298 | sudo tee /sys/class/backlight/intel_backlight/brightness
   sudo bash -c "echo 248 > /sys/class/backlight/intel_backlight/brightness"
 
-  # 创建 systemd Drop-In Service 进行 Bug 修复
-  sudo systemctl edit nvidia-persistenced # 内容如下
-  # [Unit]
-  # DefaultDependencies=no
   systemctl cat nvidia-persistenced
+  systemctl list-dependencies nvidia-persistenced
+
   systemctl cat systemd-backlight@:intel_backlight
   systemctl cat systemd-backlight@backlight:nvidia_0
-  systemctl list-dependencies nvidia-persistenced
   systemctl list-dependencies systemd-backlight@:intel_backlight
   systemctl list-dependencies systemd-backlight@backlight:nvidia_0
+
+  # 1 => 创建 Drop-In Service 屏蔽/修复 Bug
+  $ sudo systemctl edit nvidia-persistenced
+  # 输入内容如下
+  #   [Unit]
+  #   DefaultDependencies=no
+  # 保存(自动保存)
+
+  # 2 => 修改后查看内容
+  $ systemctl cat nvidia-persistenced.service
+  # /usr/lib/systemd/system/nvidia-persistenced.service
+  [Unit]
+  Description=NVIDIA Persistence Daemon
+  Wants=syslog.target
+  StopWhenUnneeded=true
+  Before=systemd-backlight@backlight:nvidia_0.service
+  [Service]
+  Type=forking
+  ExecStart=/usr/bin/nvidia-persistenced --user nvidia-persistenced --no-persistence-mode --verbose
+  ExecStopPost=/bin/rm -rf /var/run/nvidia-persistenced
+
+  # /etc/systemd/system/nvidia-persistenced.service.d/override.conf
+  [Unit]
+  DefaultDependencies=no
   ```

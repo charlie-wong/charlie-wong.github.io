@@ -11,15 +11,19 @@
 
   * `apt search "linux-image-6\\.1\\..*-x64v3-xanmod"`
   * `sudo apt install linux-image-6.1.77-x64v3-xanmod1 linux-headers-6.1.77-x64v3-xanmod1`
+  * `sudo apt install linux-image-6.6.30-x64v3-xanmod1 linux-headers-6.6.30-x64v3-xanmod1`
 
   * **BUG** 24.04 with kernel 6.8 无法正常关机/重启(和 snap 相关)
     - https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2059738
 
 - 安装 [Nvidia](https://www.nvidia.com/en-us/drivers/unix) 显卡驱动
-  * `apt search ^nvidia-dkms-` 和 `apt search ^nvidia-driver-`
-     - 首先安装 nvidia 内核模块和内核动态模块系统
-       * `linux-modules-nvidia-*` 和 `nvidia-dkms-*`
-     - 然后安装 nvidia 显卡驱动 `nvidia-driver-*`
+  * https://ubuntu.com/server/docs/nvidia-drivers-installation
+  * https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa
+  * 安装显卡驱动 `sudo apt install nvidia-driver-550`
+    ```bash
+    prime-select query # 显卡工作模式
+    nvidia-smi # 当前显卡驱动状态信息
+    ```
 
 - 清理 [Snap](https://snapcraft.io) + 安装 [Flatpak](https://docs.flatpak.org/en/latest)
   * https://itsfoss.com/remove-snap
@@ -122,11 +126,20 @@
   sudo apt-mark unhold PKG  # 取消对 PKG 软件包的 Hold 标记
   apt-mark showhold         # 显示 Hold 标记状态的软件包列表
 
+  # https://ubuntu.com/pro/dashboard
+  sudo pro attach YourTokenID
+  ua status --all # 显示服务状态
+  # 个人桌面电脑仅启用以下两项服务足矣
+  # esm-apps    扩展安全管理: 应用程序
+  # esm-infra   扩展安全管理: 系统基础
+
   sudo apt install apt-file; sudo apt-file update
   sudo apt install apt-show-versions
 
   sudo apt install gdisk
+  sudo apt install udisks2  # 安全弹出移动磁盘
   sudo apt install bcompare
+  sudo apt install dos2unix # LF/CRLF/CR 换行符转换
   sudo apt install 7zip 7zip-rar
   sudo apt install microsoft-edge-stable
 
