@@ -1,108 +1,117 @@
-# Nvidia 显卡(NVIDIA GeForce RTX 3060 Laptop GPU GA106M)
+# 英伟达显卡(NVIDIA GeForce RTX 3060 Laptop GPU GA106M)
 
 - https://www.techpowerup.com/vgabios
 - https://wiki.archlinux.org/title/GPGPU
 - https://wiki.archlinux.org/title/NVIDIA
 
-- 英伟达文档 https://docs.nvidia.com
-- 驱动下载 https://www.nvidia.com/Download/index.aspx
-- Unix 驱动 https://www.nvidia.com/en-us/drivers/unix/
-- 开源内核模块 https://github.com/NVIDIA/open-gpu-kernel-modules
-- NvidiaCodeNames https://nouveau.freedesktop.org/CodeNames.html
-- https://docs.nvidia.com/dgx/dgx-os-6-user-guide/introduction.html
-- 论坛 & FAQs https://forums.developer.nvidia.com/c/gpu-graphics/linux/148
-- https://forums.developer.nvidia.com/t/current-graphics-driver-releases/28500
-- `-open` 驱动 https://download.nvidia.com/XFree86/Linux-x86_64/535.86.05/README/
-
 ```bash
-# 查看屏幕可用分辨率
-xrandr
-# 查看当前分辨率
-xrandr | grep '*'
-xdpyinfo | grep 'dimensions:'
+xrandr # 查看屏幕可用分辨率
+xrandr | grep '*' # 查看屏幕当前分辨率
+xdpyinfo | grep 'dimensions:' # 查看屏幕当前分辨率
 
-# 查看显卡硬件信息
+# 查看显卡硬件及当前驱动信息
 lspci -nn | grep VGA # 显示系统所有显卡的简要信息
 lspci -k  | grep VGA -A3 # 显示系统所有显卡的简要信息
 lspci -vv | grep GA106M -A15 # 显示 GA106M 显卡详细信息
-sudo lspci -vv | grep GA106M -A86 # 显示 GA106M 显卡详细信息(Capabilities ...)
+lspci -vvv -s 01:00.0 # 查看 BUS 接口 01:00.0 上的显卡信息
+
+# 显示 GA106M 显卡详细信息(Capabilities ...)
 sudo lshw -numeric -C display
+sudo lspci -vv | grep GA106M -A86
 
-cat "/proc/driver/nvidia/gpus/0000:01:00.0/information"
-# kernel-5.15.0 => IRQ: 191, VBIOS: 94.06.34.00.42
-# kernel-6.4.15 => IRQ: 165, VBIOS: 94.06.34.00.2f
-
-cat /var/log/Xorg.0.log | grep "PCI:"
-# PCI:*(1@0:0:0) 10de:2560:17aa:3ae8 rev 161 ...
-
-# 设置显卡工作模式
-prime-select query           # 显示显卡工作模式
+# 显卡工作模式
+prime-select query # 查看显卡当前工作模式
 sudo prime-select on-demand  # 按需选择
   cat /lib/modprobe.d/nvidia-runtimepm.conf
   # options nvidia "NVreg_DynamicPowerManagement=0x02"
-sudo prime-select intel      # 选择 Intel  显卡
-sudo prime-select nvidia     # 选择 Nvidia 显卡
-sudo nvidia-settings         # 显卡图形设置面板
+sudo prime-select intel  # 选择 Intel  显卡
+sudo prime-select nvidia # 选择 Nvidia 显卡
+sudo nvidia-settings     # 显卡图形设置面板
 
-# 查看显卡驱动信息
-nvidia-smi            # 显示当前驱动状态信息
+# PCI:*(1@0:0:0) 10de:2560:17aa:3ae8 rev 161 ...
+cat /var/log/Xorg.0.log | grep "PCI:"
+# kernel-5.15.0 => IRQ: 191, VBIOS: 94.06.34.00.42
+# kernel-6.4.15 => IRQ: 165, VBIOS: 94.06.34.00.2f
+cat "/proc/driver/nvidia/gpus/0000:01:00.0/information"
 
+# 查看 NVIDIA 显卡型号及 GPU-UUID
+nvidia-debugdump --list
+nvidia-xconfig --query-gpu-info
+
+nvidia-smi            # 查看显卡驱动状态
 modinfo nvidia        # nvidia.ko 模块信息
-lsmod | grep nvidia   # 显示已经加载显卡模块
 lsmod | grep nouveau  # xorg 开源显卡驱动
+lsmod | grep nvidia   # 显示已加载显卡模块
 
 dkms status           # 显示动态内核模块列表
 modprobe nvidia       # [添加或删除]内核模块
 
-# 显示当前显卡驱动版本
-cat /proc/driver/nvidia/version
-# 显示 NVIDIA 表示闭源, 否则开源 open 内核模块
-modinfo nvidia | grep license
+# 查看 NVIDIA 显卡驱动信息
+modinfo nvidia | grep license   # NVIDIA 闭源, 否则开源 open 内核
+cat /proc/driver/nvidia/version # 驱动版本及编译时间以及 GCC 版本
+```
 
-# 显示显卡型号及 GPU UUID
-nvidia-debugdump --list
-nvidia-xconfig --query-gpu-info
+## 安装 NVIDIA 显卡驱动
 
-# 显卡内核模块参数设置
-grep nvidia /etc/modprobe.d/* /lib/modprobe.d/*
+- 英伟达驱动下载 https://www.nvidia.com/Download/index.aspx
+- Linux 版桌面驱动 https://www.nvidia.com/en-us/drivers/unix
+- 英伟达 LTS 版驱动 https://docs.nvidia.com/datacenter/tesla/index.html
 
-# 安全启动 +  英伟达显卡
-# Step 1 - Enabled Secure Boot in UEFI/BIOS
-# Step 2 - Sign Nvidia GPU Driver by reconfigure driver package
-cat /etc/default/linux-modules-nvidia
+- NvidiaCodeNames https://nouveau.freedesktop.org/CodeNames.html
+- `-open` 内核驱动 https://download.nvidia.com/XFree86/Linux-x86_64
+- 英伟达开源内核模块 https://github.com/NVIDIA/open-gpu-kernel-modules
 
-# 显示设备驱动
+- 英伟达显卡论坛 https://forums.developer.nvidia.com/c/gpu-graphics/linux/148
+- https://forums.developer.nvidia.com/t/current-graphics-driver-releases/28500
+
+- https://ubuntu.com/server/docs/nvidia-drivers-installation
+- https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa
+- https://download.nvidia.com/XFree86/Linux-x86_64/550.67/README/kernel_open.html
+
+```bash
+# 显示设备驱动列表
 ubuntu-drivers list
 ubuntu-drivers devices
-
-# 内核源码及专利驱动内核模块源码(部分或头文件)
-ls /usr/src
 
 # 显示已经安装的 nvidia 软件包
 apt list --installed '*nvidia*'
 
-# 查看软件包信息
-apt-cache policy nvidia-driver-535                  # 显卡驱动
-apt-cache policy nvidia-dkms-535                    # 内核模块(DKMS 签名)
-apt-cache policy linux-modules-nvidia-535-generic   # 内核模块(Ubuntu 签名)
+# 查看 NVIDIA 驱动软件包信息
+apt policy nvidia-driver-550                # NVIDIA 显卡驱动
+apt policy nvidia-dkms-550                  # 内核模块(DKMS 签名)
+apt policy linux-modules-nvidia-550-generic # 内核模块(Ubuntu 签名)
 
-# https://ubuntu.com/server/docs/nvidia-drivers-installation
-# https://download.nvidia.com/XFree86/Linux-x86_64/535.161.07/README/kernel_open.html
-#
-# Ubuntu 签名 Nvidia 内核模块
-# -> /lib/modules/内核版本-generic/kernel/nvidia-535/nvidia.ko
-sudo ubuntu-drivers install nvidia:535 # => nvidia-driver-535
-#
+# 内核源码及专利驱动内核模块源码
+ls -l /usr/src
+
+# 显卡内核模块参数设置
+grep nvidia /etc/modprobe.d/* /lib/modprobe.d/*
+
+# 安全启动 + 英伟达显卡
+# Step 1 - Enabled Secure Boot in UEFI/BIOS
+# Step 2 - Sign Nvidia GPU Driver by reconfigure driver package
+cat /etc/default/linux-modules-nvidia
+
+######################################
+# 安装 Ubuntu 签名的 NVIDIA 内核模块 #
+######################################
+sudo ubuntu-drivers install nvidia:550 # => nvidia-driver-550
+ls -l /lib/modules/$(uname -r)/kernel/nvidia-550
+
 # MOK => Machine Owner Key
-#     => /var/lib/shim-signed/mok/
-# 创建/导入 MOK, 签名 Nvidia 内核模块
-# 新内核触发 => /etc/kernel/header_postinst.d/dkms
-# -> /var/lib/dkms/nvidia/535.161.07/内核版本-generic/x86_64/module/
-# -> /lib/modules/内核版本-generic/updates/dkms/nvidia.ko
-sudo apt install nvidia-driver-535 nvidia-dkms-535
+ls -l /var/lib/shim-signed/mok/
+# 新装内核触发 MOK 签名 NVIDIA 内核模块
+ls -l /etc/kernel/header_postinst.d/
+
+###################################
+# 安装 MOK 签名的 NVIDIA 内核模块 #
+###################################
+sudo apt install nvidia-driver-550 nvidia-dkms-550
+ls -l /var/lib/dkms/nvidia
+ls -l /lib/modules/$(uname -r)/updates/dkms
 ```
 
-# Q & A
+## Q & A
 
 - https://forums.developer.nvidia.com/t/understanding-nvidia-drm-modeset-1-nvidia-linux-driver-modesetting/204068/2
 
