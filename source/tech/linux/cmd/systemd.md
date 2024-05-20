@@ -1,4 +1,4 @@
-# systemd
+# [systemd](https://github.com/systemd)
 
 - 关于 [udev](https://www.man7.org/linux/man-pages/man7/udev.7.html) 动态设备管理
   * 参考链接 https://unix.stackexchange.com/questions/333697
@@ -27,4 +27,17 @@ systemctl daemon-reload
 # 撤销 foo.service 服务(Drop-In 配置)
 sudo systemctl revert 服务名
 # 删除 => /etc/systemd/system/foo.service.d
+```
+
+## `systemd-bootchart` 启动性能分析 GUI 工具
+
+- https://wiki.archlinux.org/title/Bootchart
+- https://github.com/systemd/systemd-bootchart
+- https://www.systutorials.com/docs/linux/man/1-systemd-bootchart
+
+```bash
+sudo apt install systemd-bootchart
+
+# 检查 systemd-bootchart 依赖的内核配置是否已启用
+grep CONFIG_SCHEDSTATS /boot/config-$(uname -r)
 ```

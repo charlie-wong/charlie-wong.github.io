@@ -127,7 +127,12 @@ sudo apt install dos2unix # LF/CRLF/CR 换行符转换
 sudo apt install 7zip 7zip-rar
 sudo apt install microsoft-edge-stable
 
+# 笔记本电源优化管理
 # https://github.com/linrunner/TLP
-apt show tlp # 笔记本电源优化管理
+apt show tlp
 dpkg -l | grep fonts- # 显示已安装字体
+
+# Show system info in the terminal
+# https://github.com/dylanaraps/neofetch
+sudo apt install neofetch
 ```
