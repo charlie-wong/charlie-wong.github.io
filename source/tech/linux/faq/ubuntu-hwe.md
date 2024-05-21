@@ -25,22 +25,45 @@ hwe-support-status # HWE(Hardware Enablement) 状态
 - https://xanmod.org
 - https://www.kernel.org
 
-```bash
-# 安装当前 Ubuntu 发行版默认 GA 内核
-sudo apt install linux-generic
+- https://wiki.archlinux.org/title/Microcode
+  *  Arch  包名 `intel-ucode` 和 `amd-ucode`
+  * Ubuntu 包名 `intel-microcode` 和 `amd64-microcode`
 
-# CPU/固件包 intel-microcode, amd64-microcode, linux-firmware
+- `linux-firmware` 内核驱动固件(商业/非开源设备驱动固件)
+  * https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+
+```bash
+apt --dry-run autoremove  # 模拟执行
 apt search ^linux-generic # 搜索内核包
 apt depends linux-generic # 内核包依赖
+
+##################
+# 标记为手动安装 #
+##################
+apt-mark --help
+# https://github.com/intel/thermal_daemon
+sudo apt-mark manual thermald           # 温度监控后台服务
+# https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
+sudo apt-mark manual intel-microcode    # Intel CPU 微码(设计缺陷修复)
+# 内核调试工具包
+sudo apt-mark manual bpftrace    # https://github.com/bpftrace
+sudo apt-mark manual bpfcc-tools # https://github.com/iovisor/bcc
+
+######################################
+# 安装当前 Ubuntu 发行版默认 GA 内核 #
+######################################
+sudo apt install linux-generic
 
 # 搜索 XanMod 内核 v6.1.x 版本软件包
 apt search "linux-image-6\\.1\\..*-x64v3-xanmod"
 
-# 通过 XanMod 元包安装内核(升级/更新)
+#######################################
+# 通过 XanMod 元包安装内核(升级/更新) #
+#######################################
 sudo apt install linux-xanmod-x64v3 # stable 版
 sudo apt install linux-xanmod-lts-x64v3 # LTS 版
 
-# 安装固定版本的 XanMod 内核
+# 安装版本固定的 XanMod 内核
 sudo apt install linux-image-6.1.77-x64v3-xanmod1
 sudo apt install linux-headers-6.1.77-x64v3-xanmod1
 ```

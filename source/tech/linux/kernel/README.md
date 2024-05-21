@@ -1,4 +1,4 @@
-# Kernel
+# Linux Kernel FAQs
 
 - https://www.etallen.com/cpuid.html
 - https://wiki.archlinux.org/title/Microcode

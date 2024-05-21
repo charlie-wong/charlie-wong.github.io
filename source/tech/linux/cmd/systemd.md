@@ -29,15 +29,20 @@ sudo systemctl revert 服务名
 # 删除 => /etc/systemd/system/foo.service.d
 ```
 
-## `systemd-bootchart` 启动性能分析 GUI 工具
+## 性能分析 GUI 工具
+
+- https://github.com/KDAB/hotspot
+  ```bash
+  # 内核性能分析 GUI 工具
+  sudo apt install hotspot
+  # 下载 AppImage 通用软件包
+  ```
 
 - https://wiki.archlinux.org/title/Bootchart
 - https://github.com/systemd/systemd-bootchart
-- https://www.systutorials.com/docs/linux/man/1-systemd-bootchart
-
-```bash
-sudo apt install systemd-bootchart
-
-# 检查 systemd-bootchart 依赖的内核配置是否已启用
-grep CONFIG_SCHEDSTATS /boot/config-$(uname -r)
-```
+  ```bash
+  # 启动性能分析 GUI 工具
+  sudo apt install systemd-bootchart
+  # 检查 systemd-bootchart 依赖的内核配置是否已启用
+  grep CONFIG_SCHEDSTATS /boot/config-$(uname -r)
+  ```
