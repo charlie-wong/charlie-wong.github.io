@@ -18,3 +18,12 @@
   * The workaround works for Ubuntu 24.04 update at 2024-05-20
   * 解决方式: `nvidia-driver-550` works fine with kernel > 6.1.x
   * https://forums.developer.nvidia.com/t/rminitadapter-failed-since-kernel-6-4/284717
+
+- **Issue** 启动时 `gpu-manager.service` 耗时 1 分钟
+  * `ls -lh /var/log/gpu-*`
+  * `apt show ubuntu-drivers-common`
+  * `apt-file search /usr/bin/gpu-manager`
+  * `systemd-analyze` and `systemd-analyze blame | head`
+  * https://github.com/canonical/ubuntu-drivers-common/tree/master/share/hybrid
+  * 解决方式1: 内核参数 __nogpumanager__ 禁用 `/usr/bin/gpu-manager` 命令
+  * TODO: 实现源码, 它都干了什么, 卡在哪里?

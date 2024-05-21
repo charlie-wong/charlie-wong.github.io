@@ -136,3 +136,14 @@ dpkg -l | grep fonts- # 显示已安装字体
 # https://github.com/dylanaraps/neofetch
 sudo apt install neofetch
 ```
+
+## 图形显卡工具
+
+- Intel/Nvidia/AMD 显卡性能监控 `apt show nvtop`
+  * https://github.com/Syllo/nvtop
+  * https://launchpad.net/~flexiondotorg/+archive/ubuntu/nvtop
+
+- Intel 显卡驱动调试/性能监控 `apt show intel-gpu-tools`
+  * https://drm.pages.freedesktop.org/igt-gpu-tools
+  * https://launchpad.net/ubuntu/+source/intel-gpu-tools
+  * https://git.launchpad.net/ubuntu/+source/intel-gpu-tools

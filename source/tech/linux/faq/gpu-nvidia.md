@@ -175,21 +175,35 @@ ls -l /lib/modules/$(uname -r)/updates/dkms
   sudo bash -c "echo 248 > /sys/class/backlight/intel_backlight/brightness"
 
   systemctl cat nvidia-persistenced
+  systemctl status nvidia-persistenced
   systemctl list-dependencies nvidia-persistenced
 
-  systemctl cat systemd-backlight@:intel_backlight
+  systemctl cat systemd-backlight@backlight
+  systemctl status systemd-backlight@backlight
+  systemctl list-dependencies systemd-backlight@backlight
+
+  systemctl cat systemd-backlight@backlight:intel_backlight
+  systemctl status systemd-backlight@backlight:intel_backlight
+  systemctl list-dependencies systemd-backlight@backlight:intel_backlight
+
   systemctl cat systemd-backlight@backlight:nvidia_0
-  systemctl list-dependencies systemd-backlight@:intel_backlight
+  systemctl status systemd-backlight@backlight:nvidia_0
   systemctl list-dependencies systemd-backlight@backlight:nvidia_0
 
-  # 1 => 创建 Drop-In Service 屏蔽/修复 Bug
+  ###########################################
+  # 1 => 创建 Drop-In Service 屏蔽/修复 Bug #
+  ###########################################
   $ sudo systemctl edit nvidia-persistenced
   # 输入内容如下
   #   [Unit]
   #   DefaultDependencies=no
   # 保存(自动保存)
+  #
+  # NOTE 亦可手动创建相关文件然后 `sudo systemctl daemon-reload`
 
-  # 2 => 修改后查看内容
+  #######################
+  # 2 => 修改后查看内容 #
+  #######################
   $ systemctl cat nvidia-persistenced.service
   # /usr/lib/systemd/system/nvidia-persistenced.service
   [Unit]
