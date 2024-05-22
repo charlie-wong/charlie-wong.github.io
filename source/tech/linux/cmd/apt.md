@@ -21,3 +21,25 @@ sudo apt install --no-install-recommends XXX
 dpkg -l | grep '^rc' | awk '{print $2}'
 dpkg -l | grep '^rc' | awk '{print $2}' | sudo xargs dpkg --purge
 ```
+
+## 查看包依赖关系
+
+- https://linuxsimply.com/linux-basics/package-management/dependencies/apt-dependency-tree
+
+- 工具 `apt-cache`
+  * `apt-cache showpkg <PKG>`
+  * `apt depends --recurse --installed <PKG>` 逆向依赖关系 __rdepends__
+  * `apt depends --recurse --installed <PKG>` 逆向依赖关系 __rdepends__
+
+- 工具 `apt show debtree`
+  * `sudo apt install debtree`
+  * `debtree <PKG>`
+
+- 工具 `apt show apt-rdepends`
+  * https://www.sfllaw.ca/programs/
+  * https://salsa.debian.org/debian/apt-rdepends
+
+- 生产包依赖关系 PNG 图片
+  * `sudo apt install graphviz`
+  * `debtree <PKG> | dot > <PKG.dot>`
+  * `dot -Tpng -o <PKG.png> <PKG.dot>`
