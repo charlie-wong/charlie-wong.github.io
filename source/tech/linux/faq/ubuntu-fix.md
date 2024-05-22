@@ -27,3 +27,8 @@
   * https://github.com/canonical/ubuntu-drivers-common/tree/master/share/hybrid
   * 解决方式1: 内核参数 __nogpumanager__ 禁用 `/usr/bin/gpu-manager` 命令
   * TODO: 实现源码, 它都干了什么, 卡在哪里?
+
+- **Issue** 启动日志 `Bluetooth: hci0: Malformed MSFT vendor event: 0x02`
+  * 内核 https://elixir.bootlin.com/linux/v6.6.31/source/net/bluetooth/msft.c
+  * 调用链 `msft_vendor_evt() -> msft_monitor_device_evt() -> msft_skb_pull()`
+  * 备注: 目前为止此错误消息无害(不影响蓝牙正常功能)
