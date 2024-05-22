@@ -28,8 +28,8 @@ dpkg -l | grep '^rc' | awk '{print $2}' | sudo xargs dpkg --purge
 
 - 工具 `apt-cache`
   * `apt-cache showpkg <PKG>`
-  * `apt depends --recurse --installed <PKG>` 逆向依赖关系 __rdepends__
-  * `apt depends --recurse --installed <PKG>` 逆向依赖关系 __rdepends__
+  * 正向依赖关系 `apt  depends --recurse --installed <PKG>`
+  * 逆向依赖关系 `apt rdepends --recurse --installed <PKG>`
 
 - 工具 `apt show debtree`
   * `sudo apt install debtree`
