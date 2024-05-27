@@ -15,9 +15,11 @@ hwe-support-status # HWE(Hardware Enablement) 状态
 ## Ubuntu LTS 24.04 和内核相关的 Bugs
 
 - __BUG__ kernel 6.8.x 无法正常关机/重启
+  * 删除 snap 后, 安装 6.8.10-x64v3-xanmod1 关机/重启工作正常
   * https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2059738
 
-- __BUG__ Kernel 6.6.x _iwlwifi_ AX211 Microcode SW error
+- __BUG__ Kernel 6.6.x __iwlwifi__ AX211 Microcode SW error
+  * 内核版本 > 6.7 已修复 __iwlwifi__ 崩溃重启问题
   * https://bugzilla.kernel.org/show_bug.cgi?id=217980
 
 ## 安装 LTS/Stable 内核
