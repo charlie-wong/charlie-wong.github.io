@@ -1,4 +1,0 @@
-U+241C    ␜     Symbol of File Separator
-U+241D    ␝     Symbol of Group Separator
-U+241E    ␞     Symbol of Record Separator
-U+241F    ␟     Symbol of Unit Separator

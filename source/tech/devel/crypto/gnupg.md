@@ -7,8 +7,6 @@
 - https://www.gnupg.org/documentation/manuals/gnupg/Option-Index.html
 - https://www.kernel.org/doc/html/latest/process/maintainer-pgp-guide.html
 
-- 推荐算法 `ED25519` > `RSA4096` > `RSA2048`
-
 - `gpg` 缩略词含义及概念
 
   > GnuPG 源代码 => g10/packet.h 搜索 `_USAGE_`
@@ -24,9 +22,27 @@
   rev  Revocation 签名  crs  X.509 Cert & 私钥
   ```
 
+  - 推荐算法 `ED25519` > `RSA4096` > `RSA2048`
   - Trust Chain 分布式信任(去中心化), PKI 信任体系依赖中心化权威机构
   - Authentication 一种安全的远程登陆方式(不依赖密码), 现实实例: SSH
   - 证书/公钥的主要区别: 公钥仅绑定 User ID, 证书绑定 Subject, SAN 等更多信息
+
+## 配置文件
+
+```bash
+# 有效 UserID 可选 => KeyID, 密钥指纹, 用户名, 邮箱
+# 有效  KeyID 可选 => 9A0B1E11A434FE86, 40 位字符串
+
+# 信任模式文件  ~/.gnupg/tofu.db       -> Trust-On-First-Use
+# 默认配置文件  ~/.gnupg/gpg.conf
+# 信任密钥列表  ~/.gnupg/trustdb.gpg
+# 公钥列表文件  ~/.gnupg/pubring.kbx   -> new keybox format
+#               ~/.gnupg/pubring.gpg   -> old legacy format
+
+# 默认配置文件  ~/.gnupg/gpg-agent.conf
+# 信任密钥列表  ~/.gnupg/trustlist.txt
+# 代理私钥存储  ~/.gnupg/private-keys-v1.d/*.key
+```
 
 - 配置文件 `gpg.conf`
 
@@ -92,7 +108,7 @@
   keyserver hkps://keyserver.ubuntu.com
   ```
 
-- GnuPG Key Trust Level 配置语法
+- GnuPG Key Trust Level 配置
 
   ```bash
   # trustdb.asc
@@ -101,7 +117,7 @@
   0123456789ABCDEF0123456789ABCDEF01234567:6:
   ```
 
-- GnuPG 命令备忘
+## GnuPG 命令备忘
 
   - armor 密钥常用后缀 `.asc`, 分离式签名文件常用后缀 `.sig`
 
@@ -113,20 +129,51 @@
   gpg --homedir path/to/gnupg
   export GNUPGHOME="path/to/gnupg"
 
-  # 显示密钥之间的签名状态
-  gpg --check-sigs
-  gpg --check-sigs 89ABCDEF01234567
-  # 编辑密钥: 添加 sumkey, 修改密码, 吊销 subkey
-  gpg --edit-key 0123456789ABCDEF0123456789ABCDEF01234567
-  # 导出公钥和私钥(备份密钥时非常有用)
-  gpg --armor --output 公钥.asc --export 89ABCDEF01234567
-  gpg --armor --output 私钥.asc --export-secret-keys 89ABCDEF01234567
-
-  gpg --show-key path/to/key
+  # ASCII Armor 格式 => 二进制格式
   gpg --dearmor path/to/key.asc > key.gpg
 
-  gpg --import path/to/gnupg-key.asc
-  gpg --import-ownertrust path/to/ot.asc
+  # 加密 -e,--encrypt   签名 --clearsign,--clear-sign
+  # 解密 -d,--decrypt   签名 -s,--sign; -b,--detach-sign
+  # -a,--armor          指定加密密钥 -r,--recipient  UserId
+  # --no-armor          指定签名密钥 -u,--local-user UserId
+  # -o,--output FILE
+  # 显示私钥 -K,--list-secret-keys
+  # 显示公钥 -k,--list-public-keys,--list-keys
+
+  # 查看公钥和私钥
+  gpg --list-keys
+  gpg --list-public-keys
+  gpg --list-secret-keys
+  gpg --show-key path/to/key
+
+  gpg -k --with-subkey-fingerprint
+  # 说明 => none, short(8位), long(16位), 0xshort(8位+0x), 0xlong
+  gpg -k --keyid-format=long # none, short, long, 0xshort, 0xlong
+
+  # 查看密钥签名及指纹
+  gpg --fingerprint
+  gpg --list-signatures
+  gpg --check-signatures
+  gpg --check-sigs
+  gpg --check-sigs 89ABCDEF01234567
+
+  # 编辑密钥: 添加 sumkey, 修改密码, 吊销 subkey
+  gpg --edit-key 0123456789ABCDEF0123456789ABCDEF01234567
+
+  # 导入公钥和私钥
+  gpg --import path/to/public-key.asc # 导入公
+  gpg --import path/to/secret-key.asc # 导入私钥
+  gpg --import-ownertrust trusted.asc # 导入信任库
+
+  # 导出公钥和私钥
+  gpg --armor --output 公钥.asc --export 89ABCDEF01234567
+  gpg --armor --output 私钥.asc --export-secret-keys 89ABCDEF01234567
+  gpg --armor --export # 导出公钥到 stdout
+  gpg --armor --export --output path/to/public-key.asc UserID
+  gpg --armor --export-secret-keys # 导出私钥到 stdout
+  gpg --armor --export-secret-keys --output path/to/secret-key.asc UserID
+  gpg --armor --export-ownertrust # 备份信任数据库
+  gpg --armor --export-ownertrust > path/to/trusted.asc
 
   # Fingerprints           0123456789ABCDEF0123456789ABCDEF01234567
   #               0123 4567 89AB CDEF 0123 4567 89AB CDEF 0123 4567
@@ -142,6 +189,8 @@
 
   # --expert        启用专家模式, 提供更多参数选择
   # --full-gen-key  比 --gen-key 提供更加丰富的选项
+  gpg --generate-key
+  gpg --full-generate-key
   gpg --expert --full-generate-key
 
   # 非对称加密: 私钥加密+公钥解密 & 公钥加密 + 私钥解密, 缺点: 加密速度慢
@@ -167,7 +216,36 @@
   gpg -ao hello.txt.sig --detach-sign hello.txt
   gpg --verify hello.txt.sig hello.txt # 签名验证
 
-  # 吊销证书
+  # 生成吊销证书
   gpg -ao remoke-01234567 --gen-revoke 01234567 # 吊销 Master 密钥
+  gpg --generate-revocation --armor --output revoke-key.asc UserID
+
+  # 信任库位置 ~/.gnupg/trustdb.gpg
+  # 修改密钥信任等级(导入的密钥不会自动添加到信任数据库中)
   gpg --edit-key 01234567 # 吊销 Master 密钥的 Subkey
+  # gpg> help 显示帮助   gpg> trust  信任等级
+  # gpg> save 保存修改   gpg> quit   退出程序
+
+  # 私钥代理
+  systemctl --user status gpg-agent   # gpg-agent 状态显示
+  systemctl --user edit gpg-agent     # gpg-agent 服务修改
+  systemctl --user revert gpg-agent   # gpg-agent 恢复默认
+  systemctl --user restart gpg-agent  # gpg-agent 重新启动
+
+  # gpg-connect-agent 用于和当前运行的 gpg-agent 服务通信
+  gpg-connect-agent help # 显示控制命令列表, 退出命令 /bye
+  # 默认配置文件 ~/gnupg/dirmngr.conf
+  dirmngr # 用于和公钥服务器通信
+  # 默认配置文件 ~/gnupg/gpgsm.conf
+  gpgsm # 用于邮件加密/解密/数字认证
+
+  # 公共服务器 -> https://www.openpgp.org/software/server
+  #    https:// -> hkps://           http:// -> hkp://
+  # => https://keys.mailvelope.com   can delete key, email IDs verification
+  # => https://keys.openpgp.org      can delete key, email IDs verification
+  # => https://keyserver.ubuntu.com  no delete key & email IDs verification
+  gpg --keyserver hkps://keys.openpgp.org --send-keys KeyID    # 发送公钥到服务器
+  gpg --keyserver hkps://keys.openpgp.org --search-keys UserID # 在服务器搜索公钥
+  gpg --keyserver hkps://keys.openpgp.org --receive-keys KeyID # 从服务器导入公钥
+  gpg --keyserver hkps://keys.openpgp.org --refresh-keys # 服务器更新本地已有密钥
   ```

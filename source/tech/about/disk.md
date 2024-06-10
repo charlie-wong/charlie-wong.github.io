@@ -80,10 +80,8 @@ sudo apt install iotop
 # 4KiB =>    8-扇区 =    8 * 512 =    4 * 1024 Byte
 # 1MiB => 2048-扇区 = 2048 * 512 = 1024 * 1024 Byte
 
-cat /proc/swaps; cat /proc/sys/vm/swappiness; sudo sysctl vm.swappiness=10
-
 sudo mkdir /me; sudo chown ${USER}:${USER} /me; chmod 0766 /me
-sudo mkdir /me; sudo chown ${USER} /me; sudo chgrp ${USER} /me; chmod 0766 /me
+sudo chown ${USER} /me; sudo chgrp ${USER} /me; chmod 0766 /me
 
 # 名词解释
 #   MBR => Master Boot Record     MSR   => Microsoft Reserved Partition
@@ -92,30 +90,6 @@ sudo mkdir /me; sudo chown ${USER} /me; sudo chgrp ${USER} /me; chmod 0766 /me
 # GPT 磁盘分区已注册 GUID 的含义
 #   MSR 类型分区 GUID => E3C9E316-0B5C-4DB8-817D-F92DF00215AE
 #   微软动态磁盘 GUID => 5808C8AA-7E8F-42E0-85D2-E1E90434CFB3
-
-# => 0 号固态硬盘 Arch & Ubuntu
-#                   大小      分区名(Label)   PartLabel    挂载点
-# nvme0n1p1/vfat   768 MiB    LESP            IsESP        /boot/efi
-#                  255 MiB    未分配保留空间
-# nvme0n1p2/ext4    64 GiB    Arch            IsArch       /        Arch + KDE 初始约 20GiB
-#                    8 GiB    未分配保留空间
-# nvme0n1p3/ext4    64 GiB    Ubuntu          IsUbuntu     /        KUbuntu 初始系统约 20GiB
-#                    8 GiB    未分配保留空间
-# nvme0n1p4/ext4   256 GiB    Wong            xWong        /me      热数据/工作空间
-#                   32 GiB    未分配保留空间
-# nvme0n1p5/NTFS   420 GiB    Charles         xCharles     用户冷数据存储中心
-#                   78 GiB    用户级 OP 空间               需固态磁盘驱动的支持
-# => 1 号固态硬盘 Windows 11
-#                    大小     分区名(Label)   PartLabel    备注
-# nvme1n1p1/vfat  768 MiB     WESP            WinESP
-# nvme1n1p2/MSR   255 MiB                     WinMSR       微软保留空间
-# nvme1n1p3/NTFS  128 GiB     OS              WinOS        Win 11 约占 25% (38GiB)
-#                  16 GiB     未分配保留空间
-# nvme1n1p4/NTFS  128 GiB     APP             WinApp       应用安装
-#                  32 GiB     未分配保留空间
-# nvme1n1p5/NTFS  ... GiB     Techs           xTechs       热数据/工作空间
-# nvme1n1p6/swap   16 GiB     Swap            IsSwap       非同磁盘减少 IO 竞争
-#                 ... GiB     用户级 OP 空间               需固态磁盘驱动的支持
 
 cat /proc/mounts;        cat /etc/mtab
 sudo blkid;              sudo gdisk -l /dev/nvme0n1

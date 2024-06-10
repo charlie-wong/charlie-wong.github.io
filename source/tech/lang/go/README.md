@@ -1,4 +1,4 @@
-# Go Language
+# [Go](https://github.com/golang) Language
 
 - https://pkg.go.dev/cmd/go
 

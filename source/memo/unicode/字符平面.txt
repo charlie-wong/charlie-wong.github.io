@@ -1,0 +1,12 @@
+Unicode 有17个平面, 第0平面(0000 - FFFF)到第16平面(100000 - 10FFFF)
+
+第0基本平面: BMP=Basic Multilingual Plane              范围为  0000 -  FFFF   基本多语言平面
+第1辅助平面: SMP=Supplementary Multilingual Plane      范围为 10000 - 1FFFF   多语言补充平面
+第2辅助平面: SIP=Supplementary Ideographic Plane       范围为 20000 - 2FFFF   表意字补充平面
+第3辅助平面: TIP=Tertiary Ideographic Plane            范围为 30000 - 3FFFF   表意字第三平面
+
+第4至13辅助平面尚未使用
+
+第14辅助平面: SSP=Supplementary Special-purpose Plane  范围为 E0000 -  EFFFF  特殊用途补充平面
+第15辅助平面: Supplementary Private Use Area-A         范围为 F0000 -  FFFFF  私人专区平面 A
+第16辅助平面: Supplementary Private Use Area-B         范围为100000 - 10FFFF  私人专区平面 B

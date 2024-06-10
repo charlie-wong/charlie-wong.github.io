@@ -1,0 +1,61 @@
+# 可读性 & 维护性 & 一致性
+# https://google.github.io/styleguide/
+
+- Use UTF-8 encoding
+- No trailing whitespace
+- End of file has an empty line
+- Line ending use LF, not CRLF
+- Split code section with two blank lines
+- One empty line in the end of file
+- Indent 2 spaces, and No tabs
+  逻辑块之间 2 空行分隔, 增加可读性
+- Maximum line length is 80 chars
+  80 字符每行在进行 three-way 比较/合并时方面, 屏幕完整显示
+  三个文件的内容而无需拖动滑块: ancestor, local and remote
+
+=>Shell脚本
+- Executables script should have no extension
+- None executables script should have `.sh` 或 `.zsh`
+- All error messages should go to `stderr`
+- 常量和环境变量: 大写, 下划线分隔, 位于文件开头
+- Put `; do` and `; then` on the same line as `while`, `for` and `if`
+
+- Prefer `"${var}"` over `"$var"`
+  ```shell
+  # Don not brace-delimit shell specials(single character) or positional
+  # parameters, unless strictly necessary or avoiding deep confusion.
+  echo "位置参数: $1  $2  $3 ... ${10}"
+  echo "特殊参数: !=$!, -=$-, _=$_. ?=$?, #=$# *=$* @=$@ \$=$$ …"
+  echo "PATH=${PATH}, PWD=${PWD}, mine=${VAR}"
+  while read -r f; do echo "file=${f}"; done < <(find /tmp)
+  ```
+
+- Use `readonly` or `declare -r` to ensure they are read only
+- Use `$(command)` instead of backticks(`)
+- Use quoted expansion – `"${ARRAY[@]}"` – to access arrays
+- Use `$@` unless you have a specific reason to use `$*`
+- No quote shell-internal, readonly special integer variables
+  `$?`  `$#`  `$$`  `$!`  `PPID`  `PID`  ...
+- `[[ … ]]` preferred over `[ … ]`, `test` and `/usr/bin/[`
+  `[[ … ]]` support regular expression matching
+
+- Always use `(( … ))` or `$(( … ))`
+- Never use `$[ … ]` syntax, `expr` command, or `let` built-in
+  Avoid using `(( … ))` as a standalone statement with `set -e`
+  Example: `set -e; i=0; (( i++ ))` will cause the shell to exit
+
+- Declare function-specific variables with `local`
+```shell
+# Declaration and assignment must be separated when the assignment
+# value is provided by a command substitution: as the `local` builtin
+# does not propagate the exit code from the command substitution.
+function myfunc2() {
+  local myvar
+  myvar="$(myfunc1)"
+  (( $? == 0 )) || return
+  # DO NOT do this: $? will always be zero, as it
+  # contains the exit code of 'local', not myfunc1
+  local myvar="$(myfunc1)"
+  (( $? == 0 )) || return
+}
+```

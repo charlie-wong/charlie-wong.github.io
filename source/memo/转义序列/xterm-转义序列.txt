@@ -1,0 +1,18 @@
+`^A`  Ctrl+A ... `^R`  Ctrl+R     `^[a`  Alt+A ... `^[r`  Alt+R
+`^B`  Ctrl+B ... `^S`  Ctrl+S     `^[b`  Alt+B ... `^[s`  Alt+S
+
+`^?`        Back
+`^H`   Ctrl+Back
+`^[^?`  Alt+Back
+
+`^[[2~`        Ins   `^[[H`         Home   `^[[5~`        PageUp
+`^[[2;5~` Ctrl+Ins   `^[[1;5H` Ctrl+Home   `^[[5;5~` Ctrl+PageUp
+`^[[2;3~`  Alt+Ins   `^[[1;3H`  Alt+Home   `^[[5;3~`  Alt+PageUp
+
+`^[[3~`         Del  `^[[F`          End   `^[[6~`        PageDown
+`^[[3;5~`  Ctrl+Del  `^[[1;5F`  Ctrl+End   `^[[6;5~` Ctrl+PageDown
+`^[[3;3~`   Alt+Del  `^[[1;3F`   Alt+End   `^[[6;3~`  Alt+PageDown
+
+`^[[A`          上  `^[[B`          下  `^[[D`         左  `^[[C`         右
+`^[[1;5A`  Ctrl+上  `^[[1;5B`  Ctrl+下  `^[[1;5D` Ctrl+左  `^[[1;5C` Ctrl+右
+`^[[1;3A`   Alt+上  `^[[1;3B`   Alt+下  `^[[1;3D`  Alt+左  `^[[1;3C`  Alt+右

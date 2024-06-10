@@ -1,0 +1,36 @@
+=>What does -- (double-dash) mean
+  https://unix.stackexchange.com/questions/11376
+  https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
+  A double-dash(--) is used in most Bash built-in commands and many other
+  cmds to signify the end of command options, after which only positional
+  arguments are accepted.
+
+=>格式化输出 `printf`
+  https://cplusplus.com/reference/cstdio/printf/
+  格式串  % [Flags] [Width] [.Precision] [长度符] Specifier
+
+  [Flags] 修饰符  `-`  左对齐
+  [Flags] 修饰符  `+`  负数 - 号，正数 + 号
+  [Flags] 修饰符  ` `  负数 - 号，正数 空格
+  [Flags] 修饰符  `#`  结合 `o/x/X`, 进制前缀 0, 0x, 0X
+  [Flags] 修饰符  `0`  Left-pads number with zeroes(0)
+
+  [Width] 宽度符  `N`  最少显示 N 个字符
+  [Width] 宽度符  `*`  占位符, 数值由参数指定
+
+  [.Prec] 精度符  `.N` 结合 `d/i/o/u/x/X` 整数, 最少显示 N 个数字
+                       结合 `a/A/e/E/f/F` 小数, 小数点后显示 N 个数字(默认 6)
+                       结合 `g/G`   科学计数法, 最多显示 N 个 significant digits
+                       结合 `s`         字符串, 最多显示 N 个字符
+  [.Prec] 精度符  `.*` 占位符, 数值由参数指定
+
+  [长度符]
+    `j`, `L`, `hh` 和 `h`, `l` 和 `ll`, `z`->size_t `t`->ptrdiff_t
+
+  [类型符] Specifier
+    `%d %i %u`      有符号和无符号(十进制整数)        `%%`  显示百分号
+    `%o`            无符号八进制                      `%c`  显示单字符
+    `%x %X`         无符号十六进制, x 小写, X 大写    `%s`  显示字符串
+    `%f %F %e %E`   十进制符点数和科学计数法表示      `%p`  显示地址
+    `%g %G`         选择短格式 g -> %f 或 %e, G -> %F 或 %E
+    `%a %A`         十六进制浮点数

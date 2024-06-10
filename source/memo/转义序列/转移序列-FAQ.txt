@@ -1,0 +1,33 @@
+# 搜索优先级(terminfo), 从上到下依次搜索, 使用首个存在的文件
+  `${HOME}/.terminfo`
+  `/etc/terminfo`
+  `/lib/terminfo`
+  `/usr/share/terminfo`
+
+
+# Find out the key code sended by terminal
+https://unix.stackexchange.com/questions/76566
+https://unix.stackexchange.com/questions/116562
+https://unix.stackexchange.com/questions/674816
+终端显示组合按键的标记
+  `^[` 表示 \e[       `^D` 表示 `Ctrl + D`
+  `^I` 表示 `Tab`     `$`  表示换行符
+显示转义序列, 执行命令, 然后按键测试
+  `sed -n l` 或 `showkey -a` 或 `cat -vte` 或 `xmodmap`
+  Bash: 保存设置, 进入行模式 4s, 按键测试, 4s 后恢复
+  `s="$(stty -g)"; stty raw -echo min 0 time 40; cat -vte; stty "$s"`
+  Zsh: 进入行模式 4s, 按键测试, 4s 后恢复
+  `STTY='raw -echo min 0 time 40' cat -vte`
+Linux 内核按键值
+  `locate keymaps` -> /usr/share/ibus/keymaps/*
+
+
+# 终端 terminfo 标准库 https://invisible-island.net/ncurses/ncurses.html
+在其中搜索 kdch1 可以看到不同终端模式下相同按键产生的转移序列
+  kdch1 表示 Delete 键的标准名, `man terminfo` 中的 Cap-Name 名称
+显示 rxvt 终端 Delete 按键的转移序列
+  `tput -Trxvt kdch1 | sed -n l`
+  `TERM=rxvt tput kdch1 | sed -n l`
+显示终端的 terminfo 的所有转移序列代码
+  `-L1` 等效于 `-L -1` 即每行仅显示一个设置数据
+  当前终端 `infocmp -L1`  指定终端 `TERM=rxvt infocmp -L1`

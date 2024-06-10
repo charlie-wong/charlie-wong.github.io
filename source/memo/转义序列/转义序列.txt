@@ -1,0 +1,67 @@
+# Bash 按键绑定
+  设置 Readline -> `etc/desktop/inputrc`
+
+# 控制字符终端显示 Caret-Notation 和转义序列
+  八进制 `\NNN`    十六进制 `\xNN`    Unicode字符 `\uNNNN`
+
+  x00  NUL \0 `^@`  x08  BS \b `^H`  x10  DLE 无 `^P`  x18  CAN 无 `^X`
+  x01  SOH    `^A`  x09  HT \t `^I`  x11  DC1    `^Q`  x19  EM     `^Y`
+  x02  STX    `^B`  x0A  LF \n `^J`  x12  DC2    `^R`  x1A  SUB    `^Z`
+  x03  ETX    `^C`  x0B  VT \v `^K`  x13  DC3    `^S`  x1B  ESC    `^[`
+  x04  EOT    `^D`  x0C  FF \f `^L`  x14  DC4    `^T`  x1C  FS     `^\`
+  x05  ENQ    `^E`  x0D  CR \r `^M`  x15  NAK    `^U`  x1D  GS     `^]`
+  x06  ACK    `^F`  x0E  SO    `^N`  x16  SYN    `^V`  x1E  RS     `^^`
+  x07  BEL \a `^G`  x0F  SI    `^O`  x17  ETB    `^W`  x1F  US     `^_`
+                                                       x7F  DEL    `^?`
+
+# 关于转移控制序列的含义
+  https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
+  - `CSI ? XX h` 表示 DECSET -> DEC Private Mode Set
+  - `CSI ? XX l` 表示 DECRST -> DEC Private Mode Reset
+
+  `DECKPNM` 和 `DECKPAM` 控制小键盘区键转义序列
+  -> `DECKPAM` 缩写含义 DEC Keypad Application Mode
+  -> `DECKPNM` 缩写含义 DEC Keypad Normal      Mode
+  - `ESC =` Keypad Application Mode
+  - `ESC >` Keypad Normal      Mode
+
+  `DECCKM` 控制四个方向键, Home及End键的转义序列
+  -> `DECCKM` 缩写含义 DEC Cursor Key Mode
+  - `ESC [ ? 1 h` 等同于 `CSI ? 1 h` 含义 DECCKM  on, VT100, Application Cursor Keys
+  - `ESC [ ? 1 l` 等同于 `CSI ? 1 l` 含义 DECCKM off, VT100, Normal      Cursor Keys
+  +---------+----------+-------------
+  |   按键  |  Normal  | Application
+  +---------+----------+-------------
+  | 方向 上 | CSI A    | SS3 A
+  | 方向 下 | CSI B    | SS3 B
+  | 方向 右 | CSI C    | SS3 C
+  | 方向 左 | CSI D    | SS3 D
+  +---------+----------+-------------
+  |   Home  | CSI H    | SS3 H
+  |   End   | CSI F    | SS3 F
+  +---------+----------+-------------
+
+# About char set G0/G1/G2/G3, see `man 7 charsets`
+
+- `G0` always has 94 chars and uses codes from 0x21(`!`) to 0x7E(`~`)
+- `G1`/`G2`/`G3` may have 94 or 96 chars
+- `G1` is `G0` codes with 8-bit set to 1
+
+where `xx` is a symbol or a pair of symbols found in
+ISO 2375 International Register of Coded Character Sets
+
+The 94-char set
+  `ESC (   xx` -> for G0
+  `ESC )   xx` -> for G1
+  `ESC *   xx` -> for G2
+  `ESC +   xx` -> for G3
+The 96-char set
+  `ESC -   xx` -> for G1
+  `ESC .   xx` -> for G2
+  `ESC /   xx` -> for G3
+The multibyte character set
+  `ESC $   xx` -> for G0
+  `ESC $ ( xx` -> for G0
+  `ESC $ ) xx` -> for G1
+  `ESC $ * xx` -> for G2
+  `ESC $ + xx` -> for G3

@@ -1,0 +1,3 @@
+msinfo32        系统硬件信息
+regedit         注册表编辑器
+services.msc    系统服务
