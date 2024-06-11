@@ -49,7 +49,15 @@
     - 服务状态 `systemctl status bluetooth`
     - 查看日志 `journalctl -b | grep bluetooth`
 
+- **Issue** `kernel randomly crash when power off with nvidia-550 + kernel > 6.x`
+  * https://bbs.archlinux.org/viewtopic.php?id=293400
+  * https://forums.developer.nvidia.com/t/series-550-freezes-laptop
+  * https://www.gamingonlinux.com/2024/06/you-may-want-to-avoid-nvidia-driver-550-if-youre-on-a-laptop
+  * 解决方式: `sudo apt install nvidia-driver-535 nvidia-dkms-535`
+
 - **Issue** `iwlwifi WRT: Invalid buffer destination`
+
 - **Issue** `ACPI BIOS Error (bug): Could not resolve symbol [\_TZ.ETMD], AE_NOT_FOUND (20230628/psargs-330)`
+
 - **Issue** `ACPI Error: Aborting method \_SB.IETM._OSC due to previous error (AE_NOT_FOUND) (20230628/psparse-529)`
   * https://bugzilla.kernel.org/show_bug.cgi?id=218269
