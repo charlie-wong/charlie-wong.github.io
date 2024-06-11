@@ -1,3 +1,20 @@
+<div align="center" style="height: 130px">
+[![logo](/docs/assets/img/logo.svg)](/)
+</div>
+
+=>GitHub Markdown 扩展语法 Highlight Alerts
+  https://github.com/orgs/community/discussions/16925
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+> [!TIP]
+> Optional information to help a user be more successful.
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+> [!CAUTION]
+> Negative potential consequences of an action.
+
 =>语法高亮支持的语言列表
   Fenced Code Blocks https://meta.stackexchange.com/questions/184108
 
@@ -13,17 +30,3 @@
   | shell | bash     | zsh      |        |     |
   | js    | yml      |          |        |     |
   | html  | css      | markdown | markup |     |
-
-
-=>GitHub Markdown 扩展语法 Highlight Alerts
-  https://github.com/orgs/community/discussions/16925
-> [!NOTE]
-> Highlights information that users should take into account, even when skimming.
-> [!TIP]
-> Optional information to help a user be more successful.
-> [!IMPORTANT]
-> Crucial information necessary for users to succeed.
-> [!WARNING]
-> Critical content demanding immediate user attention due to potential risks.
-> [!CAUTION]
-> Negative potential consequences of an action.

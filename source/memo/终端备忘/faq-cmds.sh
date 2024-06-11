@@ -2,9 +2,17 @@
 # head  tail  sort  cut  tr     cksum  md5sum  sha256sum
 # more  less  column  scripts   strings  tee
 
+echo "[${BASH_VERSION}]"
+echo "[${BASH_VERSINFO[@]}]"
+
 # setopt    显示 ZSH 已启用的选项列表
 # unsetopt  显示 ZSH 未启用的选项列表
 # autoload  显示 ZSH 自动加载函数列表
+
+# Bash Manual 3.1.2.4 ANSI-C Quoting
+echo $'string'
+# Bash Manual 3.1.2.5 Locale-Specific Translation
+echo $"hello, world"
 
 # 显示 MIME 类型信息
 file -bi path/to/file
@@ -31,6 +39,18 @@ echo -n "$IFS" | cat -et # 显示结果 ^I 表示 Tab, $ 表示 Newline
 # 历史遗留/兼容性语法
 [[ "${VAR}" ]]              等同于 [[ -n "${VAR}" ]]
 [[ "${STR1}" = "${STR2}" ]] 等同于 [[ "${STR1}" == "${STR2}" ]]
+
+# 显示 Zsh 变量类型
+# https://unix.stackexchange.com/questions/269825
+echo "${(t)fpath}"            # array-tied-special
+a=1; echo "${(t)a}"           # scalar
+a=(1 2); echo "${(t)a}"       # array
+typeset -A a; echo "${(t)a}"  # association
+
+# 关联数组和常规数组
+# https://unix.stackexchange.com/questions/702295
+local -A assoc=( 'key1' 'val1'    'key2' 'val2')
+printf '"%s" => "%s"\n' "${(@kv)assoc}" # Zsh 语法
 
 # 递归式参数解引用
 VAR1='var1-value'; VAR2=VAR1
