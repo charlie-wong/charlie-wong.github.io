@@ -60,13 +60,22 @@
   <div class="group" id="jslet"></div><br>
 </body>
 <script>
+// typeof(数字)    number      typeof(布尔值) boolean
+// typeof(字符串)  string      typeof(对象)   object
+// typeof(数组)    object      typeof(函数)   function
+// typeof(未定义)  undefined   typeof(null)   object
+
 function addBkMkLet(ul, name, jscode, xid) {
   const li = document.createElement('li');
   li.setAttribute('class', 'gbtn');
   if(xid) li.setAttribute('id', xid);
   const a = document.createElement('a');
   a.innerHTML = name;
-  a.setAttribute('href', "javascript:(()=>{ " + jscode + " })();void(0);");
+  if ( typeof(jscode) === "object" ) {
+    a.setAttribute('href', jscode.code);
+  } else if ( typeof(jscode) === "string" ) {
+    a.setAttribute('href', "javascript:(()=>{ " + jscode + " })();void(0);");
+  }
   li.appendChild(a);
   ul.appendChild(li);
 }
