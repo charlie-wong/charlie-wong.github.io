@@ -8,7 +8,9 @@ function main() {
 
   function handler(e) {
     e.stopPropagation();
-    e.stopImmediatePropagation && e.stopImmediatePropagation()
+    if (e.stopImmediatePropagation) {
+      e.stopImmediatePropagation();
+    }
   }
 
   const actions = [
@@ -16,5 +18,10 @@ function main() {
   ];
   actions.forEach(function(e) {
     document.documentElement.addEventListener(e, handler, { capture: !0 })
-  })
+  });
+}
+
+// 解除 CSP 网页限制: HTTP 首部的 Content-Security-Policy
+function main() {
+  // TODO
 }

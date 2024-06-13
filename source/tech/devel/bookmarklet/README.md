@@ -2,6 +2,7 @@
 
 - 最小化 JS 代码 https://minify-js.com
 - 格式化 JS 代码 https://jsbeautify.org
+- https://www.bejson.com/enc/urlencode
 
 - 书签栏分隔符 https://separator.mayastudios.com
 - 小书签汇总表 https://www.runningcheese.com/bookmarklets

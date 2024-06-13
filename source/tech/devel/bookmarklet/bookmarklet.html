@@ -102,6 +102,9 @@ function generate() {
 // 04-显示网格布局.js
   jsCode = 'const color=()=>Math.floor(255*Math.random()),list=document.body.getElementsByTagName("*");for(let o of list){const l="rgb("+color()+","+color()+","+color()+")",{style:t}=o;t.outline=t.outline?"":"2px solid "+l}';
   addBkMkLet(xul, '显示网格布局', jsCode);
+// 05-查看浏览器UA.js
+  jsCode = 'alert(navigator.userAgent);';
+  addBkMkLet(xul, '查看浏览器UA', jsCode);
 
   zid.appendChild(xul);
   addTestPage('BmlId01', 'https://guofeng.yuedu.163.com/book_reader/991fd2e2bf5f42ef9f707d88e9acbb06_4');
