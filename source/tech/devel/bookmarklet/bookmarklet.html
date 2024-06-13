@@ -99,6 +99,9 @@ function generate() {
 // 03-上下左右旋转.js
   jsCode = '"undefined"==typeof rotateNum?rotateNum=180:rotateNum=rotateNum?0:180,document.body.style.cssText+="transition: all 1s;",document.body.style.cssText+="transform: rotate("+rotateNum+"deg);";';
   addBkMkLet(xul, '上下左右旋转', jsCode);
+// 04-显示网格布局.js
+  jsCode = 'const color=()=>Math.floor(255*Math.random()),list=document.body.getElementsByTagName("*");for(let o of list){const l="rgb("+color()+","+color()+","+color()+")",{style:t}=o;t.outline=t.outline?"":"2px solid "+l}';
+  addBkMkLet(xul, '显示网格布局', jsCode);
 
   zid.appendChild(xul);
   addTestPage('BmlId01', 'https://guofeng.yuedu.163.com/book_reader/991fd2e2bf5f42ef9f707d88e9acbb06_4');

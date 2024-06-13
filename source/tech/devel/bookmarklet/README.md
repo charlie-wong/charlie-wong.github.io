@@ -48,17 +48,3 @@ javascript:(()=>{ ... })();
 <a href="javascript: ( () => { ; } )();">匿名函数立即执行</a>
 <a href="javascript: function main() { ; } main();">标签名</a>
 ```
-
-## 小书签 JS 代码列表
-
-```js
-function main() {
-  const color = () => Math.floor(Math.random() * 255);
-  const list = document.body.getElementsByTagName('*');
-  for (let item of list) {
-    const rgb = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
-    const { style } = item;
-    style.outline = style.outline ? '' : '2px solid ' + rgb;
-  }
-}
-```
