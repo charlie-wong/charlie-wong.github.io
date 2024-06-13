@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <title>Bookmarklet</title>
+  <style type="text/css">
+  /* .XXX 对应 class 可多次引用, #XXX 对应 id 仅可用一次 */
+  body {
+    margin: 15px;
+    font-size: 1.1em;
+    font-weight: 400;
+    background-color: #bdbdc6; /* AFAFB7 D9D9DE*/
+    font-family: Helvetica, Arial, Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  }
+  .group { height: 42px; min-width: 280px; }
+  .group > ul { list-style: none; margin: 0; padding: 0; }
+  .group > ul > li {
+    display: inline-block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 0.15em 15px;
+    outline: none;
+    text-align: center;
+    width: 185px;
+  }
+  /* Link - Visited - Hover - Focus - Active */
+  .group a { text-decoration: none; }
+  .group a:link { color: #03F; text-decoration: none; }
+  .group a:visited {color: #03F; text-decoration: none; }
+  .group a:hover { color: #E7E7E7; text-decoration: none; }
+  .group a:focus { color: #229231;}    /* for kbd navigation with TAB */
+  .group a:active { color: #141414; text-decoration: none; }
+  .group a { border-bottom: none; } /* hide anchor uline */
+  .group li a:active {
+    border-radius: 6px;
+    border-color: #1C71BE;
+  }
+
+  .gbtn {
+    background-color: #f8f9fa;
+    border-color: gray;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.6) inset;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color .25s;
+  }
+
+  div {
+    margin: 8px; /* 外边框 */
+    /* border: 1px solid red; 显示边框 */
+  }
+  </style>
+</head>
+<body>
+  <div class="group" id="jslet"></div><br>
+</body>
+<script>
+function addBkMkLet(ul, name, jscode) {
+  const li = document.createElement('li');
+  li.setAttribute('class', 'gbtn');
+  const a = document.createElement('a');
+  a.innerHTML = name;
+  a.setAttribute('href', "javascript:(()=>{ " + jscode + " })();void(0);");
+  li.appendChild(a);
+  ul.appendChild(li);
+}
+
+function generate() {
+  let jsCode;
+  let xul = document.createElement('ul');
+  let zid = document.getElementById('jslet');
+//let dir = window.location.href.replace(/bookmarklet.html/g, "");
+
+// 01-编辑当前页面.js
+  jsCode = 'document.designMode=document.designMode==="on"?"off":"on"';
+  addBkMkLet(xul, '编辑当前页面1', jsCode);
+  jsCode = 'document.body.setAttribute("contenteditable","true"),document.onkeydown=function(e){27==(e=e||window.event).keyCode&&document.body.setAttribute("contenteditable","false")};';
+  addBkMkLet(xul, '编辑当前页面2', jsCode);
+
+  zid.appendChild(xul);
+}
+generate();
+</script>
+</html>
