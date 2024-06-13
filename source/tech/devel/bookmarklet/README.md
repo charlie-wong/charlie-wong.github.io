@@ -52,64 +52,6 @@ javascript:(()=>{ ... })();
 ## 小书签 JS 代码列表
 
 ```js
-
-// 网页元素删除
-// 解除网页的<复制>及<右键菜单>限制
-
-// 自动滚屏
-// 自动刷新
-
-// 护眼模式
-// 黑暗模式
-// 阅读模式
-
-// 水平分屏模式
-// 垂直分屏模式
-
-// 隐藏已读的网页连接
-// 网页背景(书报信纸样式)
-
-// 切换<有>衬线字体
-// 切换<无>衬线字体
-
-// 加粗各单词前字符(提高效率)
-// 英语长居着色处理(提高效率)
-
-// 将网页转换为简体中文
-// 将网页转换为繁体中文
-// 新标签页打开百度翻译
-// 谷歌网页翻译(旧版)
-// 谷歌网页翻译(新版)
-
-// 百度小窗搜索
-// 百度站内搜索
-// 必应小窗搜索
-// 必应站内搜索
-
-// 查看当前网页的所有链接
-// 列出当前网页可下载资源
-
-// 新标签页查看图片时按 shift+alt+= 背景黑白切换
-// 新标签页查看图片时按 alt+=       顺时旋转图片
-// 新标签页查看图片时按 alt+-       逆时旋转图片
-// 新标签页查看图片时按 shift+=     图片放至最大
-// 新标签页查看图片时按 shift+-     图片恢复原样
-
-// 表格增加<正序>和<反序>按钮
-
-// 查看浏览器 UA(User Agent)
-// 查看当前网页 Cookie
-// 查看网页图标
-// 查看网页<骨架>特效
-
-// IP 查询
-// SEO 查询
-// DNS 查询
-// Whois 查询
-// Buildwith 查询
-// 网站综合查询
-
-// 查看当前网页网格布局结构
 function main() {
   const color = () => Math.floor(Math.random() * 255);
   const list = document.body.getElementsByTagName('*');
@@ -119,26 +61,4 @@ function main() {
     style.outline = style.outline ? '' : '2px solid ' + rgb;
   }
 }
-
-// 旋转网页
-function main() {
-  if (typeof rotateNum === 'undefined') {
-    rotateNum = 180;
-  } else {
-    rotateNum = rotateNum ? 0: 180;
-  }
-  document.body.style.cssText +="transition: all 1s;";
-  document.body.style.cssText +="transform: rotate(" + rotateNum + "deg);";
-}
-
-// 旋转视频方向
-
-// 生成网页二维码图片(当前页面弹窗)
-function main() {}
-
-// 生成网页二维码图片(新页面显示)
-// 博客预设留言
-// 网购价格比较
-// 查看 firefox 和 chrome 扩展源码
-//
 ```
