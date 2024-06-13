@@ -60,14 +60,24 @@
   <div class="group" id="jslet"></div><br>
 </body>
 <script>
-function addBkMkLet(ul, name, jscode) {
+function addBkMkLet(ul, name, jscode, xid) {
   const li = document.createElement('li');
   li.setAttribute('class', 'gbtn');
+  if(xid) li.setAttribute('id', xid);
   const a = document.createElement('a');
   a.innerHTML = name;
   a.setAttribute('href', "javascript:(()=>{ " + jscode + " })();void(0);");
   li.appendChild(a);
   ul.appendChild(li);
+}
+
+function addTestPage(xid, url) {
+  const a = document.createElement('a');
+  a.innerHTML = "&nbsp;[测试页]";
+  a.setAttribute('href', url);
+  a.setAttribute('target', '_blank');
+  a.setAttribute('style', "color:red; font-size:50%;");
+  document.getElementById(xid).appendChild(a);
 }
 
 function generate() {
@@ -81,8 +91,14 @@ function generate() {
   addBkMkLet(xul, '编辑当前页面1', jsCode);
   jsCode = 'document.body.setAttribute("contenteditable","true"),document.onkeydown=function(e){27==(e=e||window.event).keyCode&&document.body.setAttribute("contenteditable","false")};';
   addBkMkLet(xul, '编辑当前页面2', jsCode);
+  jsCode = 'function n(n,o){var e,t=n.length;for(e=0;e<t;e++)o(n[e])}function o(o,e,t,i){function r(n){var o=n.target;!i&&o.xmt||t(o)}o.addEventListener(e,r,!1),o.es||(o.es=[]),o.es.push((function(){o.removeEventListener(e,r,!1)})),o.re=function(){n(o.es,(function(n){n()}))}}window.r_||(window.r_=[]);var e=window.r_,t=document;function i(n,o,e){var i=t.createElement(o);return e&&(i.innerHTML=e),n.appendChild(i),i}o(t.body,"mouseover",(function(n){n.style.backgroundColor="#ffff99",function(n){var o=n.onclick,e=n.onmouseup,t=n.onmousedown;n.onclick=function(){return!1},n.onmouseup=function(){return!1},n.onmousedown=function(){return!1},n.rce=function(){n.onclick=o,n.onmouseup=e,n.onmousedown=t}}(n)})),o(t.body,"mouseout",(function(n){n.style.backgroundColor="",n.rce&&n.rce()})),o(t.body,"click",(function(n){n.style.display="none",e.push(n)}));var r=0,c=i(t.body,"div");function s(){c.style.top=2&r?"":"10px",c.style.bottom=2&r?"10px":"",c.style.left=1&r?"":"10px",c.style.right=1&r?"10px":""}c.style.cssText="position:fixed;",c.style.cssText+="padding: 2px; background-color: #99FF99;",c.style.cssText+="border: 1px solid green; z-index: 9999;",c.style.cssText+="font-family: sans-serif; font-size: 10px;",s();var u=i(c,"a"," Undo |");o(u,"click",(function(){var n=e.pop();n&&(n.style.display="")}),!0);var l=i(c,"a"," Undo All |");o(l,"click",(function(){for(var n;n=e.pop();)n.style.display=""}),!0);var f=i(c,"a"," Move |");o(f,"click",(function(){r++,s()}),!0);var d=i(c,"a"," Exit ");o(d,"click",(function(){t.body.re(),c.parentNode.removeChild(c)}),!0),n([c,u,f,d,l],(function(n){n.style.cursor="pointer",n.xmt=1}))';
+  addBkMkLet(xul, '编辑当前页面3', jsCode);
+// 02-解除网页限制.js
+  jsCode = 'function handler(e){e.stopPropagation(),e.stopImmediatePropagation&&e.stopImmediatePropagation()}document.querySelectorAll("*").forEach((e=>{"none"===window.getComputedStyle(e,null).getPropertyValue("user-select")&&e.style.setProperty("user-select","text","important")}));const actions=["copy","cut","contextmenu","selectstart","mousedown","mouseup","mousemove","keydown","keypress","keyup"];actions.forEach((function(e){document.documentElement.addEventListener(e,handler,{capture:!0})}));';
+  addBkMkLet(xul, '解除网页限制', jsCode, 'BmlId01');
 
   zid.appendChild(xul);
+  addTestPage('BmlId01', 'https://guofeng.yuedu.163.com/book_reader/991fd2e2bf5f42ef9f707d88e9acbb06_4');
 }
 generate();
 </script>
