@@ -1,6 +1,6 @@
 # NOTE Bash/Zsh 解析位置参数
 # => help getopts
-# - 语法: getopts OptStr opt
+# - 语法: getopts OptStr _opt_
 # - 控制变量: OPTIND OPTARG OPTERR
 # - 每个选项只能是单个字母字符, 区分大小写
 #   首字符冒号则 静默模式, 否则 非 静默模式
@@ -11,13 +11,13 @@
 # NOTE OPTERR=1   Bash 默认值,  OPTERR=''  ZSH默认值
 
 function demo() {
-  local title="$1" silent=$2 emsg=$3; shift 3
+  local title="$1" silent="$2" emsg="$3"; shift 3
   echo "$title TC=[$#] -> [$*]"
 
   echo "OPTERR 默认值 [${OPTERR}] 当前值 [${emsg}]"
   # NOTE 初始化全局控制变量, Bash 保留上一次调用 getopts 时 OPTIND 的值
   # 若不重置索引值, 则会造成奇怪的解析结果, 比如跳过对某些参数的解析
-  local OPTIND=1  OPTARG  OPTERR=${emsg}  opt
+  local OPTIND=1  OPTARG  OPTERR="${emsg}"  _opt_
   # OPTERR=0 [隐藏]错误消息  OPTERR=1 [显示]错误消息
 
   if [[ ${silent} -eq 1 ]]; then
@@ -26,12 +26,12 @@ function demo() {
     local OPTS="a:bcd:"  # [非]静默模式
   fi
 
-  while getopts "${OPTS}" opt; do # 按字符依次处理,
-    # opt     函数位置参数(无效参数则赋值 ?)
+  while getopts "${OPTS}" _opt_; do # 按字符依次处理,
+    # _opt_  函数位置参数(无效参数则赋值 ?)
     # OPTARG  当前位置参数所需参数(带 : 的参数)
     # OPTIND  下一个待处理的位置参数索引
-    echo "=> opt=[${opt}] OPTARG=[${OPTARG}] OPTIND=[${OPTIND}]->[${!OPTIND}]"
-    case "${opt}" in
+    echo "=> [${_opt_}] OPTARG=[${OPTARG}] OPTIND=[${OPTIND}]->[${!OPTIND}]"
+    case "${_opt_}" in
     'a') echo "ok -> a=[${OPTARG}]" ;;
     'b') echo "ok -> b" ;;
     'c') echo "ok -> c" ;;
