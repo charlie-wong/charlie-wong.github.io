@@ -10,6 +10,16 @@
 #   x: 表示 x 选项需要参数, 解析后其所需参数位于 OPTARG 变量
 # NOTE OPTERR=1   Bash 默认值,  OPTERR=''  ZSH默认值
 
+function is-bash() { false; }
+function is-zsh()  { false; }
+if [[ -n "${BASH_VERSION}" ]]; then
+  function is-bash() { true; }
+elif [[ -n "${ZSH_VERSION}" ]]; then
+  function is-zsh()  { true; }
+else
+  echo "only for bash or zsh"; exit
+fi
+
 function demo() {
   local title="$1" silent="$2" emsg="$3"; shift 3
   echo "$title TC=[$#] -> [$*]"
@@ -30,7 +40,11 @@ function demo() {
     # _opt_  函数位置参数(无效参数则赋值 ?)
     # OPTARG  当前位置参数所需参数(带 : 的参数)
     # OPTIND  下一个待处理的位置参数索引
-    echo "=> [${_opt_}] OPTARG=[${OPTARG}] OPTIND=[${OPTIND}]->[${!OPTIND}]"
+    if is-bash; then
+      echo "=> [${_opt_}] OPTARG=[${OPTARG}] OPTIND=[${OPTIND}]->[${!OPTIND}]"
+    elif is-zsh; then
+      echo "=> [${_opt_}] OPTARG=[${OPTARG}] OPTIND=[${OPTIND}]"
+    fi
     case "${_opt_}" in
     'a') echo "ok -> a=[${OPTARG}]" ;;
     'b') echo "ok -> b" ;;
