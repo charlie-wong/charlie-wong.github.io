@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="500" width="750" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Roadmap to the Unicode SIP</title>
+	<desc>This chart is a roadmap of character allocation for Unicode plane 2: Supplementary Ideographic Plane (SIP).  It was created on 2016-07-26 using Unicode 9.0 data.</desc>
+	<defs>
+		<linearGradient gradientUnits="userSpaceOnUse" id="grad0" x1="187.75" x2="218.875">
+		<stop offset="0%" stop-color="salmon" />
+		<stop offset="87.5%" stop-color="salmon" />
+		<stop offset="87.5%" stop-color="white" />
+		<stop offset="100%" stop-color="white" />
+		</linearGradient>
+		<linearGradient gradientUnits="userSpaceOnUse" id="grad1" x1="218.875" x2="250">
+		<stop offset="0%" stop-color="salmon" />
+		<stop offset="100%" stop-color="salmon" />
+		</linearGradient>
+		<linearGradient gradientUnits="userSpaceOnUse" id="grad2" x1="436.75" x2="467.875">
+		<stop offset="0%" stop-color="salmon" />
+		<stop offset="68.75%" stop-color="salmon" />
+		<stop offset="68.75%" stop-color="white" />
+		<stop offset="100%" stop-color="white" />
+		</linearGradient>
+		<linearGradient gradientUnits="userSpaceOnUse" id="grad3" x1="250" x2="281.125">
+		<stop offset="0%" stop-color="salmon" />
+		<stop offset="100%" stop-color="salmon" />
+		</linearGradient>
+		<linearGradient gradientUnits="userSpaceOnUse" id="grad4" x1="312.25" x2="343.375">
+		<stop offset="0%" stop-color="salmon" />
+		<stop offset="12.5%" stop-color="salmon" />
+		<stop offset="12.5%" stop-color="white" />
+		<stop offset="100%" stop-color="white" />
+		</linearGradient>
+	</defs>
+	<rect fill="white" height="500" width="750" x="0" y="0" />
+	<g stroke="gainsboro" stroke-width="2px">
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="1" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="32.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="63.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="94.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="125.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="156.625" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="187.75" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="218.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="250" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="281.125" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="312.25" />
+		<rect fill="url(#grad0)" height="31.125" width="31.125" x="187.75" y="312.25" />
+		<rect fill="url(#grad1)" height="31.125" width="31.125" x="218.875" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="312.25" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="436.75" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="467.875" y="343.375" />
+		<rect fill="salmon" height="31.125" width="31.125" x="1" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="32.125" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="63.25" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="94.375" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="125.5" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="156.625" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="187.75" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="218.875" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="250" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="312.25" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="343.375" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="374.5" y="374.5" />
+		<rect fill="salmon" height="31.125" width="31.125" x="405.625" y="374.5" />
+		<rect fill="url(#grad2)" height="31.125" width="31.125" x="436.75" y="374.5" />
+		<rect fill="white" height="31.125" width="31.125" x="467.875" y="374.5" />
+		<rect fill="white" height="31.125" width="31.125" x="1" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="32.125" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="63.25" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="94.375" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="125.5" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="156.625" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="187.75" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="218.875" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="250" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="281.125" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="312.25" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="343.375" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="374.5" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="405.625" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="436.75" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="467.875" y="405.625" />
+		<rect fill="white" height="31.125" width="31.125" x="1" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="32.125" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="63.25" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="94.375" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="125.5" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="156.625" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="187.75" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="218.875" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="250" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="281.125" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="312.25" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="343.375" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="374.5" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="405.625" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="436.75" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="467.875" y="436.75" />
+		<rect fill="white" height="31.125" width="31.125" x="1" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="32.125" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="63.25" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="94.375" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="125.5" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="156.625" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="187.75" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="218.875" y="467.875" />
+		<rect fill="url(#grad3)" height="31.125" width="31.125" x="250" y="467.875" />
+		<rect fill="salmon" height="31.125" width="31.125" x="281.125" y="467.875" />
+		<rect fill="url(#grad4)" height="31.125" width="31.125" x="312.25" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="343.375" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="374.5" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="405.625" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="436.75" y="467.875" />
+		<rect fill="white" height="31.125" width="31.125" x="467.875" y="467.875" /></g>
+	<g font-family="'DejaVu Sans', sans-serif" font-size="13px" text-anchor="middle">
+		<text fill="black" x="16.5625" y="21.75">200</text>
+		<text fill="black" x="47.6875" y="21.75">201</text>
+		<text fill="black" x="78.8125" y="21.75">202</text>
+		<text fill="black" x="109.9375" y="21.75">203</text>
+		<text fill="black" x="141.0625" y="21.75">204</text>
+		<text fill="black" x="172.1875" y="21.75">205</text>
+		<text fill="black" x="203.3125" y="21.75">206</text>
+		<text fill="black" x="234.4375" y="21.75">207</text>
+		<text fill="black" x="265.5625" y="21.75">208</text>
+		<text fill="black" x="296.6875" y="21.75">209</text>
+		<text fill="black" x="327.8125" y="21.75">20A</text>
+		<text fill="black" x="358.9375" y="21.75">20B</text>
+		<text fill="black" x="390.0625" y="21.75">20C</text>
+		<text fill="black" x="421.1875" y="21.75">20D</text>
+		<text fill="black" x="452.3125" y="21.75">20E</text>
+		<text fill="black" x="483.4375" y="21.75">20F</text>
+		<text fill="black" x="16.5625" y="52.875">210</text>
+		<text fill="black" x="47.6875" y="52.875">211</text>
+		<text fill="black" x="78.8125" y="52.875">212</text>
+		<text fill="black" x="109.9375" y="52.875">213</text>
+		<text fill="black" x="141.0625" y="52.875">214</text>
+		<text fill="black" x="172.1875" y="52.875">215</text>
+		<text fill="black" x="203.3125" y="52.875">216</text>
+		<text fill="black" x="234.4375" y="52.875">217</text>
+		<text fill="black" x="265.5625" y="52.875">218</text>
+		<text fill="black" x="296.6875" y="52.875">219</text>
+		<text fill="black" x="327.8125" y="52.875">21A</text>
+		<text fill="black" x="358.9375" y="52.875">21B</text>
+		<text fill="black" x="390.0625" y="52.875">21C</text>
+		<text fill="black" x="421.1875" y="52.875">21D</text>
+		<text fill="black" x="452.3125" y="52.875">21E</text>
+		<text fill="black" x="483.4375" y="52.875">21F</text>
+		<text fill="black" x="16.5625" y="84">220</text>
+		<text fill="black" x="47.6875" y="84">221</text>
+		<text fill="black" x="78.8125" y="84">222</text>
+		<text fill="black" x="109.9375" y="84">223</text>
+		<text fill="black" x="141.0625" y="84">224</text>
+		<text fill="black" x="172.1875" y="84">225</text>
+		<text fill="black" x="203.3125" y="84">226</text>
+		<text fill="black" x="234.4375" y="84">227</text>
+		<text fill="black" x="265.5625" y="84">228</text>
+		<text fill="black" x="296.6875" y="84">229</text>
+		<text fill="black" x="327.8125" y="84">22A</text>
+		<text fill="black" x="358.9375" y="84">22B</text>
+		<text fill="black" x="390.0625" y="84">22C</text>
+		<text fill="black" x="421.1875" y="84">22D</text>
+		<text fill="black" x="452.3125" y="84">22E</text>
+		<text fill="black" x="483.4375" y="84">22F</text>
+		<text fill="black" x="16.5625" y="115.125">230</text>
+		<text fill="black" x="47.6875" y="115.125">231</text>
+		<text fill="black" x="78.8125" y="115.125">232</text>
+		<text fill="black" x="109.9375" y="115.125">233</text>
+		<text fill="black" x="141.0625" y="115.125">234</text>
+		<text fill="black" x="172.1875" y="115.125">235</text>
+		<text fill="black" x="203.3125" y="115.125">236</text>
+		<text fill="black" x="234.4375" y="115.125">237</text>
+		<text fill="black" x="265.5625" y="115.125">238</text>
+		<text fill="black" x="296.6875" y="115.125">239</text>
+		<text fill="black" x="327.8125" y="115.125">23A</text>
+		<text fill="black" x="358.9375" y="115.125">23B</text>
+		<text fill="black" x="390.0625" y="115.125">23C</text>
+		<text fill="black" x="421.1875" y="115.125">23D</text>
+		<text fill="black" x="452.3125" y="115.125">23E</text>
+		<text fill="black" x="483.4375" y="115.125">23F</text>
+		<text fill="black" x="16.5625" y="146.25">240</text>
+		<text fill="black" x="47.6875" y="146.25">241</text>
+		<text fill="black" x="78.8125" y="146.25">242</text>
+		<text fill="black" x="109.9375" y="146.25">243</text>
+		<text fill="black" x="141.0625" y="146.25">244</text>
+		<text fill="black" x="172.1875" y="146.25">245</text>
+		<text fill="black" x="203.3125" y="146.25">246</text>
+		<text fill="black" x="234.4375" y="146.25">247</text>
+		<text fill="black" x="265.5625" y="146.25">248</text>
+		<text fill="black" x="296.6875" y="146.25">249</text>
+		<text fill="black" x="327.8125" y="146.25">24A</text>
+		<text fill="black" x="358.9375" y="146.25">24B</text>
+		<text fill="black" x="390.0625" y="146.25">24C</text>
+		<text fill="black" x="421.1875" y="146.25">24D</text>
+		<text fill="black" x="452.3125" y="146.25">24E</text>
+		<text fill="black" x="483.4375" y="146.25">24F</text>
+		<text fill="black" x="16.5625" y="177.375">250</text>
+		<text fill="black" x="47.6875" y="177.375">251</text>
+		<text fill="black" x="78.8125" y="177.375">252</text>
+		<text fill="black" x="109.9375" y="177.375">253</text>
+		<text fill="black" x="141.0625" y="177.375">254</text>
+		<text fill="black" x="172.1875" y="177.375">255</text>
+		<text fill="black" x="203.3125" y="177.375">256</text>
+		<text fill="black" x="234.4375" y="177.375">257</text>
+		<text fill="black" x="265.5625" y="177.375">258</text>
+		<text fill="black" x="296.6875" y="177.375">259</text>
+		<text fill="black" x="327.8125" y="177.375">25A</text>
+		<text fill="black" x="358.9375" y="177.375">25B</text>
+		<text fill="black" x="390.0625" y="177.375">25C</text>
+		<text fill="black" x="421.1875" y="177.375">25D</text>
+		<text fill="black" x="452.3125" y="177.375">25E</text>
+		<text fill="black" x="483.4375" y="177.375">25F</text>
+		<text fill="black" x="16.5625" y="208.5">260</text>
+		<text fill="black" x="47.6875" y="208.5">261</text>
+		<text fill="black" x="78.8125" y="208.5">262</text>
+		<text fill="black" x="109.9375" y="208.5">263</text>
+		<text fill="black" x="141.0625" y="208.5">264</text>
+		<text fill="black" x="172.1875" y="208.5">265</text>
+		<text fill="black" x="203.3125" y="208.5">266</text>
+		<text fill="black" x="234.4375" y="208.5">267</text>
+		<text fill="black" x="265.5625" y="208.5">268</text>
+		<text fill="black" x="296.6875" y="208.5">269</text>
+		<text fill="black" x="327.8125" y="208.5">26A</text>
+		<text fill="black" x="358.9375" y="208.5">26B</text>
+		<text fill="black" x="390.0625" y="208.5">26C</text>
+		<text fill="black" x="421.1875" y="208.5">26D</text>
+		<text fill="black" x="452.3125" y="208.5">26E</text>
+		<text fill="black" x="483.4375" y="208.5">26F</text>
+		<text fill="black" x="16.5625" y="239.625">270</text>
+		<text fill="black" x="47.6875" y="239.625">271</text>
+		<text fill="black" x="78.8125" y="239.625">272</text>
+		<text fill="black" x="109.9375" y="239.625">273</text>
+		<text fill="black" x="141.0625" y="239.625">274</text>
+		<text fill="black" x="172.1875" y="239.625">275</text>
+		<text fill="black" x="203.3125" y="239.625">276</text>
+		<text fill="black" x="234.4375" y="239.625">277</text>
+		<text fill="black" x="265.5625" y="239.625">278</text>
+		<text fill="black" x="296.6875" y="239.625">279</text>
+		<text fill="black" x="327.8125" y="239.625">27A</text>
+		<text fill="black" x="358.9375" y="239.625">27B</text>
+		<text fill="black" x="390.0625" y="239.625">27C</text>
+		<text fill="black" x="421.1875" y="239.625">27D</text>
+		<text fill="black" x="452.3125" y="239.625">27E</text>
+		<text fill="black" x="483.4375" y="239.625">27F</text>
+		<text fill="black" x="16.5625" y="270.75">280</text>
+		<text fill="black" x="47.6875" y="270.75">281</text>
+		<text fill="black" x="78.8125" y="270.75">282</text>
+		<text fill="black" x="109.9375" y="270.75">283</text>
+		<text fill="black" x="141.0625" y="270.75">284</text>
+		<text fill="black" x="172.1875" y="270.75">285</text>
+		<text fill="black" x="203.3125" y="270.75">286</text>
+		<text fill="black" x="234.4375" y="270.75">287</text>
+		<text fill="black" x="265.5625" y="270.75">288</text>
+		<text fill="black" x="296.6875" y="270.75">289</text>
+		<text fill="black" x="327.8125" y="270.75">28A</text>
+		<text fill="black" x="358.9375" y="270.75">28B</text>
+		<text fill="black" x="390.0625" y="270.75">28C</text>
+		<text fill="black" x="421.1875" y="270.75">28D</text>
+		<text fill="black" x="452.3125" y="270.75">28E</text>
+		<text fill="black" x="483.4375" y="270.75">28F</text>
+		<text fill="black" x="16.5625" y="301.875">290</text>
+		<text fill="black" x="47.6875" y="301.875">291</text>
+		<text fill="black" x="78.8125" y="301.875">292</text>
+		<text fill="black" x="109.9375" y="301.875">293</text>
+		<text fill="black" x="141.0625" y="301.875">294</text>
+		<text fill="black" x="172.1875" y="301.875">295</text>
+		<text fill="black" x="203.3125" y="301.875">296</text>
+		<text fill="black" x="234.4375" y="301.875">297</text>
+		<text fill="black" x="265.5625" y="301.875">298</text>
+		<text fill="black" x="296.6875" y="301.875">299</text>
+		<text fill="black" x="327.8125" y="301.875">29A</text>
+		<text fill="black" x="358.9375" y="301.875">29B</text>
+		<text fill="black" x="390.0625" y="301.875">29C</text>
+		<text fill="black" x="421.1875" y="301.875">29D</text>
+		<text fill="black" x="452.3125" y="301.875">29E</text>
+		<text fill="black" x="483.4375" y="301.875">29F</text>
+		<text fill="black" x="16.5625" y="333">2A0</text>
+		<text fill="black" x="47.6875" y="333">2A1</text>
+		<text fill="black" x="78.8125" y="333">2A2</text>
+		<text fill="black" x="109.9375" y="333">2A3</text>
+		<text fill="black" x="141.0625" y="333">2A4</text>
+		<text fill="black" x="172.1875" y="333">2A5</text>
+		<text fill="black" x="203.3125" y="333">2A6</text>
+		<text fill="black" x="234.4375" y="333">2A7</text>
+		<text fill="black" x="265.5625" y="333">2A8</text>
+		<text fill="black" x="296.6875" y="333">2A9</text>
+		<text fill="black" x="327.8125" y="333">2AA</text>
+		<text fill="black" x="358.9375" y="333">2AB</text>
+		<text fill="black" x="390.0625" y="333">2AC</text>
+		<text fill="black" x="421.1875" y="333">2AD</text>
+		<text fill="black" x="452.3125" y="333">2AE</text>
+		<text fill="black" x="483.4375" y="333">2AF</text>
+		<text fill="black" x="16.5625" y="364.125">2B0</text>
+		<text fill="black" x="47.6875" y="364.125">2B1</text>
+		<text fill="black" x="78.8125" y="364.125">2B2</text>
+		<text fill="black" x="109.9375" y="364.125">2B3</text>
+		<text fill="black" x="141.0625" y="364.125">2B4</text>
+		<text fill="black" x="172.1875" y="364.125">2B5</text>
+		<text fill="black" x="203.3125" y="364.125">2B6</text>
+		<text fill="black" x="234.4375" y="364.125">2B7</text>
+		<text fill="black" x="265.5625" y="364.125">2B8</text>
+		<text fill="black" x="296.6875" y="364.125">2B9</text>
+		<text fill="black" x="327.8125" y="364.125">2BA</text>
+		<text fill="black" x="358.9375" y="364.125">2BB</text>
+		<text fill="black" x="390.0625" y="364.125">2BC</text>
+		<text fill="black" x="421.1875" y="364.125">2BD</text>
+		<text fill="black" x="452.3125" y="364.125">2BE</text>
+		<text fill="black" x="483.4375" y="364.125">2BF</text>
+		<text fill="black" x="16.5625" y="395.25">2C0</text>
+		<text fill="black" x="47.6875" y="395.25">2C1</text>
+		<text fill="black" x="78.8125" y="395.25">2C2</text>
+		<text fill="black" x="109.9375" y="395.25">2C3</text>
+		<text fill="black" x="141.0625" y="395.25">2C4</text>
+		<text fill="black" x="172.1875" y="395.25">2C5</text>
+		<text fill="black" x="203.3125" y="395.25">2C6</text>
+		<text fill="black" x="234.4375" y="395.25">2C7</text>
+		<text fill="black" x="265.5625" y="395.25">2C8</text>
+		<text fill="black" x="296.6875" y="395.25">2C9</text>
+		<text fill="black" x="327.8125" y="395.25">2CA</text>
+		<text fill="black" x="358.9375" y="395.25">2CB</text>
+		<text fill="black" x="390.0625" y="395.25">2CC</text>
+		<text fill="black" x="421.1875" y="395.25">2CD</text>
+		<text fill="black" x="452.3125" y="395.25">2CE</text>
+		<text fill="black" x="483.4375" y="395.25">2CF</text>
+		<text fill="black" x="16.5625" y="426.375">2D0</text>
+		<text fill="black" x="47.6875" y="426.375">2D1</text>
+		<text fill="black" x="78.8125" y="426.375">2D2</text>
+		<text fill="black" x="109.9375" y="426.375">2D3</text>
+		<text fill="black" x="141.0625" y="426.375">2D4</text>
+		<text fill="black" x="172.1875" y="426.375">2D5</text>
+		<text fill="black" x="203.3125" y="426.375">2D6</text>
+		<text fill="black" x="234.4375" y="426.375">2D7</text>
+		<text fill="black" x="265.5625" y="426.375">2D8</text>
+		<text fill="black" x="296.6875" y="426.375">2D9</text>
+		<text fill="black" x="327.8125" y="426.375">2DA</text>
+		<text fill="black" x="358.9375" y="426.375">2DB</text>
+		<text fill="black" x="390.0625" y="426.375">2DC</text>
+		<text fill="black" x="421.1875" y="426.375">2DD</text>
+		<text fill="black" x="452.3125" y="426.375">2DE</text>
+		<text fill="black" x="483.4375" y="426.375">2DF</text>
+		<text fill="black" x="16.5625" y="457.5">2E0</text>
+		<text fill="black" x="47.6875" y="457.5">2E1</text>
+		<text fill="black" x="78.8125" y="457.5">2E2</text>
+		<text fill="black" x="109.9375" y="457.5">2E3</text>
+		<text fill="black" x="141.0625" y="457.5">2E4</text>
+		<text fill="black" x="172.1875" y="457.5">2E5</text>
+		<text fill="black" x="203.3125" y="457.5">2E6</text>
+		<text fill="black" x="234.4375" y="457.5">2E7</text>
+		<text fill="black" x="265.5625" y="457.5">2E8</text>
+		<text fill="black" x="296.6875" y="457.5">2E9</text>
+		<text fill="black" x="327.8125" y="457.5">2EA</text>
+		<text fill="black" x="358.9375" y="457.5">2EB</text>
+		<text fill="black" x="390.0625" y="457.5">2EC</text>
+		<text fill="black" x="421.1875" y="457.5">2ED</text>
+		<text fill="black" x="452.3125" y="457.5">2EE</text>
+		<text fill="black" x="483.4375" y="457.5">2EF</text>
+		<text fill="black" x="16.5625" y="488.625">2F0</text>
+		<text fill="black" x="47.6875" y="488.625">2F1</text>
+		<text fill="black" x="78.8125" y="488.625">2F2</text>
+		<text fill="black" x="109.9375" y="488.625">2F3</text>
+		<text fill="black" x="141.0625" y="488.625">2F4</text>
+		<text fill="black" x="172.1875" y="488.625">2F5</text>
+		<text fill="black" x="203.3125" y="488.625">2F6</text>
+		<text fill="black" x="234.4375" y="488.625">2F7</text>
+		<text fill="black" x="265.5625" y="488.625">2F8</text>
+		<text fill="black" x="296.6875" y="488.625">2F9</text>
+		<text fill="black" x="327.8125" y="488.625">2FA</text>
+		<text fill="black" x="358.9375" y="488.625">2FB</text>
+		<text fill="black" x="390.0625" y="488.625">2FC</text>
+		<text fill="black" x="421.1875" y="488.625">2FD</text>
+		<text fill="black" x="452.3125" y="488.625">2FE</text>
+		<text fill="black" x="483.4375" y="488.625">2FF</text>
+	</g>
+	<g stroke="gainsboro" stroke-width="2px">
+		<rect fill="salmon" height="13" width="25" x="518" y="17" />
+		<rect fill="white" height="13" width="25" x="518" y="43.25" />
+	</g>
+	<g font-family="'DejaVu Sans', sans-serif" font-size="13px" text-anchor="start" xml:lang="en">
+		<text x="553" y="27">CJK characters</text>
+		<text x="553" y="53.25">Unallocated code points</text>
+		<text x="528" y="89.5">As of Unicode 9.0</text>
+	</g>
+</svg>

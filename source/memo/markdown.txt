@@ -2,8 +2,9 @@
 [![logo](/docs/assets/img/logo.svg)](/)
 </div>
 
-=>GitHub Markdown 扩展语法 Highlight Alerts
-  https://github.com/orgs/community/discussions/16925
+
+GitHub Markdown 扩展语法 Highlight Alerts
+https://github.com/orgs/community/discussions/16925
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 > [!TIP]
@@ -15,18 +16,17 @@
 > [!CAUTION]
 > Negative potential consequences of an action.
 
-=>语法高亮支持的语言列表
-  Fenced Code Blocks https://meta.stackexchange.com/questions/184108
 
-->GitHub Markdown 语法高亮语言 keywords 列表
-  其使用 Linguist 库进行语言侦测和语法高亮
-  https://github.com/github-linguist/linguist/blob/master/vendor/README.md
-  https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml
-
-->Fenced Code Blocks 语法高亮常用语言 Keywords
+Fenced Code Blocks 语法高亮常用关键字
+https://meta.stackexchange.com/questions/184108
   | c     | c++      | cpp      | cc     | cxx |
   | h     | h++      | hpp      | hh     | hxx |
   | make  | makefile | cmake    |        |     |
   | shell | bash     | zsh      |        |     |
   | js    | yml      |          |        |     |
-  | html  | css      | markdown | markup |     |
+  | html  | css      | markdown | markup | txt |
+
+
+GitHub Markdown 语法高亮语言 keywords 列表(用 Linguist 进行语言侦测和语法高亮)
+https://github.com/github-linguist/linguist/blob/master/vendor/README.md
+https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml

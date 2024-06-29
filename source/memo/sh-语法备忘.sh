@@ -1,4 +1,17 @@
-#!/usr/bin/env bash
+# NUL \0    HT \t    FF  \f    \nnn   八进制
+# BEL \a    VT \v    CR  \r    \xHH 十六进制
+# BS  \b    LF \n    DEL \d
+
+# https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html
+#    upper    alpha    xdigit   blank    cntrl    graph    ascii
+#    lower    alnum    digit    space    punct    print    word
+# => POSIX 标准
+#    alpha -> upper + lower  digit  => 0 1 2 3 4 5 6 7 8 9    upper => 大写字母
+#    alnum -> alpha + digit  xdigit => 阿拉伯数字/大小写字母  lower => 小写字母
+# => 非 POSIX 标准
+#    ascii => ASCII 字符
+#    word  => 字母/数字/下划线
+
 # ------------------------------------------------------------------------------
 cut; tr; # cut 字符串分隔, tr 字符串替换/删除
 wc -l 文件名; sed -n '$=' 文件名; grep -c '^' 文件名 # 计数文件行数

@@ -1,5 +1,5 @@
-U+241C  ␜   File Separator      U+241E  ␞   Record Separator
-U+241D  ␝   Group Separator     U+241F  ␟   Unit Separator
+U+241C ␜ 文件分隔符  U+001C FS     U+241E ␞ 记录分隔符  U+001E RS
+U+241D ␝ 组别分隔符  U+001D GS     U+241F ␟ 单位分隔符  U+001F US
 
 ╮╭ => ╮╭╮╭╮╭╮╭ ┐┌ => ┐┌┐┌┐┌┐┌  ┐┌┐ ┌─ => ┐┌┐ ┌─┐┌┐ ┌─┐┌┐ ┌─
 ╰╯ => ╰╯╰╯╰╯╰╯ └┘ => └┘└┘└┘└┘  └┘└─┘  => └┘└─┘ └┘└─┘ └┘└─┘
