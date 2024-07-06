@@ -22,6 +22,21 @@
   <style> body { display: flex; } </style>
   <title>Tiny HTML</title>
 
+<!-- NOTE
+按照 <script> 脚本的位置<顺序执行>
+  <script type="text/javascript" src="path/to/a.js">
+
+立即下载>完成后>页面解析完毕后执行(结束后)>随后触发 DOMContentLoaded 事件
+  <script type="text/javascript" src="path/to/a.js" defer>
+  执行顺序是按照它们在文档中出现的顺序依次执行
+
+立即下载>完成后立即执行
+  <script type="text/javascript" src="path/to/a.js" async>
+  确保在页面 load 事件之前执行
+  可能在 DOMContentLoaded 事件之前或之后
+  标签之间的执行顺序是不确定的: 先下载完成先执行
+-->
+
   <script type="text/javascript">
   function clickme() {
     const btn = document.getElementById('btnId');
@@ -34,6 +49,13 @@
       btn.innerHTML = "Cancel";
     }
   }
+
+  if (false) {
+    // 网页加载完毕后立刻执行的操作
+    /* <script type="text/javascript" onload="..."></script> */
+    window.onload = function() { alert('window.onload'); }
+  }
+
   </script>
 </head>
 <body>

@@ -8,7 +8,7 @@ function XX(...args) {} // 函数变长参数 args 是数组
 console.log(...array);  // 数组元素展开作为函数参数
 console.dir(obj, { depth: 2}); console.dir(obj, { depth: Infinity });
 // 性能检测(运行时间) 通用库 https://benchmarkjs.com
-console.time('开始'); /* 测试代码 */ console.timeEnd('结束');
+console.time('耗时'); /* 测试代码 */ console.timeEnd('耗时');
 
 
 const obj = {

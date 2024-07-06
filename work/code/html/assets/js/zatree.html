@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8"/>
   <title>ZATree</title>
-  <script type="text/javascript" src="zatree.js" defer async
-    onload="ZATree.draw(document.getElementById('zatree'));">
-  </script>
+  <script type="text/javascript" src="zatree.js" defer async onload="
+    console.time('耗时');
+    ZATree.draw(document.getElementById('zatree'), { randomColor: true });
+    console.timeEnd('耗时');
+  "></script>
+  <style>
+  body {
+    margin: 0; padding: 0; overflow: hidden; width:  100vw;  height: 100vh;
+    border: 20px solid; border-color: grey; box-sizing: border-box;
+    display: grid; place-items: center; /* 水平垂直居中 */
+    background-color: lightgray;
+  }
+  canvas {
+    border: 6px solid; border-color: green; box-sizing: border-box;
+  }
+  </style>
 </head>
 <body>
-  <canvas id="zatree" width="700" height="700"></canvas>
+  <canvas id="zatree" width="800px" height="800px"></canvas>
 </body>
 </html>
