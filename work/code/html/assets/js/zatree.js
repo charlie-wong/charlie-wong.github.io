@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only OR Apache-2.0 OR MIT
 // SPDX-FileCopyrightText: 2024 Charles Wong <charlie-wong@outlook.com>
 // Created By: Charles Wong 2024-07-06T07:30:02+08:00 Asia/Shanghai
-// Repository: git@gitlab.com:xwlc/zeta
+// Repository: https://github.com/xwlc/xwlc.github.io
 
 // 预览 https://zv.github.io/static/algorithmic-tree.html
 // 仓库 https://github.com/zv/tree/commit/71754da13383977838875036f63d4bc1b7d4d6e6
