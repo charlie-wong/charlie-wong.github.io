@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Charles Wong">
+  <meta name="description" content="简要内容描述">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,JS">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <!--
+  <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <text y='.9em' font-size='90'>🌍</text>
+    </svg>
+  ">
+  -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script type="text/javascript" src="assets/js/zlog.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+  <style> body { display: flex; } </style>
+  <title>Tiny HTML</title>
+
+  <script type="text/javascript">
+  function clickme() {
+    const btn = document.getElementById('btnId');
+    console.log(btnId);
+    if(confirm("确认弹窗")) {
+      // alert("点击 => 确定");
+      btn.innerHTML = "Enter";
+    } else {
+      // alert("点击 => 取消");
+      btn.innerHTML = "Cancel";
+    }
+  }
+  </script>
+</head>
+<body>
+
+<div class="workspace-box1">
+  <div class="workspace-box2">
+    <button id="btnId" onclick="clickme()">Click Me</button>
+  </div>
+</div>
+
+</body>
+</html>

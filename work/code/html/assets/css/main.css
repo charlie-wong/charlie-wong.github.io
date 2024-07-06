@@ -1,0 +1,65 @@
+/* JS 库 CDN 加速  https://www.jsdelivr.com
+ * https://github.com/cdnjs            https://loli.net
+ * https://cdnjs.loli.net/README.md    https://www.bootcdn.cn
+ * 原域名                          加速域名            备注
+ * cdnjs.cloudflare.com            cdnjs.loli.net      每日同步 Github   JS 库
+ * ajax.googleapis.com             ajax.loli.net       Nginx  反向代理   JS 库
+ * fonts.googleapis.com            fonts.loli.net      Nginx  反向代理
+ * fonts.gstatic.com               gstatic.loli.net    反向代理 Nginx
+ * themes.googleusercontent.com    themes.loli.net     反向代理 Nginx
+ * secure.gravatar.com             gravatar.loli.net   反向代理 Nginx    头像
+ * 谷歌字体在线预览 https://https://www.font.im                                 *
+ * => https://developers.google.cn/fonts/docs/getting_started
+ * => https://mirrors.tuna.tsinghua.edu.cn/github-release/googlefonts
+ */
+
+/* NOTE 语句 @import 必须位于文件开头的第壹行 */
+@import url("https://fonts.loli.net/css?family=Merienda");
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/url
+ * url(path/to/myFont.woff);        url(data:image/png;base64,iRxVB0…);
+ * url(#ID-of-SVG-embedded-page);   url(https://exampl*e.com/images/myImg.jpg);
+ */
+
+:root {
+  --x-font-family: Merienda, Ubuntu, sans-serif;
+}
+
+* {
+  font-family: var(--x-font-family);
+} /* .XXX 对应 class 可多次引用, #XXX 对应 id 仅可用一次 */
+
+body { /* CSS Units -> https://www.w3schools.com/cssref/css_units.php */
+  margin: 0; padding: 0; overflow: hidden; /*  */
+  width:  100vw; /* vw  Relative to 1% of 宽度 of 浏览器窗口 viewport 的大小 */
+  height: 100vh; /* vh  Relative to 1% of 高度 of 浏览器窗口 viewport 的大小 */
+  border: 20px solid; border-color: grey; box-sizing: border-box;
+  background-image: url("../img/background.jpg");
+  align-items: center;     /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+}
+
+button {
+  background-color: cyan;
+  border: 5px solid; border-color: red;
+  width: 38%; height: 18%; border-radius: 15px;
+  font-size: 2em; font-weight: 400; /* 400=regular */
+}
+
+.workspace-box1 {
+  border: 30px solid; border-radius: 10px; border-color: green;
+  /* 浅灰 #D9D9DE 中灰 #BDBDC6 深灰 #AFAFB7 */
+  background-color: #D9D9DE; /* grey, lightgray */
+}
+
+.workspace-box2 {
+  width: 500px; height: 500px;
+  /* https://www.runoob.com/cssref/css3-pr-flex-direction.html */
+  display: flex; align-items: center; justify-content: center;
+}
+
+.div.container1 { /* 方式壹: div 内元素<垂直><水平>居中 */
+  display: flex; justify-content: center; align-items: center;
+}
+.div.container2 { /* 方式贰: div 内元素<垂直><水平>居中 */
+  display: grid; place-items: center;
+}

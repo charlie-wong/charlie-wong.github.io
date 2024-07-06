@@ -1,0 +1,39 @@
+# Compiled Lua sources
+luac.out
+
+# luarocks build files
+*.zip
+*.tar.gz
+*.src.rock
+
+# Object files
+*.o
+*.os
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Static Libraries
+*.a
+*.la
+*.lo
+*.lib
+*.def
+*.exp
+
+# Shared objects
+*.so*
+*.dll
+*.dylib
+
+# Executables
+*.app
+*.exe
+*.out
+*.hex
+*.i*86
+*.x86_64

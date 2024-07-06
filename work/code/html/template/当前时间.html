@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>当前时间</title>
+<style>
+body {
+  width: 100vw; height: 100vh; background-color: gray;
+  display: flex; align-items: center; justify-content: center;
+}
+.workspace {
+  border: 6px solid; border-radius: 8px; border-color: greenyellow;
+  background-color: lightgray; width: 500px; height: 100px;
+  display: flex; align-items: center; justify-content: center;
+}
+#showTime {
+  font-size: 2em; font-weight: 400;
+}
+</style>
+</head>
+<body>
+<div class="workspace">
+  <div>
+    <div id="showTime">2023年6月29日 10时34分15秒</div>
+  </div>
+</div>
+<script>
+function updateTime() {
+  const now = new Date(); let YY, MM, DD, hh, mm, ss;
+  YY = now.getFullYear(); MM = now.getMonth() + 1; DD = now.getDate();
+  hh = now.getHours();    mm = now.getMinutes();   ss = now.getSeconds();
+  document.getElementById("showTime").innerHTML =
+    YY + "年" + MM + "月" + DD + "日" + " " + hh + "时" + mm + "分" + ss + "秒";
+}; updateTime(); setInterval(updateTime, 1000); // 每秒刷新
+</script>
+</body>
+</html>

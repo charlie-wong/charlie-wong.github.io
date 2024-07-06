@@ -1,0 +1,138 @@
+# Byte-compiled, optimized & DLL files
+*.py[cod]
+*$py.class
+__pycache__/
+
+# C extensions
+*.so
+
+# Distribution & Packaging
+MANIFEST
+.Python
+.installed.cfg
+
+dist/
+downloads/
+build/
+develop-eggs/
+
+var/
+lib/
+lib64/
+share/python-wheels/
+
+*.egg
+*.egg-info/
+eggs/
+.eggs/
+parts/
+sdist/
+wheels/
+__pypackages__/
+
+# PyInstaller: Usually these files are written by python script from template
+# before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.spec
+*.manifest
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test & coverage reports
+cover/
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.pytest_cache/
+.cache
+.coverage*
+*.cover
+*.py,cover
+coverage.xml
+nosetests.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+local_settings.py
+
+# Flask
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+# Sphinx
+docs/_build/
+
+# PyBuilder
+target/
+.pybuilder/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+# pipenv
+Pipfile.lock
+# poetry
+poetry.lock
+# pdm
+pdm.lock
+.pdm.toml
+
+# Celery stuff
+celerybeat.pid
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyproject
+.spyderproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+dmypy.json
+.dmypy.json
+.mypy_cache/
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+.idea/

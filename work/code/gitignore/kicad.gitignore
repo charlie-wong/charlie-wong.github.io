@@ -1,0 +1,26 @@
+# Format https://kicad.org/help/file-formats
+*~
+*.tmp
+*.000
+*.bak
+*.bck
+*-backups
+*.sch-bak
+*.kicad_prl
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+_autosave-*
+
+# Netlist files exported from Eeschema
+*.net
+
+# Autorouter files exported from Pcbnew
+*.dsn
+*.ses
+
+# Exported BOM files
+*.xml
+*.csv

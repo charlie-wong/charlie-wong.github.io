@@ -1,0 +1,110 @@
+<!--
+文档与网站架构
+https://www.w3schools.com/css/css_website_layout.asp
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML
+网页结构
+  header          <header>
+  navigation-bar  <nav>
+  content         <main>, <article>, <section>, <div>
+  sidebar         <aside> often placed inside <main>
+  footer          <footer>
+网站常用目录名称
+  css, js, javascript, img, images, assets
+-->
+
+<!DOCTYPE html> <!-- HTML5 标准 -->
+<!-- ISO 639-1 语言码 https://www.runoob.com/tags/html-language-codes.html -->
+<html lang="en">
+<head>
+<!--
+关于 HTML 字符集 https://www.w3schools.cn/tags/tag_meta.html
+关于 HTML 字符集 https://www.w3schools.cn/charsets/default.html
+功能排序 HTML 标签 https://www.w3schools.cn/tags/ref_byfunc.html
+标准 https://www.iana.org/assignments/character-sets/character-sets.xhtml
+-->
+<meta charset="UTF-8">
+<meta name="author" content="Charles Wong">
+<meta name="description" content="页面简要描述">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript"> <!-- 搜索引擎 -->
+<!-- 设置视口使网页在所有设备上都能正确渲染 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 加载外部资源: 样式, 图标, 脚本 -->
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+<title>HTML 标签</title> <!-- 窗口标题 -->
+
+<!--
+https://www.iana.org/protocols 网站搜索 MIME
+https://www.iana.org/assignments/media-types/media-types.xhtml
+Media Types, formerly known as MIME(Multipurpose Internet Mail Extensions)
+
+教程 https://www.w3schools.cn/tags/tag_link.html
+教程 https://www.runoob.com/jsref/dom-obj-link.html
+type 的值是 MIME 类型: text/css, text/javascript, image/gif
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="icon" type="image/x-icon" href="图片的 base64 编码">
+-->
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<!-- https://www.w3schools.cn/tags/tag_script.html
+<script src="demo-async.js" async></script>   一旦脚本可用则会异步运行
+<script src="demo-defer.js" defer></script>   脚本在页面解析完成后执行
+既不用 async 也不用 defer 则一旦脚本可用, 浏览器立即加载读取并执行脚本
+<script> 标签默认 type 属性值 "text/javascript"
+-->
+<script type="text/javascript" src="assets/js/main.js"></script>
+
+<style>
+body { /* 相对当前文件所在路径(非绝对路径时) */
+  background-image: url("assets/img/background.jpg");
+}
+</style>
+
+<!-- data-* 存储定制化数据信息 -->
+<script>
+const el = document.createElement('a');
+el.innerHTML = "&nbsp; 1";
+li.appendChild(el);
+function xyz() {
+  const xid = document.getElementById('xid'); console.log(zid);
+}
+</script>
+
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- https://www.tutorialstonight.com/main-vs-body-html
+A document can contain only one <main> elements.
+The content of the <main> element is unique in all sets of documents.
+-->
+<main>
+  <h1>主体标题1</h1>
+  <article>
+    <h2>主体标题2</h2>
+    <section>
+      <p>段落内容...</p>
+    </section>
+  </article>
+
+  <span>下标: H<sub>2</sub>O</span><br>
+  <span>上标: 4*4=4<sup>2</sup></span>
+</main>
+
+<footer>
+  <p>Copyright &copy;</p>
+</footer>
+
+</body>
+</html>

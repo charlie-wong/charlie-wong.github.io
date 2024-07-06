@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>调用文件管理器</title>
+</head>
+<body>
+
+<script>
+  function xfilter(item) {
+    const folder = document.getElementById(item.id);
+    for (let i=0, file; i < folder.files.length; i++) {
+      file = folder.files[i];
+      console.log(i, file.webkitRelativePath + '/' + file.name);
+    }
+  }
+</script>
+
+<!-- https://www.zhihu.com/question/640240151 -->
+<input type="file" id="oneFile"   webkitdirectory directory          onchange="xfilter(this)">
+<input type="file" id="multiFile" webkitdirectory directory multiple onchange="xfilter(this)">
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>测试页</title>
+</head>
+<body>
+<script>
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Location
+const loc = document.location;
+// https://developer.mozilla.org:8080/en-US/search?q=URL#search-results-close-container
+console.log("1地址 " + loc.href);
+console.log("2协议 " + loc.protocol); // https:
+console.log("3主机 " + loc.host);     // developer.mozilla.org:8080
+console.log("4主机 " + loc.hostname); // developer.mozilla.org
+console.log("5端口 " + loc.port);     // 8080
+console.log("6路径 " + loc.pathname); // /en-US/search
+console.log("7搜索 " + loc.search);   // ?q=URL
+console.log("8哈希 " + loc.hash);     // #search-results-close-container
+console.log("9原始 " + loc.origin);   // https://developer.mozilla.org:8080
+//location.assign("http://another.site"); // 加载其它网页
+
+</script>
+</body>
+</html>

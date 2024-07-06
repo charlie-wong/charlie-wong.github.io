@@ -1,0 +1,17 @@
+*.log
+*.ctxt
+*.class
+
+# Java Package
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.rar
+*.tar.gz
+
+# Java Virtual Machine Crash Logs
+# http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
