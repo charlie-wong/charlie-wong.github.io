@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only OR Apache-2.0 OR MIT
 // SPDX-FileCopyrightText: 2024 Charles Wong <charlie-wong@outlook.com>
 // Created By: Charles Wong 2024-07-05T01:24:31+08:00 Asia/Shanghai
-// Repository: git@gitlab.com:xwlc/zeta
+// Repository: https://github.com/xwlc/xwlc.github.io
 
 // 浏览器控制台
 //   console.error('报错信息 => 默认红色');

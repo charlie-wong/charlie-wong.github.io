@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only OR Apache-2.0 OR MIT
 // SPDX-FileCopyrightText: 2024 Charles Wong <charlie-wong@outlook.com>
 // Created By: Charles Wong 2024-07-06T10:26:55+08:00 Asia/Shanghai
-// Repository: git@gitlab.com:xwlc/zeta
+// Repository: https://github.com/xwlc/xwlc.github.io
 
 function XX(...args) {} // 函数变长参数 args 是数组
 console.log(...array);  // 数组元素展开作为函数参数

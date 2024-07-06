@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only OR Apache-2.0 OR MIT
 // SPDX-FileCopyrightText: 2024 Charles Wong <charlie-wong@outlook.com>
 // Created By: Charles Wong 2024-05-27T14:31:25+08:00 Asia/Shanghai
-// Repository: https://github.com/xwlc/zeta
+// Repository: https://github.com/xwlc/xwlc.github.io
 
 class LunarCalendar {
   static Gan=[ // 干支纪标记法以 60 为循环周期
