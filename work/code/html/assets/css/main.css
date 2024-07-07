@@ -63,3 +63,6 @@ button {
 .div.container2 { /* 方式贰: div 内元素<垂直><水平>居中 */
   display: grid; place-items: center;
 }
+
+.left  { width: 30%; float: left;  }
+.right { width: 70%; float: right; }

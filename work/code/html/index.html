@@ -6,7 +6,20 @@
   <meta name="author" content="Charles Wong">
   <meta name="description" content="简要内容描述">
   <meta name="keywords" content="HTML,CSS,XML,JavaScript,JS">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- NOTE HTML5 页面自适应屏幕大小
+  - 对于高像素屏幕, CSS 的 1px 可能不等于屏幕物理像素
+  - 电脑/手机/移动设备物理屏幕尺寸及分辨率拥有不同的参数
+    width=device-width  表示 width 设置为物理设备屏幕宽度
+    initial-scale=1.0   表示页面初始放缩比例设置为 100%
+    minimum-scale=1.0   设置最小放缩比例
+    maximum-scale=1.0   设置最大放缩比例
+    user-scalable=no    设置放缩比例用户是否可调(no/yes)
+  - https://www.w3schools.com/cssref/css_units.php
+    px 绝对长度单位 vw,vh 相对长度单位 ?% 相对父级单位 rem 相对根字体
+  - 浏览器默认字体大小 16px 此时 1rem=16px, 即 0.75rem=0.75*16px=12px
+    html, body { font-size: 62.5%; } 设置后 1rem = 10px
+  -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <!--
