@@ -1,0 +1,107 @@
+<!--
+SPDX-License-Identifier: GPL-3.0-only OR Apache-2.0 OR MIT
+SPDX-FileCopyrightText: 2024 Charles Wong <charlie-wong@outlook.com>
+Created By: Charles Wong 2024-07-07T23:34:37+08:00 Asia/Shanghai
+Repository: https://github.com/xwlc/xwlc.github.io
+-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Charles Wong">
+  <meta name="description" content="简要内容描述">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,JS">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>响应式布局</title>
+  <style>
+    * {  box-sizing: border-box; }
+    body {
+      font-family: "微软雅黑", sans-serif; padding: 1vmin; background: #f1f1f1;
+    }
+
+    .header     { padding: 2vmin; text-align: center; background: white; }
+    .header h1  { font-size: 5vmin; }
+
+    .topnav   { overflow: hidden; background-color: #333; }
+    .topnav a {
+      padding: 1.2vmin 1.5vmin; float: left; display: block;
+      text-decoration: none; text-align: center; color: #f2f2f2;
+    }
+    .topnav a:hover { background-color: #ddd; color: black; }
+
+    .leftcolumn   { float: left; width: 75%; }
+    .rightcolumn  { float: left; width: 25%; padding-left: 2vmin; }
+
+    .fakeimg { background-color: #aaa; width: 100%; padding: 2vmin; }
+    .card { background-color: white; padding: 2vmin; margin-top: 2vmin; }
+    .row:after { content: ""; display: table; clear: both; } /* 列后面清除浮动 */
+
+    .footer {
+      padding: 2vmin; text-align: center; background: #ddd; margin-top: 2vmin;
+    }
+
+    /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+    @media screen and (max-width: 800px) {
+      .leftcolumn, .rightcolumn { width: 100%; padding: 0; }
+    }
+    /* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
+    @media screen and (max-width: 400px) {
+      .topnav a { float: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>响应式布局</h1><p>简要描述</p>
+  </div>
+
+  <div class="topnav">
+    <a href="#">链接1</a>
+    <a href="#">链接2</a>
+    <a href="#">链接3</a>
+    <a href="#" style="float: right">链接6</a>
+    <a href="#" style="float: right">链接5</a>
+    <a href="#" style="float: right">链接4</a>
+  </div>
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>文章标题</h2>
+        <h5>2024 年 06 月 17日</h5>
+        <div class="fakeimg" style="height: 200px">图片</div>
+        <p>内容⋯</p>
+      </div>
+      <div class="card">
+        <h2>文章标题</h2>
+        <h5>2024 年 06 月 17日</h5>
+        <div class="fakeimg" style="height: 200px">图片</div>
+        <p>内容⋯</p>
+      </div>
+    </div>
+
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>关于</h2>
+        <div class="fakeimg">图片</div>
+        <p>内容⋯</p>
+      </div>
+      <div class="card">
+        <h3>热门文章</h3>
+        <div class="fakeimg">图片</div>
+      </div>
+      <div class="card">
+        <h3>关注我</h3>
+        <p>内容⋯</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h2>底部区域</h2>
+  </div>
+</body>
+<footer style="text-align: center; margin: 10px; font-size: 1rem; color: pink;">
+  HTML + CSS 响应式布局
+</footer>
+</html>
