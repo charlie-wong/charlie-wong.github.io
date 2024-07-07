@@ -8,7 +8,7 @@
 
 class ZATree {
   // 返回介于 [min, max] 之间的整数
-  static #randomInteger(min, max) {
+  static randomInteger(min, max) {
     // ceil 向上进位取整 floor 向下舍弃取整
     min = Math.ceil(min); max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -124,8 +124,8 @@ class ZATree {
   static #getDefaultConfig(canvas, magic) {
     if(typeof(magic) != 'number') { magic = 32; }
     const pixel = 1 / canvas.width;
-    const dice = ZATree.#randomInteger(10, 50);
-    const dots = ZATree.#randomInteger(10, 50) / 1000;
+    const dice = ZATree.randomInteger(10, 50);
+    const dots = ZATree.randomInteger(10, 50) / 1000;
 
     return {
       lineWidth: 2, lineColor: 'black', fillColor: 'white',
@@ -220,8 +220,8 @@ class ZATree {
     // 填充色, 线宽度, 画笔/渐变色
     ctx.lineWidth = config.lineWidth;
     if(config.randomColor) {
-      const idx1 = ZATree.#randomInteger(0, CssNamedColors.length - 1);
-      const idx2 = ZATree.#randomInteger(0, CssNamedColors.length - 1);
+      const idx1 = ZATree.randomInteger(0, CssNamedColors.length - 1);
+      const idx2 = ZATree.randomInteger(0, CssNamedColors.length - 1);
       ctx.fillStyle   = CssNamedColors[idx1];
       ctx.strokeStyle = CssNamedColors[idx2];
     } else {
