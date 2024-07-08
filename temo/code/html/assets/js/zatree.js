@@ -45,7 +45,7 @@ class ZATree {
           Math.cos(this.a - ZATree.#quarterPI),
           Math.sin(this.a - ZATree.#quarterPI)
         ];
-        const scaler = (num) => num * this.r * rect.zmax;
+        const scaler = (num) => num * this.r * rect.zmin;
         const coordL = mLeft.map(scaler), coordR = mRight.map(scaler);
 
         // draw the single pixel at (X, Y) with color of `fillStyle`
@@ -89,7 +89,7 @@ class ZATree {
     return class Tree {
       constructor(x, y, branch, grain, ctrl, rect) {
         this.x = x; this.y = y; this.r = ctrl.init; this.branch = branch;
-        this.rect = rect; this.pixel = 1 / rect.zmax;
+        this.rect = rect; this.pixel = 1 / rect.zmin;
         this.grain = grain; this.dice = ctrl.dice;
         this.Q = [new (ZATree.#Branch())(x, y, ctrl.init, -ZATree.#quarterPI)];
       }
@@ -125,16 +125,16 @@ class ZATree {
     if(typeof(magic) != 'number') { magic = 32; }
     const dice = ZATree.randomInteger(10, 50);
     const dots = ZATree.randomInteger(10, 50) / 1000;
-    let zmax = canvas.width, pixel;
-    if (canvas.height > canvas.width) zmax = canvas.height;
-    pixel = 1 / zmax;
+    let zmin = canvas.width, pixel;
+    if (canvas.height < canvas.width) zmin = canvas.height;
+    pixel = 1 / zmin;
 
     return {
       lineWidth: 2, lineColor: 'black', fillColor: 'white',
       // 画布容器: 左上角 (0, 0) 起始点, 树根的起始位置
       // 0.5 表示 x 轴中心(50%), 1.0 表示 y 轴最大值(100%)
       root: { x: 0.5, y: 1.0 },
-      rect: { width: canvas.width, height: canvas.height, zmax: zmax },
+      rect: { width: canvas.width, height: canvas.height, zmin: zmin },
       branch: {
         dense: 0.725, // 树枝稠密度(百分比): 越小越稀疏
         angle: Math.PI / 4,
@@ -142,11 +142,11 @@ class ZATree {
           stepSize: pixel,
           diminish: pixel / magic,
           angleExp: 2,
-          angleMax: (4 * Math.PI) / zmax,
+          angleMax: (4 * Math.PI) / zmin,
         }
       },
       grain: { // 树干部分(内部填充像素点)阴影纹理质感(左右暗影密度)
-        dots: Math.ceil(zmax * dots), density: [ 0.18, 0.55 ]
+        dots: Math.ceil(zmin * dots), density: [ 0.18, 0.55 ]
       },
       ctrl: {
         init: 1 / magic, dice: pixel * pixel * magic * dice,
