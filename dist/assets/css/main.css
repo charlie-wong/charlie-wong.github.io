@@ -1,0 +1,42 @@
+/* SPDX-License-Identifier: GPL-3.0-only OR Apache-2.0 OR MIT
+ * SPDX-FileCopyrightText: 2024 Charles Wong <charlie-wong@outlook.com>
+ * Created By: Charles Wong 2024-07-03T06:19:11+08:00 Asia/Shanghai
+ * Repository: https://github.com/xwlc/xwlc.github.io
+ */
+
+:root {
+  --x-font-family: Ubuntu, sans-serif;
+}
+
+* {
+  font-family: var(--x-font-family);
+} /* .XXX 对应 class 可多次引用, #XXX 对应 id 仅可用一次 */
+
+body, main {
+  width: 100vw; height: 100vh;
+}
+
+body {
+  margin: 0 auto; padding: 0; box-sizing: border-box;
+}
+
+img {
+  max-width: 100%; height: auto;
+}
+
+/* https://www.runoob.com/css/css-align.html */
+/* https://www.runoob.com/cssref/css-units.html */
+
+.centerXY { /* 水平 + 垂直 -> 居中(方式壹) */
+  display: grid; place-items: center;
+}
+.middleXY { /* 水平 + 垂直 -> 居中(方式贰) */
+  display: flex; align-items: center; justify-content: center;
+}
+.border {
+  border: 0.2vw solid; border-radius: 0.6vw; border-color: linen;
+}
+
+.wRepoCommitHash {
+  color: darkgray; text-decoration:none;
+}
