@@ -11,6 +11,13 @@ console.dir(obj, { depth: 2}); console.dir(obj, { depth: Infinity });
 console.time('耗时'); /* 测试代码 */ console.timeEnd('耗时');
 
 
+document.getElementById("xId").style.backgroundColor = "red";
+document.getElementById("xId").style.cssText = "color: blue; width: 1%;";
+document.getElementById("xId").classList.add("active");
+document.getElementById("xId").classList.remove("active");
+document.getElementById("xId").setAttribute("style", "font-size: 14px;");
+
+
 const obj = {
   zkey_: '11属性值11', // get/set 绑定属性操作
   get zkey()    { return this.zkey_; },                   // 触发 obj.zkey
