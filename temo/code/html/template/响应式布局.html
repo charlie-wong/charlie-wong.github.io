@@ -40,11 +40,28 @@ Repository: https://github.com/xwlc/xwlc.github.io
       padding: 2vmin; text-align: center; background: #ddd; margin-top: 2vmin;
     }
 
-    /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+    /* ################## */
+    /* ### 响应式布局 ### */
+    /* ################## */
+
+    /* 横屏(landscape)  竖屏(portrait) */
+    @media screen and (orientation: portrait)  { }
+    @media screen and (orientation: landscape) { }
+
+    /* screen 表示: 打印页面时用衬线字体, 屏幕显示时用无衬线字体 */
+    /* (min-width: X) and (max-width: Y) 页宽大于 X 且小于 Y 时执行后续 CSS 代码 */
+    @media screen and (min-width: 321px) and (max-width: 375px) { }
+    @media screen and (min-width: 376px) and (max-width: 414px) { }
+    @media screen and (min-width: 415px) and (max-width: 639px) { }
+    @media screen and (min-width: 640px) and (max-width: 719px) { }
+    @media screen and (min-width: 720px) and (max-width: 749px) { }
+    @media screen and (min-width: 750px) and (max-width: 799px) { }
+
+    /* 屏幕尺寸小于 800px 时: 两列布局改为上下布局 */
     @media screen and (max-width: 800px) {
       .leftcolumn, .rightcolumn { width: 100%; padding: 0; }
     }
-    /* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
+    /* 屏幕尺寸小于 400px 时: 导航布局改为上下布局 */
     @media screen and (max-width: 400px) {
       .topnav a { float: none; width: 100%; }
     }
