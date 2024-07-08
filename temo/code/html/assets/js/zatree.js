@@ -155,11 +155,11 @@ class ZATree {
   }
 
   // 随机动态生成算法树
-  static draw(canvas, config = {}) {
+  static draw(canvas, config = {}, base64WhenDone) {
     // NOTE HTML <canvas> 画布坐标系: 水平 X 垂直 Y 左上角 (0, 0)
 
     if (!canvas || !canvas.getContext) {
-      throw new Error('Could not get HTML <canvas> context');
+      throw new Error('Could not get HTML <canvas> element');
     }
 
     // NOTE 后面展开添加的 config 内容覆盖(字段相同的)默认参数值
@@ -240,9 +240,30 @@ class ZATree {
       if (tree.Q.length > 0) {
         tree.step(); tree.draw(ctx);
         window.requestAnimationFrame(growUp);
+      } else {
+        if (typeof(base64WhenDone) == 'function') {
+          base64WhenDone(ZATree.base64(canvas));
+        }
       }
     }
 
     growUp();
+  }
+
+  // 返回图片的 base64 编码值
+  static base64(canvas, mimetype = 'jpeg', quality = 0.98) {
+    if (!canvas || !canvas.getContext) {
+      throw new Error('Could not get HTML <canvas> element');
+    }
+    if (mimetype == 'png') { return canvas.toDataURL(); }
+    // image/png, image/jpeg, image/webp
+    // https://www.canvasapi.cn/HTMLCanvasElement/toDataURL
+    if (!mimetype || ! /^jpeg|webp$/.test(mimetype)) { mimetype = 'jpeg'; }
+    if (!quality  || quality <= 0 || quality >= 1.0) { quality = 0.98; }
+    const blob = canvas.toDataURL('image/'+mimetype, quality);
+    if (mimetype == 'webp' && blob.indexOf('data:image/webp') != 0) {
+      return canvas.toDataURL('image/jpeg', quality);
+    }
+    return blob; // data:image/png;base64,ikxzy...
   }
 };

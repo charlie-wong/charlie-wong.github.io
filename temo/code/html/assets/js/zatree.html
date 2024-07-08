@@ -42,7 +42,9 @@
   console.time('耗时');
   ZATree.draw(document.getElementById('zatree1'), { randomColor: true });
   ZATree.draw(document.getElementById('zatree2'), { randomColor: true });
-  ZATree.draw(document.getElementById('zatree3'), { randomColor: true });
+  ZATree.draw(document.getElementById('zatree3'), { randomColor: true },
+    (base64) => { console.log(base64); }
+  );
   console.timeEnd('耗时');
 </script>
 
