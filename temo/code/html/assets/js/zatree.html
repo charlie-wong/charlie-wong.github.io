@@ -3,24 +3,48 @@
 <head>
   <meta charset="UTF-8"/>
   <title>ZATree</title>
-  <script type="text/javascript" src="zatree.js" defer async onload="
-    console.time('耗时');
-    ZATree.draw(document.getElementById('zatree'), { randomColor: true });
-    console.timeEnd('耗时');
-  "></script>
+  <script type="text/javascript" src="zatree.js"></script>
   <style>
   body {
-    margin: 0; padding: 0; overflow: hidden; width:  100vw;  height: 100vh;
-    border: 20px solid; border-color: grey; box-sizing: border-box;
-    display: grid; place-items: center; /* 水平垂直居中 */
-    background-color: lightgray;
+    width: 100vw; height: 100vh; margin: 0; overflow: hidden;
+    box-sizing: border-box; background-color: lightgray; padding: 0;
   }
-  canvas {
-    border: 6px solid; border-color: green; box-sizing: border-box;
-  }
+
+  .border { border: 1vmin solid; }
+  body.border { border-color: gray; }
+  canvas.border { border-color: cyan; }
+
+  .borderT { border: 0.5vmin solid; border-color: yellow; }
+
+  .left  { float: left;  width: 45%; height: 98%; }
+  .right { float: right; width: 45%; height: 98%; }
+  .vertical { display: flex; flex-direction: column;  } /* 垂直布局 */
+  .middleX  { display: grid; justify-content: center; } /* 水平居中 */
+  .middleY  { display: flex; align-items: center;     } /* 垂直居中 */
+  .centerXY { display: grid; place-items: center; } /* 水平垂直居中 */
   </style>
 </head>
-<body>
-  <canvas id="zatree" width="800px" height="800px"></canvas>
+<body class="border">
+
+<div class="left centerXY borderT">
+    <canvas id="zatree1" class="border" width="550px" height="900px"></canvas>
+</div>
+
+<div class="right centerXY borderT">
+  <div class="vertical">
+    <canvas id="zatree2" class="border" width="550px" height="300px"></canvas>
+    <br><br><br>
+    <canvas id="zatree3" class="border" width="550px" height="550px"></canvas>
+  </div>
+</div>
+
+<script>
+  console.time('耗时');
+  ZATree.draw(document.getElementById('zatree1'), { randomColor: true });
+  ZATree.draw(document.getElementById('zatree2'), { randomColor: true });
+  ZATree.draw(document.getElementById('zatree3'), { randomColor: true });
+  console.timeEnd('耗时');
+</script>
+
 </body>
 </html>
