@@ -22,3 +22,10 @@ function @Y9() { builtin printf "\e[0;93m%s\e[0m" "$*"; } # Yellow
 function @B9() { builtin printf "\e[0;94m%s\e[0m" "$*"; } # Blue
 function @P9() { builtin printf "\e[0;95m%s\e[0m" "$*"; } # Purple
 function @C9() { builtin printf "\e[0;96m%s\e[0m" "$*"; } # Cyan
+
+function is-inside-git-work-tree() {
+  no-cmd git && {
+    echo "$(@R3 ERROR:) not found $(@G3 git) command"; exit 1
+  }
+  git rev-parse --is-inside-work-tree &> /dev/null
+}

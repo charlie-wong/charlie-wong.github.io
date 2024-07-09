@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>左中右</title>
+  <style>
+body {
+  border: 5px black solid; border-color: yellow
+}
+
+.left1   { flex: 1; background-color: pink; }
+.middle1 { flex: 1; background-color: green; }
+.right1  { flex: 1; background-color: cyan; }
+
+.left2   { float: left; width: 33.3%; background-color: pink; }
+.middle2 { float: left; width: 33.3%; background-color: green; }
+.right2  { float: left; width: 33.3%; background-color: cyan; }
+
+.left3   { float: right; width: 33.3%; background-color: pink; }
+.middle3 { float: right; width: 33.3%; background-color: green; }
+.right3  { float: right; width: 33.3%; background-color: cyan; }
+
+</style>
+</head>
+<body>
+
+<div style="display: flex;">
+  <div class="left1">  <center>左侧1</center></div>
+  <div class="middle1"><center>中间1</center></div>
+  <div class="right1"> <center>右侧1</center></div>
+</div>
+<br>
+<div style="display: flex;">
+  <div class="left2"   align="center">左侧2</div>
+  <div class="middle2" align="center">中间2</div>
+  <div class="right2"  align="center">右侧2</div>
+</div>
+<br>
+<div style="display: flex; text-align: center;">
+  <div class="left3">  左侧3</div>
+  <div class="middle3">中间3</div>
+  <div class="right3"> 右侧3</div>
+</div>
+
+</body>
+</html>

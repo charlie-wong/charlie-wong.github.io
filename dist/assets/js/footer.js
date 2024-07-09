@@ -1,3 +1,3 @@
-const wRepositoryHome = 'https://github.com/xwlc/xwlc.github.io';
-const wRepoUpdateTime = 'YYYY-MM-DD';
-const wRepoCommitHash = 'short-commit-hash';
+const xwlcRepositoryHome = 'https://github.com/xwlc/xwlc.github.io';
+const xwlcRepoUpdateTime = 'YYYY-MM-DD';
+const xwlcRepoCommitHash = 'short-commit-hash';

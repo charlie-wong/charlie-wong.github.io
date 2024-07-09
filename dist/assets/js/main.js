@@ -27,4 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector(`head > link[rel='icon']`).setAttribute(
     'href', 'data:image/svg+xml,' + faviconEmoji(yearAnimalIcon)
   );
+
+  // load the footer info shared by all of the website pages
+  const repoUpdateTime = document.getElementById('repoUpdateTime');
+  repoUpdateTime.innerHTML = 'Update Time : ' + xwlcRepoUpdateTime;
+  const repoCommitHash = document.getElementById('repoCommitHash');
+  repoCommitHash.innerHTML = 'Commit Hash : ' + xwlcRepoCommitHash;
+  repoCommitHash.href = xwlcRepositoryHome;
+
+  const thisPageUV = document.getElementById('thisPageUV');
+  thisPageUV.innerHTML = 'UV : 0000,0001'; // TODO
+  const thisPagePV = document.getElementById('thisPagePV');
+  thisPagePV.innerHTML = 'PV : 0000,0001'; // TODO
 });

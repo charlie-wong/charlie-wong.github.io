@@ -13,7 +13,7 @@
 } /* .XXX 对应 class 可多次引用, #XXX 对应 id 仅可用一次 */
 
 body, main {
-  width: 100vw; height: 100vh;
+  width: 100vw; height: 100vh; background-color: gray;
 }
 
 body {
@@ -24,19 +24,39 @@ img {
   max-width: 100%; height: auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* https://www.runoob.com/css/css-align.html */
 /* https://www.runoob.com/cssref/css-units.html */
+/* float: left,middle,right; width: 50%; */
+/* display: flex; align-items: center; justify-content: center; */
+.centerXY { display: grid; place-items: center; } /* 居中: 水平 + 垂直 */
+.centerX  { display: grid; justify-content: center; } /* <水平>居中 */
+.centerY  { display: flex; align-items: center;     } /* <垂直>居中 */
+.vertical { display: flex; flex-direction: column;  } /* <垂直>布局 */
 
-.centerXY { /* 水平 + 垂直 -> 居中(方式壹) */
-  display: grid; place-items: center;
-}
-.middleXY { /* 水平 + 垂直 -> 居中(方式贰) */
-  display: flex; align-items: center; justify-content: center;
-}
 .border {
   border: 0.2vw solid; border-radius: 0.6vw; border-color: linen;
 }
 
-.wRepoCommitHash {
-  color: darkgray; text-decoration:none;
+.navigation { width: 80%; display: flex; text-align: center; }
+.footer     { width: 60%; display: flex; text-align: center; color: darkgray; }
+.footer a   { color: darkgray; }
+
+/* X Y {} 空格 => 选择 X 内的所有 Y 元素
+ * X>Y {} 大于 => 选择 X 内的壹级 Y 元素
+ * X+Y {} 加号 => 选择 X 后第壹个(和 X 同级的) Y 元素(相邻兄弟)
+ * X~Y {} 波浪 => 选择 X 后的所有(和 X 同级的) Y 元素(普通兄弟)
+ */
+.xbutton {
+  border-radius: 0.4vw; cursor: pointer; padding: 0.1vw;
+  color: khaki; background-color: rgba(0, 0, 0, 0.2);
 }
+.xbutton>a { color: khaki; }
+.xbutton:hover { background-color: silver; }
+.xbutton>a:hover { text-decoration: underline; color: lawngreen; }
+
+.xlabel { color: cyan; background-color: gray; }
+.xlabel>a  { color: cyan; }

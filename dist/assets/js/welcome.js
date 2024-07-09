@@ -102,10 +102,12 @@ function updateWelcome() {
     }
     drawZATree(); wUpdate.treeCnt++;
     const zatTitle = document.getElementById('ZATreeTitle');
-    if(zatTitle.innerHTML == 'Download') {
+    if(zatTitle.innerText == 'Download') {
+      zatTitle.classList.add("xlabel");
+      zatTitle.classList.remove("xbutton");
       zatTitle.removeEventListener('click', saveZATreeAsIamge);
     }
-    zatTitle.innerHTML = wUpdate.treeCnt + '/' + wUpdate.treeMax;
+    zatTitle.innerText = wUpdate.treeCnt + '/' + wUpdate.treeMax;
   }
 }
 
@@ -129,12 +131,10 @@ function saveZATreeAsIamge() {
 
 function downloadZATreeIamge() {
   const zatTitle = document.getElementById('ZATreeTitle');
-  if(zatTitle.innerHTML == 'Download') { return; }
-  zatTitle.innerHTML = 'Download';
-  zatTitle.style.cssText += 'cursor: pointer';
-  zatTitle.style.cssText += 'border: 0.1vw solid';
-  zatTitle.style.cssText += 'border-color: yellow';
-  zatTitle.style.cssText += 'border-radius: 0.2vw';
+  if(zatTitle.innerText == 'Download') { return; }
+  zatTitle.innerText = 'Download';
+  zatTitle.classList.add("xbutton");
+  zatTitle.classList.remove("xlabel");
   zatTitle.addEventListener('click', saveZATreeAsIamge);
 }
 
@@ -147,12 +147,18 @@ function loadArt(what) {
   const zatree = document.getElementById('ZATreeCanvas');
   zatree.removeEventListener('click', downloadZATreeIamge);
 
-  const art = getFullUrl(window.location.href, '/art.html');
-  if(art) { window.location.href = art; }
+  window.location.href = getFullUrl(window.location.href, '/art.html');
 }
 
 //window.addEventListener('dblclick', loadArt);
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('wBlog').setAttribute(
+    'href', getFullUrl(window.location.href, '/blog.html')
+  );
+  document.getElementById('wArts').setAttribute(
+    'href', getFullUrl(window.location.href, '/art.html')
+  );
+
   const timebox = document.getElementById('timeInfo');
   timebox.addEventListener('click', loadArt);
   const zatree = document.getElementById('ZATreeCanvas');
@@ -163,11 +169,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   wUpdate.treeCnt++; updateWelcome(); drawZATree();
   wUpdate.cancelId = setInterval(updateWelcome, 1000); // 每秒刷新
-
-  let repo; // 加载当前仓库更新日期及提交 ID
-  repo = document.getElementById('wRepoUpdateTime');
-  repo.innerHTML = 'Update Time : ' + wRepoUpdateTime;
-  repo = document.getElementById('wRepoCommitHash');
-  repo.innerHTML = 'Commit Hash : ' + wRepoCommitHash;
-  repo.href = wRepositoryHome;
 });

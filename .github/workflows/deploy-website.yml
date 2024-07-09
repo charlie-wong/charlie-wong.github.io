@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/configure-pages@v5
       - run: |
-          util/update-website-footer.sh
+          .github/actions/update-footer.sh
       - uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
