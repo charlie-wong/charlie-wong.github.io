@@ -169,7 +169,20 @@ document.addEventListener('DOMContentLoaded', () => {
     timebox.style.width = '60%';
     zatree.style.display = 'none';
     document.getElementById('wNavigation').style.width = '80%';
-    document.getElementById('ZATreeTitle').style.display = 'none';
+
+    let item = document.getElementById('wNavigation');
+    item = item.querySelectorAll('div');
+    item[2].remove(); item[3].remove();
+    //item.parentNode.removeChild(item);
+
+    item = document.createElement('div');
+    item.style.height = '35%'; // appendChild();
+    document.querySelector('main').prepend(item);
+
+    item = document.getElementById('ganzhi');
+    item.style.cssText = 'font-size: 2vmin';
+    item = document.getElementById('locutc');
+    item.style.cssText = 'font-size: 4vmin';
   } else {
     zatree.width  = window.screen.width  * 0.6;
     zatree.height = window.screen.height * 0.6;
