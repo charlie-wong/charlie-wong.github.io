@@ -38,7 +38,7 @@ function waZ1(msg) { return `<a style='color: khaki'>${msg}</a>` }
 function waZ2(msg) { return `<a style='color: lightcyan'>${msg}</a>` }
 
 function updateWelcome() {
-  const now = new Date(); let loc ={}, utc = {}, YMDhmsZ;
+  const now = new Date(); let loc ={}, utc = {};
   loc.Y = now.getFullYear(); loc.M = now.getMonth() + 1; loc.D = now.getDate();
   loc.h = now.getHours();    loc.m = now.getMinutes();   loc.s = now.getSeconds();
   wUpdate.nowSecond = loc.s;
@@ -77,13 +77,16 @@ function updateWelcome() {
   utc.M = padNum(utc.M); utc.D = padNum(utc.D);
   utc.h = padNum(utc.h); utc.m = padNum(utc.m); utc.s = padNum(utc.s);
 
-  document.getElementById("gzTimeShiCi").innerHTML =
-      wAnimation.clocksIcon[wAnimation.clocksIdx] + ' '
-    + waZ1(wAnimation.gzShiCiName) + ' '
-    + waD9(wAnimation.figureIcon[wAnimation.figureIdx]) + ' '
-    + waZ2(wAnimation.gzShiCiDesc);
-  wAnimation.figureIdx = ( wAnimation.figureIdx + 1 ) % 4;
+  let YMDhmsZ, gzShiCi;
+  gzShiCi = wAnimation.clocksIcon[wAnimation.clocksIdx] + ' ';
   wAnimation.clocksIdx = ( wAnimation.clocksIdx + 1 ) % 24;
+  gzShiCi += waZ1(wAnimation.gzShiCiName) + ' ';
+  if(!wUpdate.isMobile) {
+    gzShiCi += waD9(wAnimation.figureIcon[wAnimation.figureIdx]) + ' ';
+    wAnimation.figureIdx = ( wAnimation.figureIdx + 1 ) % 4;
+  }
+  gzShiCi += waZ2(wAnimation.gzShiCiDesc);
+  document.getElementById("gzTimeShiCi").innerHTML = gzShiCi;
 
   YMDhmsZ  = loc.Y + '-' + loc.M + '-' + loc.D + ' ';
   YMDhmsZ += loc.h + ':' + loc.m + ':' + loc.s + ' ' + timezoneOffset;
@@ -173,7 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let item = document.getElementById('wNavigation');
     item = item.querySelectorAll('div');
     item[2].remove(); item[3].remove();
-    //item.parentNode.removeChild(item);
+
+    item = document.getElementById('ZATreeCanvas');
+    item.parentNode.removeChild(item);
 
     item = document.createElement('div');
     item.style.height = '35%'; // appendChild();

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if(isMobile()) {
     const footer = document.getElementById('footerInfo');
-    footer.style.display = 'none';
+    footer.parentNode.removeChild(footer);
     return;
   }
 
