@@ -92,6 +92,8 @@ function updateWelcome() {
   YMDhmsZ += utc.h + ':' + utc.m + ':' + utc.s + ' +0000';
   document.getElementById("showTimeUtc").innerHTML = waD9(YMDhmsZ);
 
+  if(wUpdate.isMobile) { return; }
+
   if(wUpdate.nowSecond % 30 == 0) { // 每半秒刷新一次
     if(wUpdate.treeCnt % wUpdate.treeMax == 0) {
       wUpdate.treeCnt = 0; // [1, 9] 次后清空画布
@@ -160,13 +162,24 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   const timebox = document.getElementById('timeInfo');
-  timebox.addEventListener('click', loadArt);
   const zatree = document.getElementById('ZATreeCanvas');
-  zatree.addEventListener('click', downloadZATreeIamge);
 
-  zatree.width  = window.screen.width  * 0.6;
-  zatree.height = window.screen.height * 0.6;
+  if(isMobile()) {
+    wUpdate.isMobile = true;
+    timebox.style.width = '60%';
+    zatree.style.display = 'none';
+    document.getElementById('wNavigation').style.width = '80%';
+    document.getElementById('ZATreeTitle').style.display = 'none';
+  } else {
+    zatree.width  = window.screen.width  * 0.6;
+    zatree.height = window.screen.height * 0.6;
 
-  wUpdate.treeCnt++; updateWelcome(); drawZATree();
+    timebox.addEventListener('click', loadArt);
+    zatree.addEventListener('click', downloadZATreeIamge);
+
+    wUpdate.treeCnt++; drawZATree();
+  }
+
+  updateWelcome();
   wUpdate.cancelId = setInterval(updateWelcome, 1000); // 每秒刷新
 });

@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     'href', 'data:image/svg+xml,' + faviconEmoji(yearAnimalIcon)
   );
 
+  if(isMobile()) {
+    const footer = document.getElementById('footerInfo');
+    footer.style.display = 'none';
+    return;
+  }
+
   // load the footer info shared by all of the website pages
   const repoUpdateTime = document.getElementById('repoUpdateTime');
   repoUpdateTime.innerHTML = 'Update Time : ' + xwlcRepoUpdateTime;
