@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     item.parentNode.removeChild(item);
 
     item = document.createElement('div');
-    item.style.height = '35%'; // appendChild();
+    item.style.height = '32%'; // appendChild();
     document.querySelector('main').prepend(item);
 
     item = document.getElementById('ganzhi');
