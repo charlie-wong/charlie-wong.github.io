@@ -16,7 +16,7 @@ function isMobile() {
 }
 
 function getFullUrl(oldUrl, newUrl) {
-  const URL = { github: 'https://xwlc.github.io', usrdev: '/dist' };
+  const URL = { github: 'https://xwlc.github.io', usrdev: '/docs' };
   if(/^https:/i.test(oldUrl)) {
     return URL.github + newUrl;
   } else {

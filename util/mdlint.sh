@@ -11,16 +11,11 @@ source "${THIS_DIR}/common.sh"
 
 # https://github.com/DavidAnson/markdownlint-cli2
 # 全局安装 $ npm install --global markdownlint-cli2
-no-cmd npm && exit 101
-
-function noCommandFoundExit() {
-  echo "$(@R3 'ERROR:') not found $(@G3 markdownlint-cli2) command"
-  exit 102
-}
+no-cmd npm && exit-no-cmd npm
 
 MdLintCmd=markdownlint-cli2
-npm list -g --depth 0 | grep markdownlint-cli2
-[[ $? -ne 0 ]] && noCommandFoundExit
+npm list -g --depth 0 | grep markdownlint-cli2 > /dev/null
+[[ $? -ne 0 ]] && exit-no-cmd markdownlint-cli2
 
 if no-cmd markdownlint-cli2; then
   unset -v MdLintCmd
@@ -30,8 +25,18 @@ if no-cmd markdownlint-cli2; then
     fi
   done
 fi
-[[ -z "${MdLintCmd}" ]] && noCommandFoundExit
+[[ -z "${MdLintCmd}" ]] && exit-no-cmd markdownlint-cli2
 
-for it in $(find "${THIS_DIR%/*}" -type f -name '*.md' -print); do
-  [[ ! "${it}" =~ *node_modules* ]] && ${MdLintCmd} --no-globs ${it}
-done
+if [[ $# -eq 0 ]]; then # 递归扫描检测仓库内所有的 *.md 文件
+  for it in $(find "${THIS_DIR%/*}" -type f -name '*.md' -print); do
+    [[ ! "${it}" =~ *node_modules* ]] && ${MdLintCmd} --no-globs ${it}
+  done
+else
+  for it in $@; do
+    if [[ -f "${PWD}/${it}" ]]; then
+      ${MdLintCmd} --no-globs "${PWD}/${it}"
+    else
+      echo "$(@D9 SKIP): ${PWD}/${it}"
+    fi
+  done
+fi

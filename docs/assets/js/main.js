@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // load the footer info shared by all of the website pages
   const repoUpdateTime = document.getElementById('repoUpdateTime');
-  repoUpdateTime.innerHTML = 'Update Time : ' + xwlcRepoUpdateTime;
+  repoUpdateTime.innerHTML = 'Update Time : ' + thisRepoUpdateTime;
   const repoCommitHash = document.getElementById('repoCommitHash');
-  repoCommitHash.innerHTML = 'Commit Hash : ' + xwlcRepoCommitHash;
-  repoCommitHash.href = xwlcRepositoryHome;
+  repoCommitHash.innerHTML = 'Commit Hash : ' + thisRepoCommitHash;
+  repoCommitHash.href = thisRepositoryHome;
 
   const thisPageUV = document.getElementById('thisPageUV');
   thisPageUV.innerHTML = 'UV : 0000,0001'; // TODO

@@ -6,9 +6,10 @@ name: Deploy Hugo Website
 on:
   push:
     branches: [ "trunk" ]
-    paths-ignore:
-      - 'temo/**'
-      - README.md
+    paths:
+      - 'docs/**'
+      - 'main/**'
+      - '.github/**'
   workflow_dispatch: # Allows workflow manually run from Actions Tabs
 
 # Sets permissions of GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -42,10 +43,10 @@ jobs:
 
       - uses: actions/configure-pages@v5
       - run: |
-          .github/actions/update-footer.sh
+          .github/actions/update-footer-js.sh
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './docs'
 
   xwlc-deploy:
     environment:

@@ -189,8 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
     item = document.getElementById('locutc');
     item.style.cssText = 'font-size: 4vmin';
   } else {
-    zatree.width  = window.screen.width  * 0.6;
-    zatree.height = window.screen.height * 0.6;
+    // 浏览器可用屏幕<宽度>和<高度>的 60%
+    zatree.width  = window.screen.availWidth  * 0.6;
+    zatree.height = window.screen.availHeight * 0.6;
 
     timebox.addEventListener('click', loadArt);
     zatree.addEventListener('click', downloadZATreeIamge);
