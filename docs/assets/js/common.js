@@ -14,15 +14,3 @@ function isMobile() {
     return false;
   }
 }
-
-function getFullUrl(oldUrl, newUrl) {
-  const URL = { github: 'https://xwlc.github.io', usrdev: '/docs' };
-  if(/^https:/i.test(oldUrl)) {
-    return URL.github + newUrl;
-  } else {
-    const idx = oldUrl.indexOf(URL.usrdev);
-    if ( idx >= 0 ) { // 不包含 idx 字符
-      return oldUrl.substring(0, idx) + URL.usrdev + newUrl;
-    }
-  }
-}

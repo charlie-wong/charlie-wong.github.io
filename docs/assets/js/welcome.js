@@ -152,16 +152,16 @@ function loadArt(what) {
   const zatree = document.getElementById('ZATreeCanvas');
   zatree.removeEventListener('click', downloadZATreeIamge);
 
-  window.location.href = getFullUrl(window.location.href, '/art.html');
+  window.location.href = WEBSITE.getPageUrl('/art.html');
 }
 
 //window.addEventListener('dblclick', loadArt);
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('wBlog').setAttribute(
-    'href', getFullUrl(window.location.href, '/blog.html')
+    'href', WEBSITE.getPageUrl('/blog.html')
   );
   document.getElementById('wArts').setAttribute(
-    'href', getFullUrl(window.location.href, '/art.html')
+    'href', WEBSITE.getPageUrl('/art.html')
   );
 
   const timebox = document.getElementById('timeInfo');

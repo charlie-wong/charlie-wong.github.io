@@ -15,13 +15,10 @@ REPO_URL="$(this-repo-https-url)"
 if [[ $? -ne 0 || -z "${REPO_URL}" ]]; then
   exit-errmsg "repo upstream URL is none."
 fi
-FooterJS="${REPO_DIR}/docs/assets/js/footer.js"
 
-jsKey='thisRepositoryHome'; jsVal="${REPO_URL}"
-echo "const ${jsKey} = '${jsVal}';"  > "${FooterJS}"
+websiteJS="${REPO_DIR}/docs/assets/js/website.js"
+function updateRepoInfo() { sed -e "s@$1@$2@" --in-place "${websiteJS}"; }
 
-jsKey='thisRepoUpdateTime'; jsVal="$(date +%Y-%m-%d)"
-echo "const ${jsKey} = '${jsVal}';" >> "${FooterJS}"
-
-jsKey='thisRepoCommitHash'; jsVal="$(git rev-parse --short HEAD)"
-echo "const ${jsKey} = '${jsVal}';" >> "${FooterJS}"
+updateRepoInfo "xSrcHomeURL" "${REPO_URL}"
+updateRepoInfo "xCommitTime" "$(date +%Y-%m-%d)"
+updateRepoInfo "xCommitHash" "$(git rev-parse --short HEAD)"
