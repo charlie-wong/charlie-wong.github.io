@@ -97,8 +97,11 @@ showValue('location.href', '完整地址 URL');
 
 // https://www.runoob.com/jsref/prop-element-offsetwidth.html
 if(false) {
-  // offsetWidth 包含元素内边距(padding)和边框(border)宽度
+  // NOTE 以下三个宽度属性均是只读属性
+  // offsetWidth 包含元素内边距(padding)和边框(border)宽度, 包含滚动条
   //             不含外边距(margin)宽度, 整数值, 单位像素
+  // clientWidth 可视区域宽度, 不包含滚动条
+  // scrollWidth 可以滚动部分的全部宽度
   showValue('document.documentElement.offsetWidth',  'XX');
   showValue('document.documentElement.offsetHeight', 'XX');
 }
