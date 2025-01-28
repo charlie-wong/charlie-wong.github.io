@@ -1,0 +1,12 @@
+{{ $relURL := .relURL }}
+
+{{ if site.Params.offlineMode }}
+  {{ $absURL := urls.AbsURL $relURL }}
+  {{ $relURL = strings.Replace $absURL site.BaseURL "./" }}
+  {{ if compare.Ne page.Path "/" }}
+    {{ $upToRoot := strings.ReplaceRE `/[^/]*` "../" page.Path }}
+    {{ $relURL = strings.Replace $absURL site.BaseURL $upToRoot }}
+  {{ end }}
+{{ end }}
+
+{{ return $relURL }}

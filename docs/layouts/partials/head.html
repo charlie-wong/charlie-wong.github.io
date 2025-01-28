@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="author"      content="{{ or page.Params.author.name  site.Params.author.name }}">
+<meta name="description" content="{{ or page.Description         site.Params.website.description }}">
+{{ if page.Keywords }}
+<meta name="keywords" content="{{ collections.Delimit page.Keywords  "," }}">
+{{ else }}
+<meta name="keywords" content="{{ site.Params.website.keywords }}">
+{{ end }}
+
+{{ if page.IsHome }}
+<title>{{ site.Title }}</title>
+{{ else }}
+<title>{{ fmt.Printf "%s | %s" page.Title  site.Title }}</title>
+{{ end }}
+
+<!-- https://golangtutorial.dev/tips/find-type-of-an-object -->
+{{ $favIcon := resources.Get "img/favicon.svg" | resources.Minify }}
+{{ $favIcon = collections.Dictionary "relURL" $favIcon.RelPermalink }}
+{{ $favIcon = partials.Include "utils/relative-url.html" $favIcon }}
+<link rel="icon" type="image/svg" href="{{ $favIcon }}">
+
+<!-- 延迟编译/渲染/最小化 css/main.css 文件 -->
+{{ with (templates.Defer (dict "key" "global")) }}
+  {{ $xOpts := collections.Dictionary "minify" true "inlineImports" true }}
+  {{ $mainCss := resources.Get "css/main.css" | css.TailwindCSS $xOpts }}
+  {{ $mainCss  = (resources.Minify $mainCss).RelPermalink }}
+{{ end }}
+
+{{ $mainMinCss := urls.RelURL "css/main.min.css" }}
+{{ $mainMinCss = collections.Dictionary "relURL" $mainMinCss }}
+{{ $mainMinCss = partials.Include "utils/relative-url.html" $mainMinCss }}
+<link rel="stylesheet" href="{{ $mainMinCss }}"/>
+
+{{ $zlogMinJs := urls.RelURL "js/zlog.min.js" }}
+{{ $zlogMinJs = collections.Dictionary "relURL" $zlogMinJs }}
+{{ $zlogMinJs = partials.Include "utils/relative-url.html" $zlogMinJs }}
+<script type="text/javascript" src="{{ $zlogMinJs }}"></script>
+
+{{ $websiteJs := urls.RelURL "js/website.js" }}
+{{ $websiteJs = collections.Dictionary "relURL" $websiteJs }}
+{{ $websiteJs = partials.Include "utils/relative-url.html" $websiteJs }}
+<script type="text/javascript" src="{{ $websiteJs }}"></script>
+
+{{ $commonJs := resources.Get "js/common.js" | resources.Minify }}
+{{ $commonJs = collections.Dictionary "relURL" $commonJs.RelPermalink }}
+{{ $commonJs = partials.Include "utils/relative-url.html" $commonJs }}
+<script type="text/javascript" src="{{ $commonJs }}"></script>
+
+{{ $xOpts := collections.Dictionary "minify" true }}
+{{ $mainJs := resources.Get "js/main.js" | js.Build $xOpts | resources.Minify }}
+{{ $mainJs = collections.Dictionary "relURL" $mainJs.RelPermalink }}
+{{ $mainJs = partials.Include "utils/relative-url.html" $mainJs }}
+<script type="text/javascript" src="{{ $mainJs }}"></script>

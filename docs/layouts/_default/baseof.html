@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>{{ partials.Include "head.html" . }}</head>
+<body>
+  <header>{{ partials.Include "header.html" . }}</header>
+  <main>{{ block "workspace" . }}{{ end }}</main>
+  <footer>{{ partials.Include "footer.html" . }}</footer>
+</body>
+</html>

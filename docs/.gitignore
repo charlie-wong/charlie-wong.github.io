@@ -1,4 +1,5 @@
-# Ignore Everything
-*
-# Except .gitignore
-!.gitignore
+public/
+node_modules/
+
+hugo_stats.json
+.hugo_build.lock

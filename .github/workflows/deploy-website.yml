@@ -8,7 +8,6 @@ on:
     branches: [ "trunk" ]
     paths:
       - 'docs/**'
-      - 'main/**'
       - '.github/**'
   workflow_dispatch: # Allows workflow manually run from Actions Tabs
 
@@ -46,7 +45,7 @@ jobs:
           .github/actions/update-website.sh
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './docs'
+          path: 'docs/public'
 
   xwlc-deploy:
     environment:

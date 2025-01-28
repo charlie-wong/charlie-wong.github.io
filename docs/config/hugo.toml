@@ -1,0 +1,60 @@
+# HTML 的 lang= 元素
+languageCode = 'en-US'
+
+# 提交日期作为修改日期
+enableGitInfo = true
+
+hasCJKLanguage = true
+timeZone = 'Asia/Shanghai'
+defaultContentLanguage = 'en'
+
+publishDir    = 'public'
+contentDir    = 'content'
+dataDir       = 'data'
+i18nDir       = 'i18n'
+staticDir     = 'static'
+layoutDir     = 'layouts'
+archetypeDir  = 'archetypes'
+
+# https://gohugo.io/templates/rss
+# https://gohugo.io/templates/sitemap
+disableKinds = [ 'rss', 'sitemap' ]
+
+[taxonomies]
+  tag = 'tags'
+  series = 'series'
+  category = 'categories'
+
+[[menus.topnav]]
+  name = 'Art'
+  pageRef = 'art'
+  weight = 10
+[[menus.topnav]]
+  name = 'Tech'
+  pageRef = 'tech'
+  weight = 20
+[[menus.topnav]]
+  name = 'App'
+  pageRef = 'app'
+  weight = 30
+
+[languages]
+  [languages.en]
+    weight = 1
+    languageCode = 'en-US'
+    languageName = 'English'
+  [languages.zh]
+    weight = 2
+    languageCode = 'zh-CN'
+    languageName = '简体中文'
+
+[markup]
+  [markup.highlight]
+    style = 'github'
+
+# .Date 返回日期: 提交日期 > 修改日期 > 默认值
+[frontmatter]
+  date = [ ':git', ':fileModTime', ':default' ]
+
+[build.buildStats]
+  enable = true

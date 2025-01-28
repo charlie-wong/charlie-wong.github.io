@@ -1,0 +1,16 @@
+title = '书生 - Charles'
+baseURL = 'https://xwlc.github.io'
+
+# 通过 {{ .Site.Params.author.email }} 访问
+[params]
+  [params.repo]
+    URL = 'https://github.com/xwlc/xwlc.github.io'
+    updateTime    = 'xCommitTime'
+    commitHash    = 'xCommitHash'
+    latestVersion = 'xLatestVersion'
+  [params.author]
+    name  = 'Charlie Wong'
+    email = 'charlie-wong@outlook.com'
+  [params.website]
+    description = '书生博客 - Charles Blog'
+    keywords = 'linux,kernel,hardware,git,github'

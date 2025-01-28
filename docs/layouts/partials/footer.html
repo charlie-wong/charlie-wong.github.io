@@ -1,0 +1,16 @@
+<div class="flex-2 hover:underline">
+  <a href="{{ site.Params.repo.URL }}/commit/{{ site.Params.repo.commitHash }}">
+    Commit Hash : {{ site.Params.repo.commitHash }}
+  </a>
+</div>
+
+<div class="flex-1" id="thisPageUV"></div>
+
+<div class="flex-2 hover:underline">
+  <a href="mailto:{{ or page.Params.author.email  site.Params.author.email }}">
+    Contact: {{ or page.Params.author.name   site.Params.author.name }}
+  </a>
+</div>
+
+<div class="flex-1" id="thisPagePV"></div>
+<div class="flex-2">Update Time : {{ site.Params.repo.updateTime }}</div>

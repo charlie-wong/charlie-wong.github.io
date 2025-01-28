@@ -1,0 +1,32 @@
+{{ $repoLogo := resources.Get "img/repo-logo.svg" | resources.Minify }}
+{{ $repoLogo = collections.Dictionary "relURL" $repoLogo.RelPermalink }}
+{{ $repoLogo = partials.Include "utils/relative-url.html" $repoLogo }}
+<div class="hidden md:flex items-center py-2">
+  <a href="{{ urls.RelURL "" }}"><img src="{{ $repoLogo }}" alt="repologo"></a>
+  <a class="px-2 py-1 flex items-center text-xs font-semibold hover:underline"
+     href="{{ site.Params.repo.URL }}/releases/tag/{{ site.Params.repo.latestVersion }}"
+  >{{ site.Params.repo.latestVersion }}</a>
+</div>
+
+<div class="flex items-center py-2 ml-auto">
+  <nav class="font-semibold text-md text-slate-800">
+    <ul class="flex dark:text-slate-200">
+    {{ range site.Menus.topnav }}
+      <li class="mx-4 px-2 bg-white border border-orange-300 rounded">
+        <a class="hover:underline" href="{{ urls.RelURL .PageRef }}">{{ .Name }}</a>
+      </li>
+    {{ end }}
+    </ul>
+  </nav>
+</div>
+
+{{ $githubLogo := resources.Get "img/github.svg" | resources.Minify }}
+{{ $githubLogo = collections.Dictionary "relURL" $githubLogo.RelPermalink }}
+{{ $githubLogo = partials.Include "utils/relative-url.html" $githubLogo }}
+<div class="hidden md:flex items-center py-2 ml-auto text-md font-semibold">
+  <a class="mx-2 px-2 hover:underline" id="mode-theme">Mode</a>
+  <a class="mx-2 px-2 hover:underline" id="mode-language">English</a>
+  <a class="ml-2 pl-2 hover:underline" href="{{ site.Params.repo.URL }}">
+    <img class="w-5 h-5" src="{{ $githubLogo }}" alt="github">
+  </a>
+</div>

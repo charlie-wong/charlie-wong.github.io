@@ -1,0 +1,8 @@
+{{ define "workspace" }}
+  <h1>{{ page.Title }}</h1>
+  {{ page.Content }}
+  {{ range page.Pages }}
+    <h2><a href="{{ page.RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ page.Summary }}
+  {{ end }}
+{{ end }}
