@@ -3,7 +3,7 @@
 <head>{{ partials.Include "head.html" . }}</head>
 <body>
   <header>{{ partials.Include "header.html" . }}</header>
-  <main>{{ block "workspace" . }}{{ end }}</main>
+  <main>{{ page.Content }}</main>
   <footer>{{ partials.Include "footer.html" . }}</footer>
 </body>
 </html>

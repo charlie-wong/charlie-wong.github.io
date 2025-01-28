@@ -12,22 +12,7 @@ console.log(
   + zlog.css('darkgray').words(' blog space!')
 );
 
-function faviconEmoji(icon) {
-  let svg = '';
-  svg += '<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>';
-  svg += '  <text y=%22.9em%22 font-size=%2290%22>';
-  svg += icon;
-  svg += '  </text>';
-  svg += '</svg>';
-  return svg.trim();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  const yearAnimalIcon = LunarCalendar.lunarNow().year.gz.y.ani.icon[0];
-  document.querySelector(`head > link[rel='icon']`).setAttribute(
-    'href', 'data:image/svg+xml,' + faviconEmoji(yearAnimalIcon)
-  );
-
   if(isMobile()) {
     const footer = document.getElementById('thisPageFooter');
     footer.parentNode.removeChild(footer);
