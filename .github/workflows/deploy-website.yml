@@ -34,15 +34,21 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          #submodules: true
       - uses: peaceiris/actions-hugo@v3
         with:
           extended: true
           hugo-version: 'latest'
-
-      - uses: actions/configure-pages@v5
-      - run: |
-          .github/actions/update-website.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          # The action defaults to search for dependency files package-lock.json
+          # in the repository root, and uses its hash as a part of the cache key.
+          # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
+          cache-dependency-path: '**/package-lock.json'
+      - run: .github/actions/update-website.sh
+      - run: cd docs && npm clean-install
+      - run: cd docs && make release-deploy
       - uses: actions/upload-pages-artifact@v3
         with:
           path: 'docs/public'
