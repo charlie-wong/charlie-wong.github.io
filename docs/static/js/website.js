@@ -1,12 +1,17 @@
+(function() { // 百度统计 https://tongji.baidu.com
+  const hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c4bbeba2c5f16a633fe7e912a413092d";
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+
 class WEBSITE {
   // UV: 独立访客数(Unique Visitor)
   static thisPageUV(url) {
-    console.log(zlog.red('TODO: UV') + ' ' + url);
     return 'UV: 0000,0001';
   }
   // PV: 页面浏览量(Page View)
   static thisPagePV(url) {
-    console.log(zlog.red('TODO: PV') + ' ' + url);
     return 'PV: 0000,0001';
   }
 }
