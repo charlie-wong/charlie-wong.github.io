@@ -107,7 +107,7 @@ function updateWelcome() {
     }
     drawZATree(); wUpdate.treeCnt++;
     const zatTitle = document.getElementById('ZATreeTitle');
-    if(zatTitle.innerText == 'Download') {
+    if(zatTitle.innerText == '下载图片') {
       zatTitle.classList.add("xlabel");
       zatTitle.classList.remove("xbutton");
       zatTitle.removeEventListener('click', saveZATreeAsIamge);
@@ -136,33 +136,18 @@ function saveZATreeAsIamge() {
 
 function downloadZATreeIamge() {
   const zatTitle = document.getElementById('ZATreeTitle');
-  if(zatTitle.innerText == 'Download') { return; }
-  zatTitle.innerText = 'Download';
+  if(zatTitle.innerText == '下载图片') { return; }
+  zatTitle.innerText = '下载图片';
   zatTitle.classList.add("xbutton");
   zatTitle.classList.remove("xlabel");
   zatTitle.addEventListener('click', saveZATreeAsIamge);
 }
 
-function loadArt(what) {
-  //window.removeEventListener('dblclick', loadArt);
-  if(wUpdate.cancelId > -1) clearInterval(wUpdate.cancelId);
-
-  const timebox = document.getElementById('timeInfo');
-  timebox.removeEventListener('click', loadArt);
-  const zatree = document.getElementById('ZATreeCanvas');
-  zatree.removeEventListener('click', downloadZATreeIamge);
-
-  window.location.href = WEBSITE.getPageUrl('/art.html');
-}
-
-//window.addEventListener('dblclick', loadArt);
+// window.addEventListener('dblclick', loadArt);
+// window.removeEventListener('dblclick', loadArt);
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('wBlog').setAttribute(
-    'href', WEBSITE.getPageUrl('/blog.html')
-  );
-  document.getElementById('wArts').setAttribute(
-    'href', WEBSITE.getPageUrl('/art.html')
-  );
+  document.getElementById('wBlog').setAttribute('href', '/blog');
+  document.getElementById('wArts').setAttribute('href', '/art');
 
   const timebox = document.getElementById('timeInfo');
   const zatree = document.getElementById('ZATreeCanvas');
@@ -192,8 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 浏览器可用屏幕<宽度>和<高度>的 60%
     zatree.width  = window.screen.availWidth  * 0.6;
     zatree.height = window.screen.availHeight * 0.6;
-
-    timebox.addEventListener('click', loadArt);
     zatree.addEventListener('click', downloadZATreeIamge);
 
     wUpdate.treeCnt++; drawZATree();
@@ -201,4 +184,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateWelcome();
   wUpdate.cancelId = setInterval(updateWelcome, 1000); // 每秒刷新
+  // if(wUpdate.cancelId > -1) clearInterval(wUpdate.cancelId);
 });
