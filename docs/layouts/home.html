@@ -30,11 +30,11 @@
   <div class="centerXY" id="thisPageFooter">
     <div class="footer">
       <div style="flex: 2;"><a id="repoCommitHash"></a></div>
-      <div style="flex: 1;" id="thisPageUV"></div>
+      <div style="flex: 1; visibility:hidden" id="thisPageUV"></div>
       <div style="flex: 2;">
         <a href="mailto:charlie-wong@outlook.com">Contact: Charles Wong</a>
       </div>
-      <div style="flex: 1;" id="thisPagePV"></div>
+      <div style="flex: 1; visibility:hidden" id="thisPagePV"></div>
       <div style="flex: 2;"><a id="repoUpdateTime"></a></div>
     </div>
   </div>
@@ -42,3 +42,7 @@
 </main>
 </body>
 </html>
+<!--
+display:none 隐藏某元素且隐藏的元素不会占用任何空间
+visibility:hidden 隐藏元素仍需占用与未隐藏前同样的空间
+-->

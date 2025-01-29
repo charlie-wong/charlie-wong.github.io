@@ -7,9 +7,9 @@ console.log(
     zlog.css('darkgray').words('Welcome to ')
   + zlog.css('limegreen').words('Charles')
   + zlog.blue('<')
-  + zlog.css('orangered').words('书生')
+  + zlog.css('orangered').words('Wong')
   + zlog.blue('>')
-  + zlog.css('darkgray').words(' blog space!')
+  + zlog.css('darkgray').words(' blog!')
 );
 
 document.addEventListener('DOMContentLoaded', () => {

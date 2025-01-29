@@ -42,6 +42,11 @@
 {{- $mainMinCss = partials.Include "utils/relative-url.html" $mainMinCss -}}
 <link rel="stylesheet" href="{{ $mainMinCss }}"/>
 
+{{- $tongjiJs := urls.RelURL "js/tongji.js" -}}
+{{- $tongjiJs = collections.Dictionary "relURL" $tongjiJs -}}
+{{- $tongjiJs = partials.Include "utils/relative-url.html" $tongjiJs -}}
+<script type="text/javascript" src="{{ $tongjiJs }}"></script>
+
 {{- $zlogMinJs := urls.RelURL "js/zlog.min.js" -}}
 {{- $zlogMinJs = collections.Dictionary "relURL" $zlogMinJs -}}
 {{- $zlogMinJs = partials.Include "utils/relative-url.html" $zlogMinJs -}}
