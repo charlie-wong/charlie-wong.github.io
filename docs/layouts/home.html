@@ -29,13 +29,19 @@
   <br>
   <div class="centerXY" id="thisPageFooter">
     <div class="footer">
-      <div style="flex: 2;"><a id="repoCommitHash"></a></div>
+      <div style="flex: 2;">
+        <a href="{{- site.Params.repo.URL -}}/commit/{{- site.Params.repo.commitHash -}}">
+          Commit Hash : {{ site.Params.repo.commitHash }}
+        </a>
+      </div>
       <div style="flex: 1; visibility:hidden" id="thisPageUV"></div>
       <div style="flex: 2;">
-        <a href="mailto:charlie-wong@outlook.com">Contact: Charles Wong</a>
+        <a href="mailto:charlie-wong@outlook.com">Contact : Charles Wong</a>
       </div>
       <div style="flex: 1; visibility:hidden" id="thisPagePV"></div>
-      <div style="flex: 2;"><a id="repoUpdateTime"></a></div>
+      <div style="flex: 2;">
+        <a>Update Time : {{ site.Params.repo.updateTime }}</a>
+      </div>
     </div>
   </div>
   <br>

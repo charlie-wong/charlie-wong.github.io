@@ -19,13 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // load the footer info shared by all of the website pages
-  const repoUpdateTime = document.getElementById('repoUpdateTime');
-  repoUpdateTime.innerHTML = 'Update Time : ' + WEBSITE.repoUpdateTime;
-  const repoCommitHash = document.getElementById('repoCommitHash');
-  repoCommitHash.innerHTML = 'Commit Hash : ' + WEBSITE.repoCommitHash;
-  repoCommitHash.href = WEBSITE.repositoryHome;
-
   const thisPageUV = document.getElementById('thisPageUV');
   thisPageUV.innerHTML = WEBSITE.thisPageUV(window.location.href);
   const thisPagePV = document.getElementById('thisPagePV');

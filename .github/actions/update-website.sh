@@ -16,9 +16,10 @@ if [[ $? -ne 0 || -z "${REPO_URL}" ]]; then
   exit-errmsg "repo upstream URL is none."
 fi
 
-websiteJS="${REPO_DIR}/docs/static/js/website.js"
-function updateRepoInfo() { sed -e "s@$1@$2@" --in-place "${websiteJS}"; }
+function updateRepoInfo() {
+  sed -e "s@$1@$2@" --in-place "${REPO_DIR}/docs/config/charlie.toml";
+}
 
-updateRepoInfo "xSrcHomeURL" "${REPO_URL}"
+updateRepoInfo "xSrcRepoURL" "${REPO_URL}"
 updateRepoInfo "xCommitTime" "$(date +%Y-%m-%d)"
 updateRepoInfo "xCommitHash" "$(git rev-parse --short HEAD)"

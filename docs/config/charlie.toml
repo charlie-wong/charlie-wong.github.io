@@ -1,15 +1,16 @@
 title = 'Charles - 书生'
 baseURL = 'https://xwlc.github.io'
 
-# 通过 {{ .Site.Params.author.email }} 访问
+# 通过 {{ site.Params.repo.URL }} 访问 hugo 的自定义参数
+# .github/actions/update-website.sh 部署静态站点时更新仓库信息
 [params]
   [params.repo]
-    URL = 'https://github.com/xwlc/xwlc.github.io'
-    updateTime    = 'xCommitTime'
-    commitHash    = 'xCommitHash'
-    latestVersion = 'xLatestVersion'
+    URL = 'xSrcRepoURL'
+    latestVersion = '1.0.0'
+    updateTime = 'xCommitTime'
+    commitHash = 'xCommitHash'
   [params.author]
-    name  = 'Charlie Wong'
+    name  = 'Charles Wong'
     email = 'charlie-wong@outlook.com'
   [params.website]
     description = 'Charles Blog - 书生博客'
